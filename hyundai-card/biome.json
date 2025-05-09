@@ -12,8 +12,16 @@
     "rules": {
       "recommended": true,
       "style": {
-        "useBlockStatements": "error"
-      }
+        "useBlockStatements": "error",
+        "noVar": "error",
+        "useConst": {
+          "level": "warn"
+        },
+        "useSelfClosingElements": {
+          "level": "off"
+        }
+      },
+      "nursery": {}
     }
   },
   "javascript": {
