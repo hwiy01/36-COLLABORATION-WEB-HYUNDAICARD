@@ -1,54 +1,22 @@
-export const typography = {
-    fontSize: {
-        head1: "1.75rem",
-        head2: "1.25rem",
-        head3: "1rem",
-        head4: "0.75rem",
+import { createTheme } from "@vanilla-extract/css";
+import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 
-        title1: "1.125rem",
-        title2: "1rem",
-        title3: "0.875rem",
-        title4: "0.8125rem",
-        title5: "0.75rem",
-        title6: "0.6875rem",
+import { color } from "./tokens/color.css";
+import { typography } from "./tokens/typography.css";
+import { fontStyles } from "./tokens/font-styles.css";
 
-        subtitle1: "1.25rem",
-        subtitle2: "1rem",
-        subtitle3: "0.9375rem",
-        subtitle4: "0.875rem",
+const tokens = {
+    color: color,
+    ...typography,
+    fontStyles,
+};
 
-        body1: "0.875rem",
-        body2: "0.8125rem",
-        body3: "0.75rem",
-        body4: "0.6875rem",
+const properties = defineProperties({
+    properties: tokens,
+});
 
-        caption: "0.625rem",
-    },
+const sprinkles = createSprinkles(properties);
 
-    fontWeight: {
-        extrabold: "800",
-        bold: "700",
-        semibold: "600",
-        medium: "500",
-        regular: "400",
-    },
+const [themeClass, themeVars] = createTheme(tokens);
 
-    lineHeight: {
-        l120: "120%",
-        l140: "140%",
-        l150: "150%",
-        l160: "160%",
-    },
-
-    letterSpacing: {
-        tight: "-0.02em",
-        semiTight: "-0.018em",
-        midTight: "-0.012em",
-        normal: "0",
-    },
-
-    stroke: {
-        none: "0",
-        light: "0.5",
-    },
-} as const;
+export { themeClass, themeVars, sprinkles, tokens };
