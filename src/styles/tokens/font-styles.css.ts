@@ -1,0 +1,144 @@
+import { style } from "@vanilla-extract/css";
+import { typography } from "./typography.css";
+
+const appleFontFamily = '"Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif';
+const hyundaiFontFamily = '"YouandiModern", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
+
+export const fontStyles = {
+    // 🍎 Apple SD Gothic Neo 스타일
+
+    head1_extrabold: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.head1,
+        fontWeight: typography.fontWeight.extrabold,
+        lineHeight: typography.lineHeight.l120,
+        letterSpacing: typography.letterSpacing.tight,
+    }),
+    head2_extrabold: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.head2,
+        fontWeight: typography.fontWeight.extrabold,
+        lineHeight: typography.lineHeight.l160,
+        letterSpacing: typography.letterSpacing.tight,
+    }),
+    head3_extrabold: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.head3,
+        fontWeight: typography.fontWeight.extrabold,
+        lineHeight: typography.lineHeight.l160,
+        letterSpacing: typography.letterSpacing.semiTight,
+    }),
+
+    title1_bold: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.title1,
+        fontWeight: typography.fontWeight.bold,
+        lineHeight: typography.lineHeight.l150,
+        letterSpacing: typography.letterSpacing.tight,
+    }),
+    title2_bold: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.title2,
+        fontWeight: typography.fontWeight.bold,
+        lineHeight: typography.lineHeight.l150,
+        letterSpacing: typography.letterSpacing.semiTight,
+    }),
+    title3_bold: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.title3,
+        fontWeight: typography.fontWeight.bold,
+        lineHeight: typography.lineHeight.l150,
+        letterSpacing: typography.letterSpacing.midTight,
+    }),
+    title4_bold: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.title4,
+        fontWeight: typography.fontWeight.bold,
+        lineHeight: typography.lineHeight.l150,
+        letterSpacing: typography.letterSpacing.midTight,
+    }),
+
+    subtitle1_semibold: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.subtitle1,
+        fontWeight: typography.fontWeight.semibold,
+        lineHeight: typography.lineHeight.l160,
+        letterSpacing: typography.letterSpacing.tight,
+    }),
+    subtitle2_semibold: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.subtitle2,
+        fontWeight: typography.fontWeight.semibold,
+        lineHeight: typography.lineHeight.l150,
+        letterSpacing: typography.letterSpacing.semiTight,
+    }),
+
+    body1_medium: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.body1,
+        fontWeight: typography.fontWeight.medium,
+        lineHeight: typography.lineHeight.l160,
+        letterSpacing: typography.letterSpacing.midTight,
+    }),
+    body2_medium: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.body2,
+        fontWeight: typography.fontWeight.medium,
+        lineHeight: typography.lineHeight.l150,
+        letterSpacing: typography.letterSpacing.midTight,
+    }),
+    body3_medium: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.body3,
+        fontWeight: typography.fontWeight.medium,
+        lineHeight: typography.lineHeight.l150,
+        letterSpacing: typography.letterSpacing.normal,
+    }),
+    body4_regular: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.body4,
+        fontWeight: typography.fontWeight.regular,
+        lineHeight: typography.lineHeight.l150,
+        letterSpacing: typography.letterSpacing.normal,
+    }),
+
+    caption_bold: style({
+        fontFamily: appleFontFamily,
+        fontSize: typography.fontSize.caption,
+        fontWeight: typography.fontWeight.bold,
+        lineHeight: typography.lineHeight.l150,
+        letterSpacing: typography.letterSpacing.normal,
+    }),
+
+    // 🅷 현대카드 YouandiModern 스타일
+
+    hyundai_head40: style({
+        fontFamily: hyundaiFontFamily,
+        fontSize: "2.5rem",
+        fontWeight: typography.fontWeight.regular,
+        lineHeight: typography.lineHeight.l140,
+        letterSpacing: typography.letterSpacing.tight,
+        WebkitTextStroke: `${typography.stroke.light}px`,
+    }),
+    hyundai_title30: style({
+        fontFamily: hyundaiFontFamily,
+        fontSize: "1.875rem",
+        fontWeight: typography.fontWeight.regular,
+        lineHeight: typography.lineHeight.l150,
+        letterSpacing: typography.letterSpacing.tight,
+    }),
+    hyundai_body1_18: style({
+        fontFamily: hyundaiFontFamily,
+        fontSize: "1.125rem",
+        fontWeight: typography.fontWeight.regular,
+        lineHeight: typography.lineHeight.l140,
+        letterSpacing: typography.letterSpacing.tight,
+    }),
+    hyundai_body2_14: style({
+        fontFamily: hyundaiFontFamily,
+        fontSize: "0.875rem",
+        fontWeight: typography.fontWeight.regular,
+        lineHeight: typography.lineHeight.l140,
+        letterSpacing: typography.letterSpacing.tight,
+    }),
+} as const;
