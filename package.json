@@ -11,6 +11,8 @@
     "svgr": "npx @svgr/cli -d src/assets/svg --ignore-existing --typescript --no-dimensions --jsx-runtime automatic public/svg"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.75.7",
+    "@tanstack/react-query-devtools": "^5.75.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "vite-tsconfig-paths": "^5.1.4"
