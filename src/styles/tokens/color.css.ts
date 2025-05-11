@@ -1,54 +1,28 @@
-export const typography = {
-    fontSize: {
-        head1: "1.75rem",
-        head2: "1.25rem",
-        head3: "1rem",
-        head4: "0.75rem",
+export const color = {
+    // grayscale
+    h_white: "#FFFFFF",
+    gray100: "#EBEBEB",
+    gray200: "#D9D9D9",
+    gray300: "#CCCCCC",
+    gray400: "#BABABA",
+    gray500: "#A6A6A6",
+    gray600: "#858585",
+    gray700: "#646464",
+    gray800: "#5C5C5C",
+    gray900: "#212121",
+    h_black: "#000000",
 
-        title1: "1.125rem",
-        title2: "1rem",
-        title3: "0.875rem",
-        title4: "0.8125rem",
-        title5: "0.75rem",
-        title6: "0.6875rem",
+    // primary
+    h_primary_blue: "#0070F0",
 
-        subtitle1: "1.25rem",
-        subtitle2: "1rem",
-        subtitle3: "0.9375rem",
-        subtitle4: "0.875rem",
+    // primary gradients
+    h_primary_gradient_1: "linear-gradient(66.88deg, #0070F0 0%, rgba(0, 112, 240, 0.8) 38.25%)",
+    h_primary_gradient_2: "linear-gradient(66.88deg, #56A5FF 0%, #0070F0 38.25%)",
+    h_primary_gradient_3: "linear-gradient(66.88deg, #0070F0 0%, #005ECA 38.25%)",
 
-        body1: "0.875rem",
-        body2: "0.8125rem",
-        body3: "0.75rem",
-        body4: "0.6875rem",
+    // secondary
+    h_secondary_red: "#FF0000",
 
-        caption: "0.625rem",
-    },
-
-    fontWeight: {
-        extrabold: "800",
-        bold: "700",
-        semibold: "600",
-        medium: "500",
-        regular: "400",
-    },
-
-    lineHeight: {
-        l120: "120%",
-        l140: "140%",
-        l150: "150%",
-        l160: "160%",
-    },
-
-    letterSpacing: {
-        tight: "-0.02em",
-        semiTight: "-0.018em",
-        midTight: "-0.012em",
-        normal: "0",
-    },
-
-    stroke: {
-        none: "0",
-        light: "0.5",
-    },
+    // tertiary
+    h_tertiary_orange: "#FB8F18",
 } as const;
