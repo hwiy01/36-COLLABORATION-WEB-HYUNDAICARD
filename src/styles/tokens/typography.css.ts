@@ -41,10 +41,10 @@ export const typography = {
     },
 
     letterSpacing: {
-        tight: "-0.02em",
-        semiTight: "-0.018em",
-        midTight: "-0.012em",
-        normal: "0",
+        minus2_00: "-2%",
+        minus1_80: "-1.8%",
+        minus1_20: "-1.2%",
+        zero: "0%",
     },
 
     stroke: {
