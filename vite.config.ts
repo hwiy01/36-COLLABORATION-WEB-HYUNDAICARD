@@ -4,8 +4,5 @@ import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 // https://vite.dev/config/
 
 export default defineConfig({
-    plugins: [
-        react(),
-        vanillaExtractPlugin(), // ✅ 이거 꼭 필요!
-    ],
+    plugins: [react(), vanillaExtractPlugin()],
 });
