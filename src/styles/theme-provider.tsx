@@ -7,7 +7,6 @@ interface ThemeProviderProps {
     className?: string;
 }
 
-export default function ThemeProvider({ theme, className, children }: ThemeProviderProps) {
-    const mergedClassName = [theme ?? themeClass, className].filter(Boolean).join(" ");
-    return <div className={mergedClassName}>{children}</div>;
+export default function ThemeProvider({ children }: ThemeProviderProps) {
+    return <div className={themeClass}>{children}</div>;
 }

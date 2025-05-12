@@ -1,28 +1,28 @@
 export const typography = {
     fontSize: {
-        head1: "1.75rem",
-        head2: "1.25rem",
-        head3: "1rem",
-        head4: "0.75rem",
+        head1: "2.8rem",
+        head2: "2rem",
+        head3: "1.6rem",
+        head4: "1.2rem",
 
-        title1: "1.125rem",
-        title2: "1rem",
-        title3: "0.875rem",
-        title4: "0.8125rem",
-        title5: "0.75rem",
-        title6: "0.6875rem",
+        title1: "1.8rem",
+        title2: "1.6rem",
+        title3: "1.4rem",
+        title4: "1.3rem",
+        title5: "1.2rem",
+        title6: "1.1rem",
 
-        subtitle1: "1.25rem",
-        subtitle2: "1rem",
-        subtitle3: "0.9375rem",
-        subtitle4: "0.875rem",
+        subtitle1: "2rem",
+        subtitle2: "1.6rem",
+        subtitle3: "1.5rem",
+        subtitle4: "1.4rem",
 
-        body1: "0.875rem",
-        body2: "0.8125rem",
-        body3: "0.75rem",
-        body4: "0.6875rem",
+        body1: "1.4rem",
+        body2: "1.3rem",
+        body3: "1.2rem",
+        body4: "1.1rem",
 
-        caption: "0.625rem",
+        caption: "1rem",
     },
 
     fontWeight: {
