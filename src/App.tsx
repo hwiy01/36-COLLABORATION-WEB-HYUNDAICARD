@@ -1,4 +1,4 @@
-import ThemeProvider from "./styles/ThemeProvider";
+import ThemeProvider from "./styles/theme-provider";
 import "./styles/font/font.css";
 import { fontStyles } from "./styles/tokens/font-styles.css";
 function App() {
