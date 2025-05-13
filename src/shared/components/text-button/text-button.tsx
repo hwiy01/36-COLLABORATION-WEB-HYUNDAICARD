@@ -7,11 +7,14 @@ interface TextButtonProps {
 	img?: ReactNode;
 }
 
-const TextButton = ({text='전체보기', img=<RightArrow width={5}height={5}/>}: TextButtonProps) => {
+const TextButton = ({
+	text = "전체보기",
+	img = <RightArrow width={5} height={5} />,
+}: TextButtonProps) => {
 	return (
 		<button className={baseTextButtonContainer}>
 			<span className={buttonText}>{text}</span>
-            {img}
+			{img}
 		</button>
 	);
 };

@@ -4,7 +4,7 @@ import { fontStyles } from "src/styles/tokens/font-styles.css";
 export const baseTextButtonContainer = style({
 	display: "flex",
 	minWidth: "86px",
-    gap:'4px',
+	gap: "4px",
 	alignItems: "center",
 	background: "none",
 	border: "none",
@@ -14,8 +14,8 @@ export const baseTextButtonContainer = style({
 });
 
 export const buttonText = style({
-    ...fontStyles.caption_bold,
-  fontSize: "11px",
-  letterSpacing: "0px",
-  lineHeight: "100%",
-})
+	...fontStyles.caption_bold,
+	fontSize: "11px",
+	letterSpacing: "0px",
+	lineHeight: "100%",
+});
