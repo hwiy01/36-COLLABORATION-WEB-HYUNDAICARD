@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "YouandiModern";
+    src: url("/fonts/youandi-modern.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+html,
+body {
+    font-family: "Apple SD Gothic Neo", "Malgun Gothic", "YouandiModern", "Noto Sans KR", sans-serif;
+}
