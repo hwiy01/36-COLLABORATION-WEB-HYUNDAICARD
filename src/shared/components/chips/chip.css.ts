@@ -14,7 +14,7 @@ const clipPathValue =
 
 const baseCssProps = {
   clipPath: clipPathValue,
-  height: "3.4rem",
+  minHeight: "3.4rem",
   borderRadius: "6px",
   background: "white",
   display: "flex",
