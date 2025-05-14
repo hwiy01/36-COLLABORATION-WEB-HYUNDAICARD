@@ -17,7 +17,7 @@ export const CarouselImageContainer: React.FC<CarouselImageContainerProps> = ({ 
     const sortedImages = [...imageList].sort((a: ImageItem, b: ImageItem) => a.order - b.order);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.imageContainer}>
         {sortedImages.map((img) => (
             <img 
                 key={img.id}
