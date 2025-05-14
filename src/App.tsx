@@ -29,7 +29,6 @@ function App() {
               </LoginButton>
             </div>
 
-            {/* 실제 라우터 */}
             <Router />
           </ThemeProvider>
         </BrowserRouter>
