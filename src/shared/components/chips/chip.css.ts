@@ -21,6 +21,7 @@ const baseCssProps = {
   justifyContent: "center",
   alignItems: "center",
   gap: "4px",
+  border: "none",
 };
 
 export const frameSizes = styleVariants({
