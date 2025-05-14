@@ -1,8 +1,11 @@
-import SvgIconDesigners from "src/assets/svg/IconDesigner's";
+import { getSizeByContent } from "@/shared/utils/getSizeByContent";
+import { useState } from "react";
+import SvgIconDesignersDown from "src/assets/svg/IconDesigner'sDown";
+import SvgIconDesignersUp from "src/assets/svg/IconDesigner'sUp";
 import SvgIconDesignersX from "src/assets/svg/IconDesigner'sX";
 import { baseFrame, frameSizes, innerFrame, otherModeStyle } from "./chip.css";
 
-type mode = "input" | "filter" | "selected" | "dropdown";
+export type mode = "input" | "filter" | "selected" | "dropdown";
 
 interface ChipProps {
   mode: "input" | "filter" | "selected" | "dropdown";
@@ -17,49 +20,41 @@ const Chip = ({
   content = "크크크",
   handleClickCloseBtn,
 }: ChipProps) => {
-  const getSizeByContent = (text: string, mode: mode) => {
-    const length = text.length;
-
-    if (mode === "input") {
-      if (length <= 3) {
-        return "small";
-      }
-      if (length <= 7) {
-        return "medium";
-      }
-      return "large";
-    }
-    if (mode === "filter" || mode === "selected") {
-      if (length <= 5) {
-        return "small";
-      }
-      if (length <= 9) {
-        return "medium";
-      }
-      return "large";
-    }
-    return "small";
-  };
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false); // 외부에서 준 flag로 드롭다운 화살표 바꿀지, 이거로 할지 인영님이랑 얘기하기
 
   const size = getSizeByContent(content, mode);
 
   if (mode === "dropdown") {
     return (
-      <div className={baseFrame}>
+      <button
+        className={baseFrame}
+        onClick={() => {
+          setIsDropdownOpen((prev) => !prev);
+        }}
+        type="button"
+      >
         <section className={innerFrame}>
           <p>{content}</p>
-          <SvgIconDesigners width={24} height={24} />
+          {isDropdownOpen ? (
+            <SvgIconDesignersDown width={24} height={24} />
+          ) : (
+            <SvgIconDesignersUp width={24} height={24} />
+          )}
         </section>
-      </div>
+      </button>
     );
   }
 
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div style={{ backgroundColor: "red" }}>
       <section className={`${frameSizes[size]} ${otherModeStyle[mode]}`}>
         <p>{content}</p>
         {mode === "input" && (
-          <button type="button" onClick={handleClickCloseBtn}>
+          <button
+            style={{ display: "none" }}
+            type="button"
+            onClick={handleClickCloseBtn}
+          >
             <SvgIconDesignersX width={24} height={24} />
           </button>
         )}
