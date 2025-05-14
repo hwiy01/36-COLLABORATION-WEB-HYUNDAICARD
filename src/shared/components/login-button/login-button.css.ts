@@ -2,7 +2,6 @@ import { style, styleVariants } from "@vanilla-extract/css";
 import { color } from "src/styles/tokens/color.css";
 import { fontStyles } from "src/styles/tokens/font-styles.css";
 
-// ✅ 공통 버튼 스타일 + 폰트 통합
 export const buttonBase = style({
   display: "inline-flex",
   alignItems: "center",
@@ -12,16 +11,14 @@ export const buttonBase = style({
   textAlign: "center",
   boxSizing: "border-box",
 
-  // 여기서 폰트 통일!
-  fontFamily: fontStyles.title3_bold.fontFamily,
-  fontSize: fontStyles.title3_bold.fontSize,
-  fontWeight: fontStyles.title3_bold.fontWeight,
-  lineHeight: fontStyles.title3_bold.lineHeight,
-  letterSpacing: fontStyles.title3_bold.letterSpacing,
+  fontFamily: fontStyles.title4_bold.fontFamily,
+  fontSize: fontStyles.title4_bold.fontSize,
+  fontWeight: fontStyles.title4_bold.fontWeight,
+  lineHeight: fontStyles.title4_bold.lineHeight,
+  letterSpacing: fontStyles.title4_bold.letterSpacing,
 });
 
-// ✅ 색상 스타일
-export const variants = styleVariants({
+export const colorvariants = styleVariants({
   whiteGray: {
     backgroundColor: color.gray100,
     color: color.h_black,

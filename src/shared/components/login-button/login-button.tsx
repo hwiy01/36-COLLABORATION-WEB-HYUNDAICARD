@@ -17,7 +17,7 @@ const LoginButton = ({
   return (
     <button
       onClick={onClick}
-      className={`${styles.buttonBase} ${styles.variants[variant]} ${styles.sizeVariants[size]}`}
+      className={`${styles.buttonBase} ${styles.colorvariants[variant]} ${styles.sizeVariants[size]}`}
       type="button"
     >
       <p>{children}</p>
