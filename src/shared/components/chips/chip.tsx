@@ -1,9 +1,8 @@
-import { SelectedS } from "src/assets/svg";
-import { cardSize, closeButton, svgSize } from "./chip.css";
+import { baseFrame, frameSizes, innerFrame } from "./chip.css";
 
 interface ChipProps {
-  mode: "input" | "filter" | "selected" | "dropdown-open" | "dropdown-default";
-  size: "small" | "medium" | "large" | "dropdown";
+  mode: "input" | "filter" | "selected" | "dropdown";
+  size?: "small" | "medium" | "large"; // dropdown일 땐 안 넣어도 됨
   dropdownItem?: "";
   content?: "";
   handleClickCloseBtn: "";
@@ -11,12 +10,20 @@ interface ChipProps {
   className: "";
 }
 
-const Chip = ({ mode, content, size = "large" }: ChipProps) => {
+const Chip = ({ mode = "input", content, size = "medium" }: ChipProps) => {
   // input 모드일 때는 absolute -> right:8 한 곳에 X 렌더링
   //
+  if (mode === "dropdown") {
+    return (
+      <div className={baseFrame}>
+        <section className={innerFrame}></section>
+      </div>
+    );
+  }
+
   return (
-    <div>
-      <SelectedS stroke="black" width={75} height={32} />
+    <div style={{ backgroundColor: "black" }}>
+      <section className={frameSizes[size]}></section>
     </div>
   );
 };
