@@ -2,14 +2,14 @@ import type { ReactNode } from "react";
 import * as styles from "./login-button.css";
 
 interface Props {
-  variant?: "whiteGray" | "blackGray" | "whiteOutline";
-  size?: "small" | "medium" | "large";
+  color: "whiteGray" | "blackGray" | "whiteOutline";
+  size: "small" | "medium" | "large";
   children: ReactNode;
   onClick?: () => void;
 }
 
 const LoginButton = ({
-  variant = "blackGray",
+  color = "blackGray",
   size = "medium",
   children,
   onClick,
@@ -17,7 +17,7 @@ const LoginButton = ({
   return (
     <button
       onClick={onClick}
-      className={`${styles.buttonBase} ${styles.colorvariants[variant]} ${styles.sizeVariants[size]}`}
+      className={`${styles.buttonBase} ${styles.colorVariants[color]} ${styles.sizeVariants[size]}`}
       type="button"
     >
       <p>{children}</p>
