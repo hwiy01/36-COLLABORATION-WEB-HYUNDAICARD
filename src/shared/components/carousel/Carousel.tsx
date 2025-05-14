@@ -21,7 +21,8 @@ export const Carousel = () => {
         ],
       ];
     
-    const [curIndex, setCurIndex] = useState(0);
+    const [curIndex, setCurIndex] = useState<number>(0);
+    const [pause, setPause] = useState<boolean>(false);
     const sliderRef = useRef<HTMLDivElement>(null);
 
     const movePrev = () => {
@@ -34,13 +35,27 @@ export const Carousel = () => {
 
     const { handleMouseDown, handleMouseMove, handleMouseUp } = useDrag(moveNext, movePrev);
 
-    useEffect(() => {
-      const interval = setInterval(() => {
-        moveNext();
-      }, AUTO_SLIDE_INTERVAL);
+    const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-      return () => clearInterval(interval);
-    }, [curIndex, slideLength]);
+    useEffect(() => {
+      if(!pause) {
+         intervalRef.current = setInterval(() => {
+            moveNext();
+        }, AUTO_SLIDE_INTERVAL);
+      } else {
+        if(intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        }
+      }
+
+      return () => {
+        if(intervalRef.current) {
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
+        }
+      }
+    }, [curIndex, slideLength, pause]);
 
   // props로 받아올 것 
   // container의 width, height
