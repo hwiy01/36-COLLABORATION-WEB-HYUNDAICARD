@@ -17,13 +17,13 @@ const floatingAnimation = keyframes({
 	},
 });
 
+// 컴포넌트 전체 css(플로팅 영역까지 포함)
 export const cardContainer = style({
 	width: "248px",
 	height: "392px",
 	paddingTop: "10px", // 플로팅(?)할 패딩 공간
 	paddingBottom: "0px",
 	animation: `${floatingAnimation} 2s ease-in-out infinite`,
-	position: "relative",
 
 	":hover": {
 		// 호버 시 패딩값 조절하면서 플로팅
@@ -35,6 +35,7 @@ export const cardContainer = style({
 	transition: "padding-top 1s ease, padding-bottom 1s ease",
 });
 
+// 플로팅 영역 제외 카드 부분 css
 export const cardEntry = style({
 	display: "flex",
 	alignItems: "center",
@@ -44,20 +45,15 @@ export const cardEntry = style({
 	height: "100%",
 	borderRadius: "15px",
 	gap: "40.48px",
-	position: "relative",
-
-	":hover": {
-		background: `
-        linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
-        ${color.h_primary_gradient_1}
-      `,
-	},
+	position: "relative", // 오버레이를 위한
 
 	":active": {
+		// 클릭 시 배경 색 진하게
 		background: color.h_primary_gradient_3,
 	},
 });
 
+// 오버레이 될 투명한 커버
 export const cardOverlay = style({
 	position: "absolute",
 	top: 0,
@@ -72,11 +68,13 @@ export const cardOverlay = style({
 });
 
 export const cardHoverEffect = style({
+	// 호버 시 오버레이 on
 	":hover": {
 		[`& .${cardOverlay}`]: {
 			opacity: 1,
 		},
 	},
+	// 클릭하면 오버레이 off
 	":active": {
 		[`& .${cardOverlay}`]: {
 			opacity: 0,
