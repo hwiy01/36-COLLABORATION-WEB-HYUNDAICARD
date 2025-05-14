@@ -3,9 +3,9 @@ import { color } from "src/styles/tokens/color.css";
 import { fontStyles } from "src/styles/tokens/font-styles.css";
 
 const sizeWidths = {
-  small: "7.5rem", // 75px
-  medium: "12.2rem", // 122px
-  large: "14.8rem", // 148px
+  small: "75px", // 75px
+  medium: "122px", // 122px
+  large: "148px", // 148px
   dropdown: "108px", // 108px (기존 값 유지)
 };
 
@@ -38,9 +38,40 @@ export const frameSizes = styleVariants({
   },
 });
 
-export const otherModeStyle = style({
-  ...baseCssProps,
-  padding: "0",
+export const otherModeStyle = styleVariants({
+  input: {
+    ...baseCssProps,
+    padding: "0 8px 0 0",
+    display: "flex",
+    justifyContent: "flex-end",
+    gap: "4px",
+    alignItems: "center",
+    ...fontStyles.body4_regular,
+    fontSize: "13px",
+    letterSpacing: "-1.8%",
+    color: color.h_primary_blue,
+  },
+  filter: {
+    ...baseCssProps,
+    padding: "0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    ...fontStyles.body2_medium,
+    fontSize: "13px",
+    color: color.gray800,
+  },
+  selected: {
+    ...baseCssProps,
+    padding: "0",
+    backgroundColor: "black",
+    color: "white",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    ...fontStyles.body2_medium,
+    fontSize: "13px",
+  },
 });
 
 export const baseFrame = style({
