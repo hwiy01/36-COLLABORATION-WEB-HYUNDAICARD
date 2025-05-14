@@ -6,7 +6,7 @@ const sizeWidths = {
   small: "7.5rem", // 75px
   medium: "12.2rem", // 122px
   large: "14.8rem", // 148px
-  dropdown: "10.8rem", // 108px (기존 값 유지)
+  dropdown: "108px", // 108px (기존 값 유지)
 };
 
 const clipPathValue =
@@ -38,6 +38,11 @@ export const frameSizes = styleVariants({
   },
 });
 
+export const otherModeStyle = style({
+  ...baseCssProps,
+  padding: "0",
+});
+
 export const baseFrame = style({
   ...baseCssProps,
   width: sizeWidths.dropdown,
@@ -49,6 +54,14 @@ export const innerFrame = style({
   width: "100%",
   height: "100%",
   background: "black",
+  display: "flex",
+  gap: "3px",
+  justifyContent: "flex-end",
+  paddingRight: "8px",
+  color: "white",
+  alignItems: "center",
+  ...fontStyles.body4_regular,
+  fontSize: "15px",
 });
 
 export const closeButton = style({
