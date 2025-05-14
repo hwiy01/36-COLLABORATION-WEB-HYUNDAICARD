@@ -4,8 +4,7 @@ import { queryClient } from "./shared/utils/query-client";
 import ThemeProvider from "./styles/theme-provider";
 import Router from "@/shared/router/router";
 import { BrowserRouter } from "react-router-dom";
-
-import LoginButton from "./shared/components/login-button/login-button";
+import "./styles/global.css";
 
 function App() {
   return (
@@ -13,22 +12,6 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <ThemeProvider>
-            {/* 테스트용 버튼 */}
-            <div>
-              <LoginButton color="blackGray" size="small">
-                로그인
-              </LoginButton>
-              <LoginButton color="whiteGray" size="small">
-                회원가입
-              </LoginButton>
-              <LoginButton color="blackGray" size="large">
-                간편번호 등록
-              </LoginButton>
-              <LoginButton color="whiteOutline" size="medium">
-                현대카드 앱
-              </LoginButton>
-            </div>
-
             <Router />
           </ThemeProvider>
         </BrowserRouter>
