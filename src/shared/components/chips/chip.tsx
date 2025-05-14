@@ -1,5 +1,12 @@
 import SvgIconDesigners from "src/assets/svg/IconDesigner's";
-import { baseFrame, frameSizes, innerFrame } from "./chip.css";
+import SvgIconDesignersX from "src/assets/svg/IconDesigner'sX";
+import {
+  baseFrame,
+  frameSizes,
+  innerFrame,
+  inputTypeFont,
+  otherModeStyle,
+} from "./chip.css";
 
 interface ChipProps {
   mode: "input" | "filter" | "selected" | "dropdown";
@@ -26,8 +33,11 @@ const Chip = ({ mode = "dropdown", content, size = "medium" }: ChipProps) => {
   }
 
   return (
-    <div style={{ backgroundColor: "black" }}>
-      <section className={frameSizes[size]}></section>
+    <div style={{ backgroundColor: "white" }}>
+      <section className={`${frameSizes[size]} ${otherModeStyle[mode]}`}>
+        <p>안녕</p>
+        {mode === "input" && <SvgIconDesignersX width={24} height={24} />}
+      </section>
     </div>
   );
 };
