@@ -23,6 +23,7 @@ export const CarouselImageContainer: React.FC<CarouselImageContainerProps> = ({ 
                 key={img.id}
                 src={img.src}
                 alt={img.alt}
+                draggable={false}
                 className={[
                     img.width === 'half' && styles.halfImage,
                     img.width === 'quarter' && styles.quarterImage,

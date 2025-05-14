@@ -28,7 +28,6 @@ const carouselImage = style({
     transition: "transform 150ms linear 50ms",
     selectors: {
       '&:hover': {
-        cursor: 'pointer',
         transform: 'translateY(-10px)'
       },
     },

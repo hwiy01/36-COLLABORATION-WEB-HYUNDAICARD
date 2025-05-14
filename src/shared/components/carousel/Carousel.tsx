@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as styles from './carousel.css.ts';
 import { IconLeftArrow, IconRightArrow } from "src/assets/svg";
 import { CarouselImageContainer } from "./Carousel-image-container";
+import { useDrag } from "./useDrag.ts";
 
 const AUTO_SLIDE_INTERVAL = 5000;
 
@@ -31,6 +32,8 @@ export const Carousel = () => {
         setCurIndex((prev) => (prev + 1) % slideLength);
     }
 
+    const { handleMouseDown, handleMouseMove, handleMouseUp } = useDrag(moveNext, movePrev);
+
     useEffect(() => {
       const interval = setInterval(() => {
         moveNext();
@@ -52,6 +55,10 @@ export const Carousel = () => {
       <div 
         ref={sliderRef}
         className={styles.slider}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
         style={{
             transform: `translateX(-${curIndex * 100}%)`,
             transition: "transform 150ms ease-in-out",
