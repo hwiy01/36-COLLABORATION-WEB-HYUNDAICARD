@@ -23,6 +23,7 @@ export const cardContainer = style({
 	paddingTop: "10px", // 플로팅(?)할 패딩 공간
 	paddingBottom: "0px",
 	animation: `${floatingAnimation} 2s ease-in-out infinite`,
+	position: "relative",
 
 	":hover": {
 		// 호버 시 패딩값 조절하면서 플로팅
@@ -43,6 +44,7 @@ export const cardEntry = style({
 	height: "100%",
 	borderRadius: "15px",
 	gap: "40.48px",
+	position: "relative",
 
 	":hover": {
 		background: `
@@ -53,6 +55,32 @@ export const cardEntry = style({
 
 	":active": {
 		background: color.h_primary_gradient_3,
+	},
+});
+
+export const cardOverlay = style({
+	position: "absolute",
+	top: 0,
+	left: 0,
+	height: "100%",
+	width: "100%",
+	borderRadius: "15px",
+	backgroundColor: "rgba(255,255,255,0.2)",
+	opacity: 0,
+	pointerEvents: "none",
+	zIndex: 50,
+});
+
+export const cardHoverEffect = style({
+	":hover": {
+		[`& .${cardOverlay}`]: {
+			opacity: 1,
+		},
+	},
+	":active": {
+		[`& .${cardOverlay}`]: {
+			opacity: 0,
+		},
 	},
 });
 

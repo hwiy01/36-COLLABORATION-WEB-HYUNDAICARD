@@ -2,6 +2,8 @@ import { HcLogo } from "src/assets/svg";
 import {
 	cardContainer,
 	cardEntry,
+	cardHoverEffect,
+	cardOverlay,
 	flagComment,
 	logoStyle,
 } from "./own-your-card.css";
@@ -9,7 +11,8 @@ import {
 const OwnYourCard = () => {
 	return (
 		<section className={cardContainer}>
-			<section className={cardEntry}>
+			<section className={`${cardEntry} ${cardHoverEffect}`}>
+				<div className={cardOverlay}></div>
 				<HcLogo
 					className={logoStyle}
 					width={175.66017150878906}
