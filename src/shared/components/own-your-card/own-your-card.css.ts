@@ -46,6 +46,7 @@ export const cardEntry = style({
 	borderRadius: "15px",
 	gap: "40.48px",
 	position: "relative", // 오버레이를 위한
+	border: "none",
 
 	":active": {
 		// 클릭 시 배경 색 진하게

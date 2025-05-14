@@ -8,18 +8,23 @@ import {
 	logoStyle,
 } from "./own-your-card.css";
 
-const OwnYourCard = () => {
+interface OwnYourCardProps {
+	onClick: () => void;
+	flag: boolean;
+}
+
+const OwnYourCard = ({ onClick, flag = false }: OwnYourCardProps) => {
 	return (
 		<section className={cardContainer}>
-			<section className={`${cardEntry} ${cardHoverEffect}`}>
+			<button onClick={onClick} className={`${cardEntry} ${cardHoverEffect}`}>
 				<div className={cardOverlay}></div>
 				<HcLogo
 					className={logoStyle}
 					width={175.66017150878906}
 					height={34.51904296875}
 				/>
-				<span className={flagComment}>내게 맞는 카드 확인하기</span>
-			</section>
+				{flag && <span className={flagComment}>내게 맞는 카드 확인하기</span>}
+			</button>
 		</section>
 	);
 };
