@@ -1,14 +1,31 @@
-import { style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 import { color } from "src/styles/tokens/color.css";
+
+const floatingAnimation = keyframes({
+	"0%": {
+		paddingTop: "10px",
+		paddingBottom: "0px",
+	},
+	"50%": {
+		paddingTop: "0px",
+		paddingBottom: "10px",
+	},
+	"100%": {
+		paddingTop: "10px",
+		paddingBottom: "0px",
+	},
+});
 
 export const cardContainer = style({
 	width: "248px",
 	height: "392px",
 	paddingTop: "10px", // 플로팅(?)할 패딩 공간
 	paddingBottom: "0px",
+	animation: `${floatingAnimation} 2s ease-in-out infinite`,
 
 	":hover": {
 		// 호버 시 패딩값 조절하면서 플로팅
+		animation: "none",
 		paddingTop: "0px",
 		paddingBottom: "10px",
 	},
