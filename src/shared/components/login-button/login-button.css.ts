@@ -10,15 +10,13 @@ export const buttonBase = style({
   cursor: "pointer",
   textAlign: "center",
   boxSizing: "border-box",
+  padding: "0",
+  margin: "0",
 
   fontFamily: fontStyles.title4_bold.fontFamily,
-  fontSize: fontStyles.title4_bold.fontSize,
-  fontWeight: fontStyles.title4_bold.fontWeight,
-  lineHeight: fontStyles.title4_bold.lineHeight,
-  letterSpacing: fontStyles.title4_bold.letterSpacing,
 });
 
-export const colorvariants = styleVariants({
+export const colorVariants = styleVariants({
   whiteGray: {
     backgroundColor: color.gray100,
     color: color.h_black,

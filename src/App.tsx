@@ -15,16 +15,16 @@ function App() {
           <ThemeProvider>
             {/* 테스트용 버튼 */}
             <div>
-              <LoginButton variant="blackGray" size="small">
+              <LoginButton color="blackGray" size="small">
                 로그인
               </LoginButton>
-              <LoginButton variant="whiteGray" size="small">
+              <LoginButton color="whiteGray" size="small">
                 회원가입
               </LoginButton>
-              <LoginButton variant="blackGray" size="large">
+              <LoginButton color="blackGray" size="large">
                 간편번호 등록
               </LoginButton>
-              <LoginButton variant="whiteGray" size="medium">
+              <LoginButton color="whiteOutline" size="medium">
                 현대카드 앱
               </LoginButton>
             </div>
