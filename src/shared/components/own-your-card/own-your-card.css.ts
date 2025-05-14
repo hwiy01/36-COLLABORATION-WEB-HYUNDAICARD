@@ -1,5 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { color } from "src/styles/tokens/color.css";
+import { fontStyles } from "../../../styles/tokens/font-styles.css";
 
 const floatingAnimation = keyframes({
 	"0%": {
@@ -34,10 +35,14 @@ export const cardContainer = style({
 });
 
 export const cardEntry = style({
+	display: "flex",
+	alignItems: "center",
+	flexDirection: "column",
 	background: color.h_primary_gradient_1,
 	width: "100%",
 	height: "100%",
 	borderRadius: "15px",
+	gap: "40.48px",
 
 	":hover": {
 		background: `
@@ -49,4 +54,21 @@ export const cardEntry = style({
 	":active": {
 		background: color.h_primary_gradient_3,
 	},
+});
+
+export const logoStyle = style({
+	marginTop: "122px",
+});
+
+export const flagComment = style({
+	width: "221px",
+	height: "45px",
+	borderRadius: "8px",
+	backgroundColor: "black",
+	color: "white",
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+	...fontStyles.hyundai_title30,
+	fontSize: "13px",
 });
