@@ -1,9 +1,10 @@
 export const typography = {
   fontSize: {
-    head1: "2.8rem",
-    head2: "2rem",
-    head3: "1.6rem",
-    head4: "1.2rem",
+    head1: "3rem",
+    head2: "2.8rem",
+    head3: "2rem",
+    head4: "1.6rem",
+    head5: "1.2rem",
 
     title1: "1.8rem",
     title2: "1.6rem",

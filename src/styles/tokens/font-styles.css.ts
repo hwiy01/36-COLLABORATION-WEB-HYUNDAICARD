@@ -1,3 +1,4 @@
+import { themeVars } from "../theme.css";
 import { typography } from "./typography.css";
 
 const appleFontFamily =
@@ -8,22 +9,22 @@ const hyundaiFontFamily =
 export const fontStyles = {
   // 🍎 Apple SD Gothic Neo 스타일
 
-  head1_extrabold: {
-    fontSize: typography.fontSize.head1,
-    fontWeight: typography.fontWeight.extrabold,
-    lineHeight: typography.lineHeight.l120,
-    letterSpacing: typography.letterSpacing.minus2_00,
-  },
   head2_extrabold: {
-    fontFamily: appleFontFamily,
     fontSize: typography.fontSize.head2,
     fontWeight: typography.fontWeight.extrabold,
-    lineHeight: typography.lineHeight.l160,
+    lineHeight: typography.lineHeight.l120,
     letterSpacing: typography.letterSpacing.minus2_00,
   },
   head3_extrabold: {
     fontFamily: appleFontFamily,
     fontSize: typography.fontSize.head3,
+    fontWeight: typography.fontWeight.extrabold,
+    lineHeight: typography.lineHeight.l160,
+    letterSpacing: typography.letterSpacing.minus2_00,
+  },
+  head4_extrabold: {
+    fontFamily: appleFontFamily,
+    fontSize: typography.fontSize.head4,
     fontWeight: typography.fontWeight.extrabold,
     lineHeight: typography.lineHeight.l160,
     letterSpacing: typography.letterSpacing.minus1_80,
@@ -122,21 +123,21 @@ export const fontStyles = {
   },
   hyundai_title30: {
     fontFamily: hyundaiFontFamily,
-    fontSize: "1.875rem",
+    fontSize: typography.fontSize.head1,
     fontWeight: typography.fontWeight.regular,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus2_00,
   },
   hyundai_body1_18: {
     fontFamily: hyundaiFontFamily,
-    fontSize: "1.125rem",
+    fontSize: typography.fontSize.title1,
     fontWeight: typography.fontWeight.regular,
     lineHeight: typography.lineHeight.l140,
     letterSpacing: typography.letterSpacing.minus2_00,
   },
   hyundai_body2_14: {
     fontFamily: hyundaiFontFamily,
-    fontSize: "0.875rem",
+    fontSize: typography.fontSize.body1,
     fontWeight: typography.fontWeight.regular,
     lineHeight: typography.lineHeight.l140,
     letterSpacing: typography.letterSpacing.minus2_00,

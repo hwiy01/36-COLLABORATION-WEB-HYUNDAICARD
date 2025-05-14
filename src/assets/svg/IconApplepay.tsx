@@ -4,10 +4,10 @@ const SvgIconApplepay = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     fill="none"
-    viewBox="0 0 51 22"
+    viewBox="0 0 50 21"
     {...props}
   >
-    <path fill="url(#icon_applepay_svg__a)" d="M.5.9h50v21H.5z" />
+    <path fill="url(#icon_applepay_svg__a)" d="M0 0h50v21H0z" />
     <defs>
       <pattern
         id="icon_applepay_svg__a"
