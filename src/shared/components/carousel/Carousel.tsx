@@ -3,7 +3,7 @@ import * as styles from './carousel.css.ts';
 import { IconLeftArrow, IconRightArrow } from "src/assets/svg";
 import { CarouselImageContainer } from "./Carousel-image-container";
 
-const AUTO_SLIDE_INTERVAL = 500;
+const AUTO_SLIDE_INTERVAL = 5000;
 
 export const Carousel = () => {
     const slideLength = 2;
@@ -35,7 +35,9 @@ export const Carousel = () => {
       const interval = setInterval(() => {
         moveNext();
       }, AUTO_SLIDE_INTERVAL);
-    }, []);
+
+      return () => clearInterval(interval);
+    }, [curIndex, slideLength]);
 
   // props로 받아올 것 
   // container의 width, height
