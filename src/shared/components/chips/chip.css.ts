@@ -3,10 +3,10 @@ import { color } from "src/styles/tokens/color.css";
 import { fontStyles } from "src/styles/tokens/font-styles.css";
 
 const sizeWidths = {
-  small: "7.5rem", // 75px
-  medium: "12.2rem", // 122px
-  large: "14.8rem", // 148px
-  dropdown: "10.8rem", // 108px (기존 값 유지)
+  small: "7.5rem",
+  medium: "12.2rem",
+  large: "14.8rem",
+  dropdown: "10.8rem",
 };
 
 const clipPathValue =
