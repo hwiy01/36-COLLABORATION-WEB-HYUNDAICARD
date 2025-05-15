@@ -1,7 +1,8 @@
 import type { mode } from "../components/chips/chip";
 
-export const getSizeByContent = (text: string, mode: mode) => {
-  const length = text.replace(/[\s\/]/g, "").length;
+export const getSizeByContent = (text: string | null, mode: mode) => {
+  const safeText = text || "";
+  const length = safeText.replace(/[\s\/]/g, "").length;
 
   if (mode === "input") {
     if (length <= 3) {
