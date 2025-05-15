@@ -11,6 +11,7 @@ export const typography = {
     size_13: "1.3rem",
     size_12: "1.2rem",
     size_11: "1.1rem",
+    size_10: "1.0rem",
   },
 
   fontWeight: {
