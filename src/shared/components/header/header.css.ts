@@ -5,10 +5,10 @@ export const headerContainer = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  padding: "1.5rem 2.1rem 1.5rem 3.9rem",
+  padding: "1.5rem 5rem",
   gap: "15rem",
   width: "100%",
-  height: "5rem",
+  height: "8rem",
 });
 
 export const headerLeftContainer = style({
@@ -22,14 +22,16 @@ export const headerRightContainer = style({
   color: themeVars.color.gray800,
   display: "flex",
   alignItems: "center",
-  gap: "1.9rem",
+  gap: "2rem",
+  cursor: "pointer",
 });
 
 export const leftItemContainer = style({
   ...themeVars.fontStyles.hyundai_body2_14,
   color: themeVars.color.h_black,
   display: "flex",
-  gap: "0.8rem",
+  gap: "2rem",
   width: "100%",
   height: "100%",
+  cursor: "pointer",
 });
