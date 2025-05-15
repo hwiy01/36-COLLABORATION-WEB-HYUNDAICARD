@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
 export const useDrag = (onSwipeLeft: () => void, onSwipeRight: () => void) => {
   const startX = useRef<number | null>(null);
@@ -10,20 +10,24 @@ export const useDrag = (onSwipeLeft: () => void, onSwipeRight: () => void) => {
   };
 
   const handleMouseMove = (_e: React.MouseEvent) => {
-    if (!isDragging.current || startX.current === null) {return};
+    if (!isDragging.current || startX.current === null) {
+      return;
+    }
   };
 
   const handleMouseUp = (e: React.MouseEvent) => {
-    if (!isDragging.current || startX.current === null) {return};
+    if (!isDragging.current || startX.current === null) {
+      return;
+    }
 
     const endX = e.clientX;
     const deltaX = endX - startX.current;
-    const threshold = 50;
+    const threshold = 40;
 
     if (deltaX > threshold) {
-        onSwipeRight()
+      onSwipeRight();
     } else if (deltaX < -threshold) {
-        onSwipeLeft();
+      onSwipeLeft();
     }
 
     startX.current = null;
@@ -35,4 +39,4 @@ export const useDrag = (onSwipeLeft: () => void, onSwipeRight: () => void) => {
     handleMouseMove,
     handleMouseUp,
   };
-}
+};

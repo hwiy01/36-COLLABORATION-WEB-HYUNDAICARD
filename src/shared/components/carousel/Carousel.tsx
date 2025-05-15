@@ -1,92 +1,120 @@
 import React, { useEffect, useRef, useState } from "react";
-import * as styles from './carousel.css.ts';
+import * as styles from "./carousel.css.ts";
 import { IconLeftArrow, IconRightArrow } from "src/assets/svg";
 import { CarouselImageContainer } from "./Carousel-image-container";
 import { useDrag } from "./useDrag.ts";
 
 const AUTO_SLIDE_INTERVAL = 5000;
 
-export const Carousel = () => {
-    const slideLength = 2;
-    const slides = [
-        [
-          { id: 1, order: 1, src: '/images/carousel/carousel-mock1.png', width: 'half' as const, alt: '캐러셀이미지' },
-          { id: 2, order: 2, src: '/images/carousel/carousel-mock2.png', width: 'quarter' as const, alt: '캐러셀이미지' },
-          { id: 3, order: 3, src: '/images/carousel/carousel-mock3.png', width: 'quarter' as const, alt: '캐러셀이미지' },
-        ],
-        [
-          { id: 4, order: 1, src: '/images/carousel/carousel-mock4.png', width: 'half' as const, alt: '캐러셀이미지' },
-          { id: 5, order: 2, src: '/images/carousel/carousel-mock5.png', width: 'quarter' as const, alt: '캐러셀이미지' },
-          { id: 6, order: 3, src: '/images/carousel/carousel-mock6.png', width: 'quarter' as const, alt: '캐러셀이미지' },
-        ],
-      ];
-    
-    const [curIndex, setCurIndex] = useState<number>(0);
-    const [pause, setPause] = useState<boolean>(false);
-    const sliderRef = useRef<HTMLDivElement>(null);
+interface ImageItem {
+  id: number;
+  order: number;
+  src: string;
+  width: "half" | "quarter";
+  alt: string;
+}
 
-    const movePrev = () => {
-        setCurIndex((prev) => Math.max(prev - 1, 0));
+interface CarouselProps {
+  width: number;
+  height: number;
+  imgList: ImageItem[][];
+}
+
+export const Carousel: React.FC<CarouselProps> = ({
+  width,
+  height,
+  imgList,
+}) => {
+  const slideLength = imgList.length;
+
+  const [curIndex, setCurIndex] = useState<number>(0);
+  const [pause, setPause] = useState<boolean>(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const movePrev = () => {
+    if (curIndex === 0) {
+      setCurIndex(slideLength - 1);
+    } else {
+      setCurIndex((prev) => Math.max(prev - 1));
+    }
+  };
+
+  const moveNext = () => {
+    setCurIndex((prev) => (prev + 1) % slideLength);
+  };
+
+  const { handleMouseDown, handleMouseMove, handleMouseUp } = useDrag(
+    moveNext,
+    movePrev,
+  );
+
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    if (!pause) {
+      intervalRef.current = setInterval(() => {
+        moveNext();
+      }, AUTO_SLIDE_INTERVAL);
+    } else {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
     }
 
-    const moveNext = () => {
-        setCurIndex((prev) => (prev + 1) % slideLength);
-    }
-
-    const { handleMouseDown, handleMouseMove, handleMouseUp } = useDrag(moveNext, movePrev);
-
-    const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-    useEffect(() => {
-      if(!pause) {
-         intervalRef.current = setInterval(() => {
-            moveNext();
-        }, AUTO_SLIDE_INTERVAL);
-      } else {
-        if(intervalRef.current) {
-            clearInterval(intervalRef.current);
-            intervalRef.current = null;
-        }
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
       }
+    };
+  }, [curIndex, slideLength, pause]);
 
-      return () => {
-        if(intervalRef.current) {
-          clearInterval(intervalRef.current);
-          intervalRef.current = null;
-        }
-      }
-    }, [curIndex, slideLength, pause]);
-
-  // props로 받아올 것 
-  // container의 width, height
-  // 이미지들
-  // 배열 총 길이 (slideLength)
+  // [프로그래스 바]
+  // 정지 & 재생 함수 -> setPause
+  // 정지 상태 -> pause
+  // 인덱스 설정 함수 -> setCurIndex
   return (
-  <>
-    <div className={styles.container} style={{ width: '944px', height: '349px' }}>
-      <button type="button" onClick={movePrev} className={styles.leftArrow} style={{ zIndex: 5 }}>
-        <IconLeftArrow style={{ color: 'white', width: '70px'}} />
-      </button>
-      <div 
-        ref={sliderRef}
-        className={styles.slider}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        style={{
+    <>
+      <div
+        className={styles.container}
+        style={{ width: `${width}rem`, height: `${height}rem` }}
+      >
+        <button
+          type="button"
+          onClick={movePrev}
+          className={styles.leftArrow}
+          style={{ zIndex: 5 }}
+        >
+          <IconLeftArrow style={{ color: "white", width: "70px" }} />
+        </button>
+        <div
+          ref={sliderRef}
+          className={styles.slider}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          style={{
             transform: `translateX(-${curIndex * 100}%)`,
             transition: "transform 150ms ease-in-out",
-          }}>
-        {slides.map((imageList, idx) => (
+          }}
+        >
+          {imgList.map((imageList, idx) => (
             <div className={styles.slide} key={idx}>
-                <CarouselImageContainer imageList={imageList} />
+              <CarouselImageContainer imageList={imageList} />
             </div>
-            ))}
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={moveNext}
+          className={styles.rightArrow}
+          style={{ zIndex: 2 }}
+        >
+          <IconRightArrow style={{ color: "white", height: "70px" }} />
+        </button>
       </div>
-      <button type="button" onClick={moveNext} className={styles.rightArrow} style={{ zIndex: 2 }}>
-        <IconRightArrow style={{ color: 'white', height: '70px' }}  />
-      </button>
-    </div>
-  </>)
+    </>
+  );
 };
