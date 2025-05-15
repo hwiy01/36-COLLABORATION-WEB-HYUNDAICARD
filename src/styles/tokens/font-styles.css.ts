@@ -1,5 +1,4 @@
 import { typography } from "./typography.css";
-import { color } from "./color.css";
 
 const appleFontFamily =
   '"Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif';
@@ -15,7 +14,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.extrabold,
     lineHeight: typography.lineHeight.l120,
     letterSpacing: typography.letterSpacing.minus2_00,
-    color: color.gray700,
   },
   head_extrabold_20: {
     fontFamily: appleFontFamily,
@@ -23,7 +21,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.extrabold,
     lineHeight: typography.lineHeight.l160,
     letterSpacing: typography.letterSpacing.minus2_00,
-    color: color.gray700,
   },
   head_extrabold_16: {
     fontFamily: appleFontFamily,
@@ -31,7 +28,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.extrabold,
     lineHeight: typography.lineHeight.l160,
     letterSpacing: typography.letterSpacing.minus1_80,
-    color: color.gray700,
   },
   head_extrabold_12: {
     fontFamily: appleFontFamily,
@@ -39,7 +35,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.extrabold,
     lineHeight: typography.lineHeight.l160,
     letterSpacing: typography.letterSpacing.minus1_80,
-    color: color.gray700,
   },
 
   title_bold_18: {
@@ -48,7 +43,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.bold,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus2_00,
-    color: color.gray700,
   },
   title_bold_16: {
     fontFamily: appleFontFamily,
@@ -56,7 +50,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.bold,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus1_80,
-    color: color.gray700,
   },
   title_bold_14: {
     fontFamily: appleFontFamily,
@@ -64,7 +57,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.bold,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus1_20,
-    color: color.gray700,
   },
   title_bold_13: {
     fontFamily: appleFontFamily,
@@ -72,7 +64,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.bold,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus1_20,
-    color: color.gray700,
   },
   title_bold_12: {
     fontFamily: appleFontFamily,
@@ -80,7 +71,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.bold,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.zero,
-    color: color.gray700,
   },
   title_bold_11: {
     fontFamily: appleFontFamily,
@@ -88,7 +78,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.bold,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.zero,
-    color: color.gray700,
   },
 
   subtitle_semibold_20: {
@@ -97,7 +86,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.semibold,
     lineHeight: typography.lineHeight.l160,
     letterSpacing: typography.letterSpacing.minus2_00,
-    color: color.gray700,
   },
   subtitle_semibold_16: {
     fontFamily: appleFontFamily,
@@ -105,7 +93,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.semibold,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus1_80,
-    color: color.gray700,
   },
   subtitle_semibold_15: {
     fontFamily: appleFontFamily,
@@ -113,7 +100,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.semibold,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus1_80,
-    color: color.gray700,
   },
   subtitle_semibold_14: {
     fontFamily: appleFontFamily,
@@ -121,7 +107,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.semibold,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus1_20,
-    color: color.gray700,
   },
 
   body1_medium_14: {
@@ -130,7 +115,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.medium,
     lineHeight: typography.lineHeight.l160,
     letterSpacing: typography.letterSpacing.minus1_20,
-    color: color.gray700,
   },
   body1_medium_13: {
     fontFamily: appleFontFamily,
@@ -138,7 +122,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.medium,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus1_20,
-    color: color.gray700,
   },
   body1_medium12: {
     fontFamily: appleFontFamily,
@@ -146,7 +129,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.medium,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.zero,
-    color: color.gray700,
   },
 
   body2_regular_14: {
@@ -155,7 +137,6 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.regular,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus1_20,
-    color: color.gray700,
   },
   body2_regular_11: {
     fontFamily: appleFontFamily,
@@ -163,7 +144,14 @@ export const fontStyles = {
     fontWeight: typography.fontWeight.regular,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.zero,
-    color: color.gray700,
+  },
+
+  caption_bold: {
+    fontFamily: appleFontFamily,
+    fontSize: typography.fontSize.size_10,
+    fontWeight: typography.fontWeight.bold,
+    lineHeight: typography.lineHeight.l150,
+    letterSpacing: typography.letterSpacing.zero,
   },
 
   // 🅷 현대카드 YouandiModern 스타일
@@ -174,27 +162,23 @@ export const fontStyles = {
     lineHeight: typography.lineHeight.l140,
     letterSpacing: typography.letterSpacing.minus2_00,
     WebkitTextStroke: typography.stroke.light,
-    color: color.gray700,
   },
   hyundai_title_30: {
     fontFamily: hyundaiFontFamily,
     fontSize: typography.fontSize.size_30,
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus2_00,
-    color: color.gray700,
   },
   hyundai_body1_18: {
     fontFamily: hyundaiFontFamily,
     fontSize: typography.fontSize.size_18,
     lineHeight: typography.lineHeight.l140,
     letterSpacing: typography.letterSpacing.minus2_00,
-    color: color.gray700,
   },
   hyundai_body2_14: {
     fontFamily: hyundaiFontFamily,
     fontSize: typography.fontSize.size_14,
     lineHeight: typography.lineHeight.l140,
     letterSpacing: typography.letterSpacing.minus2_00,
-    color: color.gray700,
   },
 } as const;
