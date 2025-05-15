@@ -2,7 +2,13 @@ import { getSizeByContent } from "@/shared/utils/getSizeByContent";
 import SvgIconDesignersDown from "src/assets/svg/IconDesigner'sDown";
 import SvgIconDesignersUp from "src/assets/svg/IconDesigner'sUp";
 import SvgIconDesignersX from "src/assets/svg/IconDesigner'sX";
-import { baseFrame, frameSizes, innerFrame, otherModeStyle } from "./chip.css";
+import {
+  baseFrame,
+  closeButton,
+  frameSizes,
+  innerFrame,
+  otherModeStyle,
+} from "./chip.css";
 
 export type mode = "input" | "filter" | "selected" | "dropdown";
 
@@ -17,7 +23,7 @@ interface ChipProps {
 
 const Chip = ({
   mode = "dropdown",
-  content = "",
+  content,
   handleClickCloseBtn,
   dropdownFlag,
   onClick,
@@ -44,7 +50,7 @@ const Chip = ({
       <p>{content}</p>
       {mode === "input" && (
         <button
-          style={{ display: "none" }}
+          className={closeButton}
           type="button"
           onClick={handleClickCloseBtn}
         >
