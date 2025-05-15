@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import * as styles from "./login-button.css";
+import { button } from "./login-button.css";
 
 interface Props {
   color: "whiteGray" | "blackGray" | "whiteOutline";
@@ -15,12 +15,8 @@ const LoginButton = ({
   onClick,
 }: Props) => {
   return (
-    <button
-      onClick={onClick}
-      className={`${styles.buttonBase} ${styles.colorVariants[color]} ${styles.sizeVariants[size]}`}
-      type="button"
-    >
-      <p>{children}</p>
+    <button onClick={onClick} className={button({ color, size })} type="button">
+      {children}
     </button>
   );
 };

@@ -11,8 +11,8 @@ export const button = recipe({
     boxSizing: "border-box",
     border: "none",
     cursor: "pointer",
+    borderRadius: "0.8rem",
 
-    // ✅ 폰트 통합
     ...themeVars.fontStyles.title_bold_13,
   },
 
@@ -24,7 +24,6 @@ export const button = recipe({
         selectors: {
           "&:hover": {
             backgroundColor: color.gray200,
-            cursor: "pointer",
           },
         },
       },
@@ -34,7 +33,6 @@ export const button = recipe({
         selectors: {
           "&:hover": {
             backgroundColor: color.gray800,
-            cursor: "pointer",
           },
         },
       },
@@ -45,9 +43,7 @@ export const button = recipe({
         borderColor: color.h_black,
         selectors: {
           "&:hover": {
-            backgroundColor: color.gray200,
-            borderColor: color.gray200,
-            cursor: "pointer",
+            borderColor: color.gray300,
           },
         },
       },
@@ -57,7 +53,6 @@ export const button = recipe({
       small: {
         width: "7.3rem",
         height: "3.2rem",
-        borderRadius: "0.8rem",
       },
       medium: {
         width: "10.9rem",
@@ -67,7 +62,6 @@ export const button = recipe({
       large: {
         width: "22.1rem",
         height: "4.5rem",
-        borderRadius: "0.8rem",
       },
     },
   },
