@@ -3,10 +3,10 @@ import { color } from "src/styles/tokens/color.css";
 import { fontStyles } from "src/styles/tokens/font-styles.css";
 
 const sizeWidths = {
-  small: "75px", // 75px
-  medium: "122px", // 122px
-  large: "148px", // 148px
-  dropdown: "108px", // 108px (기존 값 유지)
+  small: "7.5rem", // 75px
+  medium: "12.2rem", // 122px
+  large: "14.8rem", // 148px
+  dropdown: "10.8rem", // 108px (기존 값 유지)
 };
 
 const clipPathValue =
@@ -48,7 +48,7 @@ export const otherModeStyle = styleVariants({
     gap: "4px",
     alignItems: "center",
     ...fontStyles.body4_regular,
-    fontSize: "13px",
+    fontSize: "1.3rem",
     letterSpacing: "-1.8%",
     color: color.h_primary_blue,
   },
@@ -59,7 +59,6 @@ export const otherModeStyle = styleVariants({
     justifyContent: "center",
     alignItems: "center",
     ...fontStyles.body2_medium,
-    fontSize: "13px",
     color: color.gray800,
   },
   selected: {
@@ -71,7 +70,6 @@ export const otherModeStyle = styleVariants({
     justifyContent: "center",
     alignItems: "center",
     ...fontStyles.body2_medium,
-    fontSize: "13px",
   },
 });
 
@@ -93,15 +91,10 @@ export const innerFrame = style({
   color: "white",
   alignItems: "center",
   ...fontStyles.body4_regular,
-  fontSize: "15px",
+  fontSize: "1.5rem",
 });
 
 export const closeButton = style({
-  justifyItems: "flex-end",
-  right: "8px",
-});
-
-export const svgSize = style({
-  width: "75px",
-  height: "34px",
+  border: "none",
+  background: "none",
 });
