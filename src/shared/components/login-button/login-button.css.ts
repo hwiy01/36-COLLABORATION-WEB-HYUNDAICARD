@@ -20,6 +20,7 @@ export const colorVariants = styleVariants({
     selectors: {
       "&:hover": {
         backgroundColor: color.gray200,
+        cursor: "pointer",
       },
     },
   },
@@ -29,6 +30,7 @@ export const colorVariants = styleVariants({
     selectors: {
       "&:hover": {
         backgroundColor: color.gray800,
+        cursor: "pointer",
       },
     },
   },
@@ -40,6 +42,8 @@ export const colorVariants = styleVariants({
     selectors: {
       "&:hover": {
         borderColor: color.gray200,
+        backgroundColor: color.gray200,
+        cursor: "pointer",
       },
     },
   },
