@@ -1,7 +1,5 @@
-import Header from "@/shared/components/header/header";
-
 const Home = () => {
-  return <Header />;
+  return <div>하이</div>;
 };
 
 export default Home;
