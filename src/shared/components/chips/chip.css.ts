@@ -47,7 +47,8 @@ export const otherModeStyle = styleVariants({
     justifyContent: "flex-end",
     gap: "4px",
     alignItems: "center",
-    ...fontStyles.body4_regular,
+    fontWeight: "400",
+    lineHeight: "150%",
     fontSize: "1.3rem",
     letterSpacing: "-1.8%",
     color: color.h_primary_blue,
@@ -58,7 +59,7 @@ export const otherModeStyle = styleVariants({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    ...fontStyles.body2_medium,
+    ...fontStyles.body1_medium_13,
     color: color.gray800,
   },
   selected: {
@@ -69,7 +70,10 @@ export const otherModeStyle = styleVariants({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    ...fontStyles.body2_medium,
+    fontWeight: "400",
+    lineHeight: "150%",
+    fontSize: "1.3rem",
+    letterSpacing: "-1.8%",
   },
 });
 
@@ -90,8 +94,8 @@ export const innerFrame = style({
   paddingRight: "8px",
   color: "white",
   alignItems: "center",
-  ...fontStyles.body4_regular,
-  fontSize: "1.5rem",
+  ...fontStyles.subtitle_semibold_15,
+  fontWeight: "400",
 });
 
 export const closeButton = style({
