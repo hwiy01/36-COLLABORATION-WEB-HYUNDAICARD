@@ -14,6 +14,7 @@ const clipPathValue =
 
 const baseCssProps = {
   clipPath: clipPathValue,
+  boxSizing: "border-box" as const,
   minHeight: "3.4rem",
   borderRadius: "6px",
   background: "white",
@@ -101,4 +102,5 @@ export const innerFrame = style({
 export const closeButton = style({
   border: "none",
   background: "none",
+  padding: "0",
 });

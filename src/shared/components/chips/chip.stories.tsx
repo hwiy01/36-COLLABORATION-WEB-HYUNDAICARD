@@ -1,4 +1,5 @@
 import Chip from "@/shared/components/chips/chip";
+import "../../../styles/global.css";
 
 const meta = {
   title: "Components/chip", // 스토리북에서 표시될 경로와 이름
