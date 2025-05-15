@@ -1,6 +1,6 @@
 import { style, styleVariants } from "@vanilla-extract/css";
+import { themeVars } from "src/styles";
 import { color } from "src/styles/tokens/color.css";
-import { fontStyles } from "src/styles/tokens/font-styles.css";
 
 export const buttonBase = style({
   display: "inline-flex",
@@ -10,10 +10,7 @@ export const buttonBase = style({
   cursor: "pointer",
   textAlign: "center",
   boxSizing: "border-box",
-  padding: "0",
-  margin: "0",
-
-  fontFamily: fontStyles.title4_bold.fontFamily,
+  ...themeVars.fontStyles.title_bold_13,
 });
 
 export const colorVariants = styleVariants({
