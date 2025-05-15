@@ -1,26 +1,16 @@
 export const typography = {
   fontSize: {
-    head28: "2.8rem",
-    head20: "2rem",
-    head16: "1.6rem",
-    head12: "1.2rem",
-
-    title18: "1.8rem",
-    title16: "1.6rem",
-    title14: "1.4rem",
-    title13: "1.3rem",
-    title12: "1.2rem",
-    title11: "1.1rem",
-
-    subtitle20: "2rem",
-    subtitle16: "1.6rem",
-    subtitle15: "1.5rem",
-    subtitle14: "1.4rem",
-
-    body14: "1.4rem",
-    body13: "1.3rem",
-    body12: "1.2rem",
-    body11: "1.1rem",
+    size_40: "4.0rem",
+    size_30: "3.0rem",
+    size_28: "2.8rem",
+    size_20: "2.0rem",
+    size_18: "1.8rem",
+    size_16: "1.6rem",
+    size_15: "1.5rem",
+    size_14: "1.4rem",
+    size_13: "1.3rem",
+    size_12: "1.2rem",
+    size_11: "1.1rem",
   },
 
   fontWeight: {
