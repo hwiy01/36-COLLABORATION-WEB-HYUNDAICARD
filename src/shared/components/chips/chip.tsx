@@ -1,5 +1,4 @@
 import { getSizeByContent } from "@/shared/utils/getSizeByContent";
-import { useState } from "react";
 import SvgIconDesignersDown from "src/assets/svg/IconDesigner'sDown";
 import SvgIconDesignersUp from "src/assets/svg/IconDesigner'sUp";
 import SvgIconDesignersX from "src/assets/svg/IconDesigner'sX";
@@ -12,30 +11,25 @@ interface ChipProps {
   content: string;
   handleClickCloseBtn?: () => void;
   onClick?: () => void;
+  dropdownFlag: boolean;
   className?: string;
 }
 
 const Chip = ({
   mode = "dropdown",
-  content = "크크크",
+  content = "",
   handleClickCloseBtn,
+  dropdownFlag,
+  onClick,
 }: ChipProps) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false); // 외부에서 준 flag로 드롭다운 화살표 바꿀지, 이거로 할지 인영님이랑 얘기하기
-
   const size = getSizeByContent(content, mode);
 
   if (mode === "dropdown") {
     return (
-      <button
-        className={baseFrame}
-        onClick={() => {
-          setIsDropdownOpen((prev) => !prev);
-        }}
-        type="button"
-      >
+      <button className={baseFrame} onClick={onClick} type="button">
         <section className={innerFrame}>
           <p>{content}</p>
-          {isDropdownOpen ? (
+          {dropdownFlag ? (
             <SvgIconDesignersDown width={24} height={24} />
           ) : (
             <SvgIconDesignersUp width={24} height={24} />
@@ -46,20 +40,18 @@ const Chip = ({
   }
 
   return (
-    <div style={{ backgroundColor: "red" }}>
-      <section className={`${frameSizes[size]} ${otherModeStyle[mode]}`}>
-        <p>{content}</p>
-        {mode === "input" && (
-          <button
-            style={{ display: "none" }}
-            type="button"
-            onClick={handleClickCloseBtn}
-          >
-            <SvgIconDesignersX width={24} height={24} />
-          </button>
-        )}
-      </section>
-    </div>
+    <section className={`${frameSizes[size]} ${otherModeStyle[mode]}`}>
+      <p>{content}</p>
+      {mode === "input" && (
+        <button
+          style={{ display: "none" }}
+          type="button"
+          onClick={handleClickCloseBtn}
+        >
+          <SvgIconDesignersX width={24} height={24} />
+        </button>
+      )}
+    </section>
   );
 };
 
