@@ -17,7 +17,7 @@ const Header = () => {
       <div className={styles.headerLeftContainer}>
         <SvgHyundaiLogo width={"15.5rem"} height={"4.3rem"} />
         <div className={styles.leftItemContainer}>
-          {UTILITY_NAV_ITEMS.map((item) => (
+          {MAIN_NAV_ITEMS.map((item) => (
             <p key={item}>{item}</p>
           ))}
           <VectorStroke width={"0.1rem"} height={"1.8rem"} />
@@ -25,7 +25,7 @@ const Header = () => {
         </div>
       </div>
       <div className={styles.headerRightContainer}>
-        {MAIN_NAV_ITEMS.map((item, index) => (
+        {UTILITY_NAV_ITEMS.map((item, index) => (
           <React.Fragment key={item}>
             <p>{item}</p>
             {index === 1 && <VectorStroke width="0.1rem" height="1.8rem" />}
