@@ -6,7 +6,7 @@ import { useDrag } from "./use-drag.ts";
 
 const AUTO_SLIDE_INTERVAL = 5000;
 
-interface ImageItem {
+export interface ImageItem {
   id: number;
   order: number;
   src: string;
