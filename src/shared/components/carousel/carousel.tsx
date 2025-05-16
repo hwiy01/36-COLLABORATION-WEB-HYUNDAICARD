@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as styles from "./carousel.css.ts";
 import { IconLeftArrow, IconRightArrow } from "src/assets/svg";
 import { CarouselImageContainer } from "./carousel-image-container";
-import { useDrag } from "./useDrag.ts";
+import { useDrag } from "./use-drag.ts";
 
 const AUTO_SLIDE_INTERVAL = 5000;
 
