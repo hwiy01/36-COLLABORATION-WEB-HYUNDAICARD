@@ -16,12 +16,12 @@ const baseCssProps = {
   clipPath: clipPathValue,
   boxSizing: "border-box" as const,
   minHeight: "3.4rem",
-  borderRadius: "6px",
+  borderRadius: "0.6rem",
   background: "white",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  gap: "4px",
+  gap: "0.4rem",
   border: "none",
 };
 
@@ -43,10 +43,10 @@ export const frameSizes = styleVariants({
 export const otherModeStyle = styleVariants({
   input: {
     ...baseCssProps,
-    padding: "0 8px 0 0",
+    padding: "0 0.8rem 0 0",
     display: "flex",
     justifyContent: "flex-end",
-    gap: "4px",
+    gap: "0.4rem",
     alignItems: "center",
     fontWeight: "400",
     lineHeight: "150%",
@@ -81,7 +81,7 @@ export const otherModeStyle = styleVariants({
 export const baseFrame = style({
   ...baseCssProps,
   width: sizeWidths.dropdown,
-  padding: "1px",
+  padding: "0.1rem",
 });
 
 export const innerFrame = style({
@@ -90,9 +90,9 @@ export const innerFrame = style({
   height: "100%",
   background: "black",
   display: "flex",
-  gap: "3px",
+  gap: "0.3rem",
   justifyContent: "flex-end",
-  paddingRight: "8px",
+  paddingRight: "0.8rem",
   color: "white",
   alignItems: "center",
   ...fontStyles.subtitle_semibold_15,
