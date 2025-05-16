@@ -1,7 +1,6 @@
 import { getSizeByContent } from "@/shared/utils/getSizeByContent";
-import SvgIconDesignersDown from "src/assets/svg/IconDesigner'sDown";
-import SvgIconDesignersUp from "src/assets/svg/IconDesigner'sUp";
-import SvgIconDesignersX from "src/assets/svg/IconDesigner'sX";
+import { IconArrowDown, IconArrowUp, IconClose } from "src/assets/svg";
+import { color } from "src/styles/tokens/color.css";
 import {
   baseFrame,
   closeButton,
@@ -44,9 +43,9 @@ const Chip = ({
         <section className={innerFrame}>
           <p>{content}</p>
           {dropdownFlag ? (
-            <SvgIconDesignersDown width={24} height={24} />
+            <IconArrowDown width={24} height={24} />
           ) : (
-            <SvgIconDesignersUp width={24} height={24} />
+            <IconArrowUp width={24} height={24} />
           )}
         </section>
       </button>
@@ -62,7 +61,7 @@ const Chip = ({
           type="button"
           onClick={handleClickCloseBtn}
         >
-          <SvgIconDesignersX width={24} height={24} />
+          <IconClose stroke={color.h_primary_blue} width={24} height={24} />
         </button>
       )}
     </section>
