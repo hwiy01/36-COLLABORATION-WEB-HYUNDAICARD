@@ -17,5 +17,5 @@ export const buttonText = style({
   ...fontStyles.caption_bold,
   fontSize: "1.1rem",
   letterSpacing: "0rem",
-  lineHeight: "100%",
+  lineHeight: "150%",
 });

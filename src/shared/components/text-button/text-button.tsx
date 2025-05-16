@@ -4,7 +4,7 @@ import { baseTextButtonContainer, buttonText } from "./text-button.css";
 
 interface TextButtonProps {
   text?: string; // 버튼 내부에 작성할 문구
-  img?: ReactNode; // gap : 4 뒤에 렌더링할 요소(ex. 이미지)
+  imageNode?: ReactNode; // gap : 4 뒤에 렌더링할 요소(ex. 이미지)
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void; // 마우스 click시 이벤트
 }
 
@@ -17,12 +17,12 @@ interface TextButtonProps {
  */
 const TextButton = ({
   text = "전체보기",
-  img = <RightArrow width={"0.5rem"} height={"0.5rem"} />,
+  imageNode = <RightArrow width={"0.5rem"} height={"0.5rem"} />,
 }: TextButtonProps) => {
   return (
     <button type="button" className={baseTextButtonContainer}>
       <p className={buttonText}>{text}</p>
-      {img}
+      {imageNode}
     </button>
   );
 };
