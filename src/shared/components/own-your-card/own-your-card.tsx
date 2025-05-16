@@ -10,10 +10,10 @@ import {
 
 interface OwnYourCardProps {
   onClick: () => void;
-  flag: boolean;
+  showText: boolean;
 }
 
-const OwnYourCard = ({ onClick, flag = false }: OwnYourCardProps) => {
+const OwnYourCard = ({ onClick, showText = false }: OwnYourCardProps) => {
   return (
     <section className={cardContainer}>
       <button
@@ -27,7 +27,7 @@ const OwnYourCard = ({ onClick, flag = false }: OwnYourCardProps) => {
           width={"17.6rem"}
           height={"3.342rem"}
         />
-        {flag && <p className={flagComment}>내게 맞는 카드 확인하기</p>}
+        {showText && <p className={flagComment}>내게 맞는 카드 확인하기</p>}
       </button>
     </section>
   );
