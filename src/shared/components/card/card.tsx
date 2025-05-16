@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { cardContainer, cardNameP } from "./card.css";
 
 interface CardProps {
-  mode?: "vertical" | "horizontal"; // "vertical" | "horizontal"
+  mode: "vertical" | "horizontal"; // "vertical" | "horizontal"
   cardIcon: ReactNode;
   cardName?: string; // 카드 이름
 }
@@ -15,10 +15,10 @@ interface CardProps {
  */
 const Card = ({ mode = "vertical", cardIcon, cardName = "" }: CardProps) => {
   return (
-    <section className={cardContainer[mode]}>
+    <div className={cardContainer[mode]}>
       {cardIcon}
       <p className={cardNameP[mode]}>{cardName}</p>
-    </section>
+    </div>
   );
 };
 

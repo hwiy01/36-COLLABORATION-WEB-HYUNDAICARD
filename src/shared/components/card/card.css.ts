@@ -6,7 +6,7 @@ const baseCardConstainer = style({
   display: "flex",
   flexDirection: "column",
   gap: "1rem",
-  boxSizing: "border-box", // 피그마 기준 개발하기 위해 패딩과 테부리 width/height에 포함
+  boxSizing: "border-box",
   transition: "padding 150ms linear",
   alignItems: "center",
   textAlign: "center",
