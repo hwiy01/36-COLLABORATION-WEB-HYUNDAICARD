@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { themeClass } from "./theme.css";
+import "../styles/global.css";
 
 interface ThemeProviderProps {
   children: ReactNode;
