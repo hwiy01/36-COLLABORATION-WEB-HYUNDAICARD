@@ -6,20 +6,20 @@ import Router from "@/shared/router/router";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
-	return (
-		<>
-			<QueryClientProvider client={queryClient}>
-				<BrowserRouter>
-					<ThemeProvider>
-						<Router />
-					</ThemeProvider>
-				</BrowserRouter>
-				<div style={{ fontSize: "16px" }}>
-					<ReactQueryDevtools initialIsOpen={false} />
-				</div>
-			</QueryClientProvider>
-		</>
-	);
+  return (
+    <>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <ThemeProvider>
+            <Router />
+          </ThemeProvider>
+        </BrowserRouter>
+        <div style={{ fontSize: "16px" }}>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </div>
+      </QueryClientProvider>
+    </>
+  );
 }
 
 export default App;
