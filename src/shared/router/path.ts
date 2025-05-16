@@ -1,3 +1,3 @@
 export const routePath = {
-	HOME: "/",
+  HOME: "/",
 } as const;

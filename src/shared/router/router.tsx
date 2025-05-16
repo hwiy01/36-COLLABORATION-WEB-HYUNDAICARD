@@ -5,13 +5,13 @@ import { HomePage } from "./lazy";
 import { routePath } from "./path";
 
 export default function Router() {
-	return (
-		<Suspense>
-			<Routes>
-				<Route element={<GlobalLayout />}>
-					<Route path={routePath.HOME} element={<HomePage />} />
-				</Route>
-			</Routes>
-		</Suspense>
-	);
+  return (
+    <Suspense>
+      <Routes>
+        <Route element={<GlobalLayout />}>
+          <Route path={routePath.HOME} element={<HomePage />} />
+        </Route>
+      </Routes>
+    </Suspense>
+  );
 }

@@ -6,13 +6,13 @@ import { typography } from "./tokens/typography.css";
 import { fontStyles } from "./tokens/font-styles.css";
 
 const tokens = {
-	color: color,
-	...typography,
-	fontStyles,
+  color: color,
+  ...typography,
+  fontStyles,
 };
 
 const properties = defineProperties({
-	properties: tokens,
+  properties: tokens,
 });
 
 const sprinkles = createSprinkles(properties);
