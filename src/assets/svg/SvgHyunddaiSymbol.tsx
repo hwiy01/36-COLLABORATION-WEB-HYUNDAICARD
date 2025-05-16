@@ -1,5 +1,5 @@
 import type { SVGProps } from "react";
-const SvgHcLogo = (props: SVGProps<SVGSVGElement>) => (
+const SvgHyunddaiSymbol = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -22,4 +22,4 @@ const SvgHcLogo = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
-export default SvgHcLogo;
+export default SvgHyunddaiSymbol;

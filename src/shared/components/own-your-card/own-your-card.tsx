@@ -1,4 +1,4 @@
-import { HcLogo } from "src/assets/svg";
+import { SvgHyunddaiSymbol } from "src/assets/svg";
 import {
   cardContainer,
   cardEntry,
@@ -22,10 +22,10 @@ const OwnYourCard = ({ onClick, flag = false }: OwnYourCardProps) => {
         className={`${cardEntry} ${cardHoverEffect}`}
       >
         <div className={cardOverlay}></div>
-        <HcLogo
+        <SvgHyunddaiSymbol
           className={logoStyle}
-          width={175.66017150878906}
-          height={34.51904296875}
+          width={"17.6rem"}
+          height={"3.342rem"}
         />
         {flag && <span className={flagComment}>내게 맞는 카드 확인하기</span>}
       </button>
