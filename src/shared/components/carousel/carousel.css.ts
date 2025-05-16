@@ -19,7 +19,7 @@ export const slide = style({
 export const imageContainer = style({
   display: "flex",
   width: "100%",
-  gap: "14px",
+  gap: "1.4rem",
 });
 
 const carouselImage = style({
@@ -28,7 +28,7 @@ const carouselImage = style({
   transition: "transform 150ms linear 50ms",
   selectors: {
     "&:hover": {
-      transform: "translateY(-10px)",
+      transform: "translateY(-1rem)",
     },
   },
 });
