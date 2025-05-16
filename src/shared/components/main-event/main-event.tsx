@@ -3,17 +3,21 @@ import * as styles from "./main-event.css";
 
 interface MainEventProps {
   cardIcon: ReactNode;
-  line1: string;
-  line2: string;
+  textContent: string; // 한 줄로 받는 텍스트
 }
 
-const MainEvent = ({ cardIcon, line1, line2 }: MainEventProps) => {
+const MainEvent = ({ cardIcon, textContent }: MainEventProps) => {
   return (
     <div className={styles.container}>
-      <div className={styles.imageContainer}>{cardIcon}</div>
+      <div className={styles.imageContainer}>
+        <img
+          className={styles.image}
+          src={cardIcon as string}
+          alt="Card Icon"
+        />
+      </div>
       <div className={styles.textContainer}>
-        <span className={styles.text}>{line1}</span>
-        <span className={styles.text}>{line2}</span>
+        <span className={styles.text}>{textContent}</span>
       </div>
     </div>
   );

@@ -5,6 +5,9 @@ import ThemeProvider from "./styles/theme-provider";
 import Router from "@/shared/router/router";
 import { BrowserRouter } from "react-router-dom";
 
+import MainEvent from "./shared/components/main-event/main-event";
+import "./styles/global.css";
+
 function App() {
   return (
     <>
@@ -16,6 +19,10 @@ function App() {
         </BrowserRouter>
         <div style={{ fontSize: "16px" }}>
           <ReactQueryDevtools initialIsOpen={false} />
+          <MainEvent
+            cardIcon="https://example.com/image.jpg"
+            textContent="현대카드 Boutique 신규 회원 연회비 캐시백 이벤트"
+          />
         </div>
       </QueryClientProvider>
     </>
