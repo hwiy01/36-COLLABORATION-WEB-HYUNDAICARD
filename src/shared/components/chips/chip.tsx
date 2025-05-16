@@ -1,4 +1,4 @@
-import { getSizeByContent } from "@/shared/utils/getSizeByContent";
+import { getSizeByContent } from "@/shared/utils/get-size-by-content";
 import { IconArrowDown, IconArrowUp, IconClose } from "src/assets/svg";
 import { color } from "src/styles/tokens/color.css";
 import {
