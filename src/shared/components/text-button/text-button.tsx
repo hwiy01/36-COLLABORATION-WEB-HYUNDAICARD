@@ -1,11 +1,11 @@
 import type { MouseEvent, ReactNode } from "react";
-import { baseTextButtonContainer, buttonText } from "./text-button.css";
 import { RightArrow } from "src/assets/svg";
+import { baseTextButtonContainer, buttonText } from "./text-button.css";
 
 interface TextButtonProps {
-	text?: string; // 버튼 내부에 작성할 문구
-	img?: ReactNode; // gap : 4 뒤에 렌더링할 요소(ex. 이미지)
-	onClick?: (event: MouseEvent<HTMLButtonElement>) => void; // 마우스 click시 이벤트
+  text?: string; // 버튼 내부에 작성할 문구
+  img?: ReactNode; // gap : 4 뒤에 렌더링할 요소(ex. 이미지)
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void; // 마우스 click시 이벤트
 }
 
 /**
@@ -16,15 +16,15 @@ interface TextButtonProps {
  * @returns
  */
 const TextButton = ({
-	text = "전체보기",
-	img = <RightArrow width={5} height={5} />,
+  text = "전체보기",
+  img = <RightArrow width={"0.5rem"} height={"0.5rem"} />,
 }: TextButtonProps) => {
-	return (
-		<button className={baseTextButtonContainer}>
-			<span className={buttonText}>{text}</span>
-			{img}
-		</button>
-	);
+  return (
+    <button type="button" className={baseTextButtonContainer}>
+      <p className={buttonText}>{text}</p>
+      {img}
+    </button>
+  );
 };
 
 export default TextButton;
