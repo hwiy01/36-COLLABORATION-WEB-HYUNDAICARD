@@ -25,31 +25,20 @@ export const footerSection = style({
   gap: "1.4rem",
 });
 
-export const contactInfoGroup = style({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-start",
-  gap: "0.7rem",
-  alignSelf: "stretch",
-});
-
-export const contactInfoRow = style({
-  display: "flex",
-  alignItems: "center",
-  gap: "5rem",
-});
-
-export const contactTextStyle = recipe({
+export const contactInfoGroup = recipe({
   base: {
-    color: themeVars.color.h_black,
+    display: "flex",
+    width: "100%",
+    flexDirection: "column",
+    alignItems: "flex-start",
   },
   variants: {
-    variant: {
-      label: {
-        ...themeVars.fontStyles.title_bold_12,
+    gap: {
+      sm: {
+        gap: "0.7rem",
       },
-      value: {
-        ...themeVars.fontStyles.body1_medium_12,
+      md: {
+        gap: "1.4rem",
       },
     },
   },
