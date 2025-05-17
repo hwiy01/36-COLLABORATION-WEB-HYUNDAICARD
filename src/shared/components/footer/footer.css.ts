@@ -4,7 +4,8 @@ import { themeVars } from "src/styles";
 
 export const footerRoot = style({
   width: "100%",
-  height: "25rem",
+  height: "100%",
+  maxHeight: "30rem",
   display: "inline-flex",
   padding: "0rem 17.2rem 4.2rem 5rem",
   alignItems: "flex-start",
