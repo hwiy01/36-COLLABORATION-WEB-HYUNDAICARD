@@ -78,3 +78,11 @@ export const legalCategoryContainer = style({
   alignItems: "center",
   gap: "1.7rem",
 });
+
+export const legalImageContainer = style({
+  width: "100%",
+  display: "flex",
+  justifyContent: "flex-start",
+  alignItems: "center",
+  gap: "1.5rem",
+});

@@ -1,7 +1,9 @@
+import SvgFooterWeb1 from "src/assets/svg/FooterWeb1";
 import ContactList from "./contact-list";
 import * as styles from "./footer.css";
 import LegalList from "./legal-list";
 import LinkList from "./link-list";
+import SvgFooterWeb2 from "src/assets/svg/FooterWeb2";
 
 const Footer = () => {
   return (
@@ -27,6 +29,10 @@ const Footer = () => {
           <LegalList listType="category" />
         </div>
         <LegalList listType="company" />
+        <div className={styles.legalImageContainer}>
+          <SvgFooterWeb1 width={"5.6rem"} height={"4rem"} />
+          <SvgFooterWeb2 width={"8rem"} height={"3.5rem"} />
+        </div>
       </div>
     </footer>
   );
