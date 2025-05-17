@@ -27,14 +27,14 @@ const ContactList = ({ textLength }: ContactInfoRowProps) => {
   return (
     <>
       {slicedList.map(({ label, value, gapSize }) => (
-        <div key={label} className={styles.contactInfoRow({ gap: gapSize })}>
-          <p className={styles.contactTextStyle({ variant: "label" })}>
+        <ul key={label} className={styles.contactInfoRow({ gap: gapSize })}>
+          <li className={styles.contactTextStyle({ variant: "label" })}>
             {label}
-          </p>
-          <p className={styles.contactTextStyle({ variant: "value" })}>
+          </li>
+          <li className={styles.contactTextStyle({ variant: "value" })}>
             {value}
-          </p>
-        </div>
+          </li>
+        </ul>
       ))}
     </>
   );

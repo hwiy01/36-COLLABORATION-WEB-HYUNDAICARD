@@ -25,12 +25,12 @@ const LegalList = ({ listType }: LegalListProps) => {
   return (
     <>
       {data.map((item) => (
-        <p
+        <li
           key={item.content}
           className={styles.legalContent({ fontstyle: item.fontStyle })}
         >
           {item.content}
-        </p>
+        </li>
       ))}
     </>
   );
