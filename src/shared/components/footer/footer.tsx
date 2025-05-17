@@ -15,7 +15,7 @@ const Footer = ({ urlParameter }: footerProps) => {
 
   return (
     <footer className={styles.footerRoot}>
-      <div className={styles.footerSectionList}>
+      <section className={styles.footerSectionList}>
         <div className={styles.footerSection}>
           <div className={styles.contactInfoGroup({ gap: "sm" })}>
             <ContactList textLength={1} />
@@ -27,7 +27,7 @@ const Footer = ({ urlParameter }: footerProps) => {
             <ContactList textLength={6} />
           </div>
         </div>
-      </div>
+      </section>
       <ul className={styles.linkListContainer}>
         <LinkList />
       </ul>
@@ -36,7 +36,7 @@ const Footer = ({ urlParameter }: footerProps) => {
           <CorporateList />
         </ul>
       )}
-      <div className={styles.legalListContainer}>
+      <section className={styles.legalListContainer}>
         <ul className={styles.legalCategoryContainer}>
           <LegalList listType="category" />
         </ul>
@@ -47,7 +47,7 @@ const Footer = ({ urlParameter }: footerProps) => {
           <SvgFooterWeb1 width={"5.6rem"} height={"4rem"} />
           <SvgFooterWeb2 width={"8rem"} height={"3.5rem"} />
         </div>
-      </div>
+      </section>
     </footer>
   );
 };
