@@ -45,10 +45,11 @@ const ProgressBar = ({ activeIndex, onChange }: ProgressBarProps) => {
 
       <div className={styles.dotContainer}>
         {Array.from({ length: TOTAL }).map((_, i) => (
-          <div
-            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+          <button
             key={i}
-            className={`${styles.circle} ${i === activeIndex ? styles.active : ""}`}
+            type="button"
+            className={styles.dot({ active: i === activeIndex })}
+            onClick={() => onChange(i)}
           />
         ))}
       </div>
