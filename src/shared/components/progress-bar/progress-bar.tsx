@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as styles from "./progress-bar.css";
+import { AdPlay } from "../../../assets/svg";
+import { AdStop } from "../../../assets/svg";
 
 interface ProgressBarProps {
   activeIndex: number;
@@ -33,9 +35,14 @@ const ProgressBar = ({ activeIndex, onChange }: ProgressBarProps) => {
 
   return (
     <div className={styles.container}>
-      <button type="button" onClick={togglePlay}>
-        {playing ? "⏸ 중지" : "▶️ 재생"}
+      <button type="button" onClick={togglePlay} className={styles.iconButton}>
+        {playing ? (
+          <AdPlay width={"1.7rem"} height={"0.8rem"} />
+        ) : (
+          <AdStop width={"1.7rem"} height={"0.8rem"} />
+        )}
       </button>
+
       <div className={styles.dotContainer}>
         {Array.from({ length: TOTAL }).map((_, i) => (
           <div

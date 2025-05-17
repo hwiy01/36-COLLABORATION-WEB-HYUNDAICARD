@@ -6,6 +6,8 @@ import Router from "@/shared/router/router";
 import { BrowserRouter } from "react-router-dom";
 
 import ProgressBar from "./shared/components/progress-bar/progress-bar";
+//글로벌 스타일
+import "./styles/global.css";
 
 function App() {
   return (

@@ -13,14 +13,13 @@ export const container = style({
 
 export const dotContainer = style({
   display: "flex",
-  justifyContent: "center",
-  gap: "0.8rem",
-  marginTop: "1.2rem",
+  justifyContent: "space-between",
+  gap: "0.6rem",
 });
 
 export const circle = style({
-  width: "0.8rem",
-  height: "0.8rem",
+  width: "0.6rem",
+  height: "0.6rem",
   borderRadius: "50%",
   backgroundColor: color.gray300,
   transition: "background-color 300ms ease",
@@ -28,4 +27,13 @@ export const circle = style({
 
 export const active = style({
   backgroundColor: color.h_black,
+});
+
+export const iconButton = style({
+  background: "none",
+  border: "none",
+  cursor: "pointer",
+  padding: 0,
+  display: "flex",
+  alignItems: "center",
 });
