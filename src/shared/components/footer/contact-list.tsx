@@ -1,4 +1,4 @@
-import * as styles from "./contact-info-row.css";
+import * as styles from "./contact-list.css";
 
 type GapSize = "sm" | "md" | "lg";
 
@@ -19,7 +19,7 @@ type ContactInfoRowProps = {
   textLength?: number;
 };
 
-const ContactInfoRow = ({ textLength }: ContactInfoRowProps) => {
+const ContactList = ({ textLength }: ContactInfoRowProps) => {
   const slicedList = textLength
     ? CONTACT_INFO_LIST.slice(0, textLength)
     : CONTACT_INFO_LIST;
@@ -40,4 +40,4 @@ const ContactInfoRow = ({ textLength }: ContactInfoRowProps) => {
   );
 };
 
-export default ContactInfoRow;
+export default ContactList;
