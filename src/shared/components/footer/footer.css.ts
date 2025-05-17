@@ -64,6 +64,14 @@ export const linkListContainer = style({
   gap: "0.8rem",
 });
 
+export const corporateContainer = style({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  gap: "0.8rem",
+  alignSelf: "stretch",
+});
+
 export const legalListContainer = style({
   display: "flex",
   width: "100%",

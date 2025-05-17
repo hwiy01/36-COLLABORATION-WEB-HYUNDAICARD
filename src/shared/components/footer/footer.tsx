@@ -4,8 +4,15 @@ import * as styles from "./footer.css";
 import LegalList from "./legal-list";
 import LinkList from "./link-list";
 import SvgFooterWeb2 from "src/assets/svg/FooterWeb2";
+import CorporateList from "./corporate-list";
 
-const Footer = () => {
+interface footerProps {
+  urlParameter: string;
+}
+
+const Footer = ({ urlParameter }: footerProps) => {
+  const isCorporateVisible = urlParameter === "my";
+
   return (
     <footer className={styles.footerRoot}>
       <div className={styles.footerSectionList}>
@@ -24,6 +31,11 @@ const Footer = () => {
       <ul className={styles.linkListContainer}>
         <LinkList />
       </ul>
+      {isCorporateVisible && (
+        <ul className={styles.corporateContainer}>
+          <CorporateList />
+        </ul>
+      )}
       <div className={styles.legalListContainer}>
         <ul className={styles.legalCategoryContainer}>
           <LegalList listType="category" />
