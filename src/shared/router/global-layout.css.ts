@@ -5,7 +5,6 @@ export const globalLayoutContainer = style({
   flexDirection: "column",
   width: "100%",
   height: "100vh",
-  minHeight: "calc(100vh - 25rem)",
 });
 
 export const mainContent = style({
