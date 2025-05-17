@@ -11,7 +11,8 @@ interface footerProps {
 }
 
 const Footer = ({ urlParameter }: footerProps) => {
-  const isCorporateVisible = urlParameter === "my";
+  const isCorporateVisible = urlParameter === "/my";
+  console.log(urlParameter);
 
   return (
     <footer className={styles.footerRoot}>
