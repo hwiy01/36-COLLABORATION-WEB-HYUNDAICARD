@@ -10,8 +10,6 @@ import { useState } from "react";
 import { mockDropdownList } from "./shared/mocks/mock-dropdown-list";
 
 function App() {
-  const [temp, setTemp] = useState<string>(mockDropdownList[0].label);
-
   return (
     <>
       <QueryClientProvider client={queryClient}>
@@ -20,7 +18,6 @@ function App() {
             <Router />
           </ThemeProvider>
         </BrowserRouter>
-        <Dropdown content={'쇼핑/소비'} setSelectedItem={setTemp} dropdownList={mockDropdownList}/>
         <div style={{ fontSize: "16px" }}>
           <ReactQueryDevtools initialIsOpen={false} />
         </div>
