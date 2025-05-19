@@ -5,7 +5,7 @@ import ThemeProvider from "./styles/theme-provider";
 import Router from "@/shared/router/router";
 import { BrowserRouter } from "react-router-dom";
 
-import MainCard from "./shared/components/main-card/main-card";
+import MainCard from "./pages/my/components/main-card/main-card";
 
 function App() {
   return (
