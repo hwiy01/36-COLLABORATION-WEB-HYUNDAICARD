@@ -1,5 +1,6 @@
-// main-card.css.ts (vanilla-extract 기준 예시)
 import { style } from "@vanilla-extract/css";
+import { themeVars } from "src/styles";
+import { color } from "src/styles/tokens/color.css";
 
 // ✅ 클립 패스 값
 const clipPathValue =
@@ -23,7 +24,7 @@ export const cardInner = style({
 
 export const flipped = style({
   transform: "rotateY(180deg)",
-  zIndex: 0, // ✅ 즉시 바뀜
+  zIndex: 0,
 });
 
 export const front = style({
@@ -55,8 +56,8 @@ export const clipPathShape = style({
   height: "45.7rem",
   top: 0,
   left: 0,
-  clipPath: clipPathValue, // 예시 clip-path
-  background: "rgb(0,0,0)",
+  clipPath: clipPathValue,
+  background: color.h_black,
   zIndex: 2,
   display: "flex",
   justifyContent: "center",
@@ -64,8 +65,70 @@ export const clipPathShape = style({
 });
 
 export const overlayContent = style({
+  padding: "72rem auto auto 24rem",
   position: "relative",
   zIndex: 2,
+});
+
+// 카드 안에 내용
+export const clipPathContainer = style({
+  position: "relative",
+  width: "100%",
+  height: "100%",
+  clipPath: clipPathValue,
+  backgroundColor: color.h_black,
+  overflow: "hidden",
+});
+
+export const filterOverlay = style({
+  position: "absolute",
+  top: "5%",
+  left: "5%",
+  width: "90%",
+  backgroundColor: color.h_black,
+  borderRadius: "1rem",
+  padding: "1.6rem",
   color: "white",
-  fontWeight: "bold",
+  fontSize: "1.4rem",
+  display: "flex",
+  flexDirection: "column",
+  gap: "1.6rem",
+});
+
+export const titleSection = style({
+  display: "flex",
+  flexDirection: "column",
+});
+
+export const tagGrid = style({
+  display: "flex",
+  flexWrap: "wrap",
+  gap: "0.8rem",
+});
+
+export const tagItem = style({
+  padding: "0.6rem 1.2rem",
+  backgroundColor: "#fff",
+  color: "#000",
+  borderRadius: "1rem",
+  fontSize: "1.2rem",
+  fontWeight: 500,
+  whiteSpace: "nowrap",
+});
+
+export const keywordSection = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.4rem",
+});
+
+export const keywordHighlight = style({
+  color: color.h_primary_blue,
+  ...themeVars.fontStyles.head_extrabold_20,
+});
+
+export const text = style({
+  whiteSpace: "pre-line",
+  color: color.h_white,
+  ...themeVars.fontStyles.head_extrabold_12,
 });
