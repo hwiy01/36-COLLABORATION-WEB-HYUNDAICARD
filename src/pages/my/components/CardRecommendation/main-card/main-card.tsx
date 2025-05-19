@@ -20,7 +20,7 @@ const MainCard = ({ cardImage, children }: MainCardProps) => {
 
   return (
     <div
-      className={styles.cardWrapper}
+      className={styles.cardContainer}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
