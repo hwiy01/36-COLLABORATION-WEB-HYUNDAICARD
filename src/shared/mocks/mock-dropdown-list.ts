@@ -31,4 +31,4 @@ export const mockDropdownList = [
     label: "디지털 콘텐츠",
     value: "DIGITAL_CONTENTS",
   }
-];
+] as const;

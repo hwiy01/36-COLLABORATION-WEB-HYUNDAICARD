@@ -4,9 +4,9 @@ import Chip from "../chips/chip";
 import {
   dropdownItemStyle,
   dropdownListStyle,
-  clipPath3,
-  clipPath4,
-  clipPath8,
+  clipPathListLength8,
+  clipPathListLength4,
+  clipPathListLength3,
 } from "./dropdown.css";
 
 interface DropdownListItem {
@@ -31,9 +31,9 @@ export const Dropdown = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const getClipPathClass = (length: number) => {
-    if (length === 3) return clipPath3;
-    if (length === 4) return clipPath4;
-    if (length === 8) return clipPath8;
+    if (length === 3) { return clipPathListLength3 };
+    if (length === 4) { return clipPathListLength4 };
+    if (length === 8) { return clipPathListLength8 };
     return "";
   };
 
