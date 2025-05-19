@@ -123,7 +123,7 @@ export const fontStyles = {
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.minus1_20,
   },
-  body1_medium12: {
+  body1_medium_12: {
     fontFamily: appleFontFamily,
     fontSize: typography.fontSize.size_12,
     fontWeight: typography.fontWeight.medium,
