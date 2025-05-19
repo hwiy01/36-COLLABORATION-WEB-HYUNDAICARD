@@ -2,11 +2,11 @@ import { useState } from "react";
 import * as styles from "./main-card.css";
 
 interface MainCardProps {
-  frontImage: string;
-  backContent: React.ReactNode;
+  cardImage: string;
+  children: React.ReactNode;
 }
 
-const MainCard = ({ frontImage, backContent }: MainCardProps) => {
+const MainCard = ({ cardImage, children }: MainCardProps) => {
   const [isHover, setIsHover] = useState(false);
 
   return (
@@ -15,14 +15,24 @@ const MainCard = ({ frontImage, backContent }: MainCardProps) => {
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      <div className={`${styles.card} ${isHover ? styles.flipped : ""}`}>
+      {/* ✅ clip-path 도형 (고정 위치, 플립 영향 없음) */}
+      <div className={styles.clipPathShape}>
+        <div className={styles.overlayContent}>{children}</div>
+      </div>
+
+      {/* ✅ 플립 애니메이션 적용 대상 */}
+      <div className={`${styles.cardInner} ${isHover ? styles.flipped : ""}`}>
+        {/* 카드 앞면 */}
         <div className={styles.front}>
-          <img src={frontImage} alt="카드 앞면" className={styles.cardImage} />
+          <img src={cardImage} alt="카드 앞면" className={styles.cardImage} />
         </div>
-        <div className={styles.back}>{backContent}</div>
+
+        {/* 카드 뒷면 */}
+        <div className={styles.back}>
+          <img src={cardImage} alt="카드 뒷면" className={styles.cardImage} />
+        </div>
       </div>
     </div>
   );
 };
-
 export default MainCard;

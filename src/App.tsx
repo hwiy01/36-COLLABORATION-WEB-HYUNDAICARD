@@ -17,14 +17,12 @@ function App() {
           </ThemeProvider>
         </BrowserRouter>
         <div style={{ fontSize: "16px" }}>
-          <MainCard
-            frontImage="https://sopt-hyndai-card.s3.ap-northeast-2.amazonaws.com/card-thumbnails/card_boutique_velvet.svg"
-            backContent={
-              <div>
-                <p>적용된 필터</p>
-              </div>
-            }
-          />
+          <MainCard cardImage="https://sopt-hyndai-card.s3.ap-northeast-2.amazonaws.com/card-thumbnails/card_boutique_velvet.svg">
+            {/* overlayContent 영역 */}
+            <div>
+              <div>CHIP</div>
+            </div>
+          </MainCard>
           <ReactQueryDevtools initialIsOpen={false} />
         </div>
       </QueryClientProvider>
