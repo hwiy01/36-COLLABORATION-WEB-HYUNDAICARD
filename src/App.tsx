@@ -1,9 +1,9 @@
+import Router from "@/shared/router/router";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { BrowserRouter } from "react-router-dom";
 import { queryClient } from "./shared/utils/query-client";
 import ThemeProvider from "./styles/theme-provider";
-import Router from "@/shared/router/router";
-import { BrowserRouter } from "react-router-dom";
 
 import MainCard from "./pages/my/components/main-card/main-card";
 
