@@ -5,29 +5,28 @@ import { AdStop } from "../../../assets/svg";
 
 interface ProgressBarProps {
   activeIndex: number;
-  onChange: (newIndex: number) => void;
+  onChange: (newIndex: number | ((prev: number) => number)) => void;
 }
 
 const TOTAL = 6;
 const INTERVAL = 5000;
 
 const ProgressBar = ({ activeIndex, onChange }: ProgressBarProps) => {
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const timerRef = useRef<number | null>(null);
   const [playing, setPlaying] = useState(true);
 
   useEffect(() => {
     if (playing) {
       timerRef.current = setInterval(() => {
-        onChange((activeIndex + 1) % TOTAL);
+        onChange((prev) => (prev + 1) % TOTAL);
       }, INTERVAL);
     }
-
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
       }
     };
-  }, [playing, activeIndex, onChange]);
+  }, [playing, onChange]);
 
   const togglePlay = () => {
     setPlaying((prev) => !prev);
