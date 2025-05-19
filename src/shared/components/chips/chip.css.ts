@@ -76,6 +76,19 @@ export const otherModeStyle = styleVariants({
     fontSize: "1.3rem",
     letterSpacing: "-1.8%",
   },
+  dropdown: {
+    ...baseCssProps,
+    padding: "0",
+    backgroundColor: "black",
+    color: "white",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontWeight: "400",
+    lineHeight: "150%",
+    fontSize: "1.5rem",
+    height: "3.4rem",
+  }
 });
 
 export const baseFrame = style({
