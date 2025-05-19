@@ -9,5 +9,6 @@ export { default as IconSearch } from "./IconSearch";
 export { default as RightArrow } from "./RightArrow";
 export { default as SvgHyundaiLogo } from "./SvgHyundaiLogo";
 export { default as SvgHyunddaiSymbol } from "./SvgHyunddaiSymbol";
-
-export { default as RightArrow } from "./RightArrow";
+export { default as VectorStroke } from "./VectorStroke";
+export { default as AdPlay } from "./AdPlay";
+export { default as AdStop } from "./AdStop";
