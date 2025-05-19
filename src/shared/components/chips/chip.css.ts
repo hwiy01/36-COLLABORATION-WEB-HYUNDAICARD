@@ -1,4 +1,5 @@
 import { style, styleVariants } from "@vanilla-extract/css";
+import { themeVars } from "src/styles";
 import { color } from "src/styles/tokens/color.css";
 import { fontStyles } from "src/styles/tokens/font-styles.css";
 
@@ -61,13 +62,13 @@ export const otherModeStyle = styleVariants({
     justifyContent: "center",
     alignItems: "center",
     ...fontStyles.body1_medium_13,
-    color: color.gray800,
+    color: themeVars.color.gray800,
   },
   selected: {
     ...baseCssProps,
     padding: "0",
     backgroundColor: "black",
-    color: color.h_white,
+    color: themeVars.color.h_white,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -80,7 +81,7 @@ export const otherModeStyle = styleVariants({
     ...baseCssProps,
     padding: "0",
     backgroundColor: "black",
-    color: color.h_white,
+    color: themeVars.color.h_white,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

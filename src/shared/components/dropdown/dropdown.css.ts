@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
+import { themeVars } from "src/styles";
 import { color } from "src/styles/tokens/color.css";
-import { fontStyles } from "src/styles/tokens/font-styles.css";
 
 export const dropdownListStyle = style({
   padding: "0.1rem",
-  backgroundColor: color.h_black,
+  backgroundColor: themeVars.color.h_black,
   boxSizing: "border-box",
   width: "10.8rem",
   boxShadow: "2px 2px 4px 0px #0000001A",
@@ -19,7 +19,7 @@ export const dropdownItemStyle = style({
   cursor: "pointer",
   textAlign: "center",
   verticalAlign: "middle",
-  ...fontStyles.subtitle_semibold_14
+  ...themeVars.fontStyles.body1_medium_14,
 });
 
 // clip-path 분기
