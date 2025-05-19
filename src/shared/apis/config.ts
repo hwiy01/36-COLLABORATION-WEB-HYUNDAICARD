@@ -6,4 +6,4 @@ const client = createFetchClient<paths>({
   baseUrl: import.meta.env.VITE_API_BASE_URL,
 });
 
-export const $api = createClient(client); // 이 부분만 추가
+export const $api = createClient(client);
