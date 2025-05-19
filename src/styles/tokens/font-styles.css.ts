@@ -1,4 +1,3 @@
-import { themeVars } from "../theme.css";
 import { typography } from "./typography.css";
 
 const appleFontFamily =
