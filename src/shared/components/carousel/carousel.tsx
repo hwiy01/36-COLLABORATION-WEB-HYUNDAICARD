@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as styles from "./carousel.css.ts";
 import { IconLeftArrow, IconRightArrow } from "src/assets/svg";
 import { CarouselImageContainer } from "./carousel-image-container";
 import { useDrag } from "./use-drag.ts";
 
-const AUTO_SLIDE_INTERVAL = 5000;
+const AUTO_SLIDE_INTERVAL = 1000;
 
 export interface ImageItem {
   id: number;
@@ -20,101 +20,95 @@ interface CarouselProps {
   imgList: ImageItem[][];
 }
 
-export const Carousel: React.FC<CarouselProps> = ({
-  width,
-  height,
-  imgList,
-}) => {
-  const slideLength = imgList.length;
+export const Carousel = ({ width, height, imgList }: CarouselProps) => {
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [carouselTransition, setCarouselTransition] = useState('');
+  const [pause, setPause] = useState(false);
 
-  const [curIndex, setCurIndex] = useState<number>(0);
-  const [pause, setPause] = useState<boolean>(false);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  // 마지막에만 클론 이미지 추가 (무한 루프용)
+  const displayList = [imgList[imgList.length - 1], ...imgList, imgList[0]];
 
-  const movePrev = () => {
-    if (curIndex === 0) {
-      setCurIndex(slideLength - 1);
-    } else {
-      setCurIndex((prev) => Math.max(prev - 1));
-    }
+  // transition 없는 상태에서, fake 요소인 인덱스 0으로 이동
+  // 원래 transition이 500ms에 걸쳐서 일어났지만,
+  // 감지하기 힘들정도로 짧은 시간(10ms) 만에 transition 없이 clone 요소로 순간이동 -> 무한 스크롤처럼 보임
+  const resetIndexAndTransition = () => {
+    setTimeout(() => {
+      setCarouselIndex(0);
+      setCarouselTransition('none');
+    }, 5);
   };
 
-  const moveNext = () => {
-    setCurIndex((prev) => (prev + 1) % slideLength);
-  };
-
-  const { handleMouseDown, handleMouseMove, handleMouseUp } = useDrag(
-    moveNext,
-    movePrev,
-  );
-
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const controlTime = carouselTransition === 'none' ? 10 : AUTO_SLIDE_INTERVAL;
 
   useEffect(() => {
     if (!pause) {
-      intervalRef.current = setInterval(() => {
-        moveNext();
-      }, AUTO_SLIDE_INTERVAL);
-    } else {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
+      const timer = setInterval(() => {
+        if (carouselIndex === displayList.length - 2) {
+          resetIndexAndTransition();
+        }
+        setCarouselIndex((prev) => (prev + 1) % (displayList.length - 1));
+        setCarouselTransition('transform 0.5s ease-in-out');
+      }, controlTime);
+      return () => clearInterval(timer);
     }
+  }, [carouselIndex, controlTime, displayList.length, pause]);
 
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
+  const { handleMouseDown, handleMouseMove, handleMouseUp } = useDrag(
+    () => setCarouselIndex((prev) => prev + 1),
+    () => setCarouselIndex((prev) => Math.max(prev - 1, 0))
+  );
+
+  const getCarouselStyles = () => {
+    return {
+      transform: `translateX(-${carouselIndex * 100}%)`,
+      transition: `${carouselTransition}`,
     };
-  }, [curIndex, slideLength, pause]);
+  };
 
-  // [프로그래스 바]
-  // 정지 & 재생 함수 -> setPause
-  // 정지 상태 -> pause
-  // 인덱스 설정 함수 -> setCurIndex
+  const onMoveNext = () => {
+    if(carouselIndex === displayList.length - 1) {
+      resetIndexAndTransition();
+    } else {
+      setCarouselIndex((prev) => (prev + 1) % displayList.length);
+      setCarouselTransition('transform 0.5s ease-in-out');
+    }
+  }
+
+  const onMovePrev = () => {
+    if(carouselIndex === displayList.length - 1) {
+      resetIndexAndTransition();
+    } else {
+      setCarouselIndex(prev => prev - 1);
+    }
+  }
+
   return (
-    <>
+    <div
+      className={styles.container}
+      style={{ width: `${width}rem`, height: `${height}rem` }}
+    >
+      <button type="button" onClick={() => setCarouselIndex((prev) => Math.max(prev - 1, 0))} className={styles.leftArrow} style={{ zIndex: 5 }}>
+        <IconLeftArrow style={{ color: "white", width: "70px" }} />
+      </button>
+
       <div
-        className={styles.container}
-        style={{ width: `${width}rem`, height: `${height}rem` }}
+        className={styles.slider}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        style={getCarouselStyles()}
       >
-        <button
-          type="button"
-          onClick={movePrev}
-          className={styles.leftArrow}
-          style={{ zIndex: 5 }}
-        >
-          <IconLeftArrow style={{ color: "white", width: "70px" }} />
-        </button>
-        <div
-          ref={sliderRef}
-          className={styles.slider}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          style={{
-            transform: `translateX(-${curIndex * 100}%)`,
-            transition: "transform 150ms ease-in-out",
-          }}
-        >
-          {imgList.map((imageList, idx) => (
-            <div className={styles.slide} key={idx}>
-              <CarouselImageContainer imageList={imageList} />
-            </div>
-          ))}
-        </div>
-        <button
-          type="button"
-          onClick={moveNext}
-          className={styles.rightArrow}
-          style={{ zIndex: 2 }}
-        >
-          <IconRightArrow style={{ color: "white", height: "70px" }} />
-        </button>
+        {displayList.map((imageList, idx) => (
+          <div className={styles.slide} key={idx}>
+            <CarouselImageContainer imageList={imageList} />
+          </div>
+        ))}
       </div>
-    </>
+
+      <button type="button" onClick={() => setCarouselIndex((prev) => prev + 1)} className={styles.rightArrow} style={{ zIndex: 2 }}>
+        <IconRightArrow style={{ color: "white", height: "70px" }} />
+      </button>
+    </div>
   );
 };

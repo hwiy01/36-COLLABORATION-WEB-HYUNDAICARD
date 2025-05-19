@@ -4,6 +4,8 @@ import { queryClient } from "./shared/utils/query-client";
 import ThemeProvider from "./styles/theme-provider";
 import Router from "@/shared/router/router";
 import { BrowserRouter } from "react-router-dom";
+import { Carousel } from "./shared/components/carousel/carousel";
+import { mockImgList } from "./shared/mocks/mockImgList";
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         </BrowserRouter>
         <div style={{ fontSize: "16px" }}>
           <ReactQueryDevtools initialIsOpen={false} />
+          <Carousel width={94.4} height={37.5} imgList={mockImgList}/>
         </div>
       </QueryClientProvider>
     </>
