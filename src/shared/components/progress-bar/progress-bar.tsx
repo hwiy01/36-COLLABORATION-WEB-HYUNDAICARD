@@ -6,20 +6,22 @@ import { AdStop } from "../../../assets/svg";
 interface ProgressBarProps {
   activeIndex: number;
   onChange: (newIndex: number | ((prev: number) => number)) => void;
+  interval: number;
+  total: number;
 }
 
-const TOTAL = 6;
-const INTERVAL = 5000;
+// const TOTAL = 6;
+// const INTERVAL = 5000;
 
-const ProgressBar = ({ activeIndex, onChange }: ProgressBarProps) => {
+const ProgressBar = ({ activeIndex, onChange, interval, total }: ProgressBarProps) => {
   const timerRef = useRef<number | null>(null);
   const [playing, setPlaying] = useState(true);
 
   useEffect(() => {
     if (playing) {
       timerRef.current = setInterval(() => {
-        onChange((prev) => (prev + 1) % TOTAL);
-      }, INTERVAL);
+        onChange((prev) => (prev + 1) % total);
+      }, interval);
     }
     return () => {
       if (timerRef.current) {
@@ -43,7 +45,7 @@ const ProgressBar = ({ activeIndex, onChange }: ProgressBarProps) => {
       </button>
 
       <div className={styles.dotContainer}>
-        {Array.from({ length: TOTAL }).map((_, i) => (
+        {Array.from({ length: total }).map((_, i) => (
           <button
             key={i}
             type="button"

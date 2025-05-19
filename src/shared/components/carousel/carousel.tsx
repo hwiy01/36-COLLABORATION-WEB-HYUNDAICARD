@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as styles from "./carousel.css.ts";
-import { IconLeftArrow, IconRightArrow } from "src/assets/svg";
 import { CarouselImageContainer } from "./carousel-image-container";
 import { useDrag } from "./use-drag.ts";
-
-const AUTO_SLIDE_INTERVAL = 5000;
+import SvgIconRightArrow from "src/assets/svg/IconRightArrow.tsx";
+import SvgIconLeftArrow from "src/assets/svg/IconLeftArrow.tsx";
 
 export interface ImageItem {
   id: number;
@@ -18,39 +17,66 @@ interface CarouselProps {
   width: number;
   height: number;
   imgList: ImageItem[][];
+  interval: number;
+  displayIndex: number; // 클론 포함된 인덱스 (1 ~ N)
+  setCarouselIndex: React.Dispatch<React.SetStateAction<number>>; // displayIndex setter
+  onLogicalIndexChange: (logicalIndex: number) => void; // 0 ~ N-1
 }
 
-export const Carousel = ({ width, height, imgList }: CarouselProps) => {
-  const [carouselIndex, setCarouselIndex] = useState(1);
-  const [carouselTransition, setCarouselTransition] = useState(
-    "transform 0.5s ease-in-out",
-  );
+export const Carousel = ({
+  width,
+  height,
+  imgList,
+  interval,
+  displayIndex,
+  setCarouselIndex,
+  onLogicalIndexChange,
+}: CarouselProps) => {
+  const [carouselTransition, setCarouselTransition] = useState("transform 0.5s ease-in-out");
   const [pause, setPause] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   const isAnimatingRef = useRef<boolean>(false);
 
   const displayList = [imgList[imgList.length - 1], ...imgList, imgList[0]];
 
+  // ✅ 무한 슬라이드 루프 처리
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
 
     const handleTransitionEnd = () => {
-      if (carouselIndex === displayList.length - 1) {
+      const lastIdx = displayList.length - 2;
+      let logicalIdx = displayIndex - 1;
+    
+      if (displayIndex === displayList.length - 1) {
+        // 마지막 → 첫 번째 (복귀)
         setCarouselTransition("none");
-        requestAnimationFrame(() => setCarouselIndex(1));
-      }
-      if (carouselIndex === 0) {
+        requestAnimationFrame(() => {
+          setCarouselIndex(1);
+          requestAnimationFrame(() => {
+            setCarouselTransition("transform 0.5s ease-in-out");
+          });
+        });
+        logicalIdx = 0;
+      } else if (displayIndex === 0) {
+        // 첫 번째 → 마지막 (복귀)
         setCarouselTransition("none");
-        requestAnimationFrame(() => setCarouselIndex(displayList.length - 2));
+        requestAnimationFrame(() => {
+          setCarouselIndex(lastIdx);
+          requestAnimationFrame(() => {
+            setCarouselTransition("transform 0.5s ease-in-out");
+          });
+        });
+        logicalIdx = lastIdx - 1;
       }
+    
+      onLogicalIndexChange(logicalIdx);
       isAnimatingRef.current = false;
     };
 
     slider.addEventListener("transitionend", handleTransitionEnd);
-    return () =>
-      slider.removeEventListener("transitionend", handleTransitionEnd);
-  }, [carouselIndex, displayList.length]);
+    return () => slider.removeEventListener("transitionend", handleTransitionEnd);
+  }, [displayIndex, displayList.length, setCarouselIndex, onLogicalIndexChange]);
 
   useEffect(() => {
     if (!pause) {
@@ -60,10 +86,10 @@ export const Carousel = ({ width, height, imgList }: CarouselProps) => {
           setCarouselTransition("transform 0.5s ease-in-out");
           setCarouselIndex((prev) => prev + 1);
         }
-      }, AUTO_SLIDE_INTERVAL);
+      }, interval);
       return () => clearInterval(timer);
     }
-  }, [pause]);
+  }, [pause, interval, setCarouselIndex]);
 
   const { handleMouseDown, handleMouseMove, handleMouseUp } = useDrag(
     () => {
@@ -79,27 +105,27 @@ export const Carousel = ({ width, height, imgList }: CarouselProps) => {
         setCarouselTransition("transform 0.5s ease-in-out");
         setCarouselIndex((prev) => Math.max(prev - 1, 0));
       }
-    },
+    }
   );
 
-  const getCarouselStyles = () => ({
-    transform: `translateX(-${carouselIndex * 100}%)`,
-    transition: carouselTransition,
-  });
-
   const onMoveNext = () => {
-    if (isAnimatingRef.current) return;
+    if (isAnimatingRef.current) { return };
     isAnimatingRef.current = true;
     setCarouselTransition("transform 0.5s ease-in-out");
     setCarouselIndex((prev) => prev + 1);
   };
 
   const onMovePrev = () => {
-    if (isAnimatingRef.current) return;
+    if (isAnimatingRef.current) { return };
     isAnimatingRef.current = true;
     setCarouselTransition("transform 0.5s ease-in-out");
     setCarouselIndex((prev) => prev - 1);
   };
+
+  const getCarouselStyles = () => ({
+    transform: `translateX(-${displayIndex * 100}%)`,
+    transition: carouselTransition,
+  });
 
   return (
     <div
@@ -112,7 +138,7 @@ export const Carousel = ({ width, height, imgList }: CarouselProps) => {
         className={styles.leftArrow}
         style={{ zIndex: 5 }}
       >
-        <IconLeftArrow style={{ color: "white", width: "70px" }} />
+        <SvgIconLeftArrow style={{ color: "white", width: "70px" }} />
       </button>
 
       <div
@@ -129,7 +155,7 @@ export const Carousel = ({ width, height, imgList }: CarouselProps) => {
             <div className={styles.slide} key={idx}>
               <CarouselImageContainer imageList={imageList} />
             </div>
-          ) : null,
+          ) : null
         )}
       </div>
 
@@ -139,7 +165,7 @@ export const Carousel = ({ width, height, imgList }: CarouselProps) => {
         className={styles.rightArrow}
         style={{ zIndex: 2 }}
       >
-        <IconRightArrow style={{ color: "white", height: "70px" }} />
+        <SvgIconRightArrow style={{ color: "white", height: "70px" }} />
       </button>
     </div>
   );
