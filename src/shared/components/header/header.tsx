@@ -1,3 +1,4 @@
+import React from "react";
 import {
   IconApplepay,
   IconHamburge,
@@ -6,7 +7,6 @@ import {
   VectorStroke,
 } from "src/assets/svg";
 import * as styles from "./header.css";
-import React from "react";
 
 const MAIN_NAV_ITEMS = ["Account", "카드", "혜택", "금융", "컬처", "고객 지원"];
 const UTILITY_NAV_ITEMS = ["법인", "가맹점", "소비자보호 포털", "상품공지실"];
