@@ -5,8 +5,6 @@ import { BrowserRouter } from "react-router-dom";
 import { queryClient } from "./shared/utils/query-client";
 import ThemeProvider from "./styles/theme-provider";
 
-import CardRecommendation from "./pages/my/components/CardRecommendation/CardRecommendation";
-
 function App() {
   return (
     <>
@@ -14,7 +12,6 @@ function App() {
         <BrowserRouter>
           <ThemeProvider>
             <Router />
-            <CardRecommendation />
           </ThemeProvider>
         </BrowserRouter>
         <div style={{ fontSize: "16px" }}>

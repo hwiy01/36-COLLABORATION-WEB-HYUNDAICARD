@@ -118,5 +118,4 @@ export const cardBackgroundSvg = style({
   height: "100%",
   top: 0,
   left: 0,
-  padding: "72rem auto auto 24rem",
 });

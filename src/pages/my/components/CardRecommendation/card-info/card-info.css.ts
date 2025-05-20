@@ -2,16 +2,19 @@ import { style } from "@vanilla-extract/css";
 import { themeVars } from "src/styles";
 import { color } from "src/styles/tokens/color.css";
 
-export const cardInfoContainer = style({
+const flexColumn = {
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "column" as const,
+};
+
+export const cardInfoContainer = style({
+  ...flexColumn,
   justifyContent: "space-between",
   height: "45.7rem",
 });
 
 export const cardNameContainer = style({
-  display: "flex",
-  flexDirection: "column",
+  ...flexColumn,
   gap: "0.8rem",
 });
 
@@ -28,48 +31,49 @@ export const name = style({
 });
 
 export const benefitList = style({
-  display: "flex",
-  flexDirection: "column",
+  ...flexColumn,
   gap: "0.6rem",
 });
 
 export const benefit = style({
-  display: "flex",
-  flexDirection: "column",
+  ...flexColumn,
 });
 
 export const benefitDetail = style({
   whiteSpace: "pre-line",
   ...themeVars.fontStyles.subtitle_semibold_20,
-  color: themeVars.color.gray800,
+  color: color.gray800,
 });
 
 export const btnContainer = style({
-  display: "flex",
-  flexDirection: "column",
+  ...flexColumn,
   gap: "1.2rem",
 });
 
+const buttonBase = {
+  cursor: "pointer",
+  border: "none",
+  ...themeVars.fontStyles.title_bold_12,
+};
+
 export const annualfeeBtn = style({
+  ...buttonBase,
   width: "26.5rem",
   height: "5.9rem",
   display: "flex",
   alignItems: "center",
+  padding: "0 1.6rem",
   border: `1px solid ${color.gray200}`,
   borderRadius: "2.4rem",
   backgroundColor: color.h_white,
   color: color.h_black,
-  cursor: "pointer",
-  ...themeVars.fontStyles.title_bold_12,
-  padding: "0 1.6rem",
 });
 
 export const applyButton = style({
+  ...buttonBase,
   width: "8.0rem",
   height: "3.6rem",
+  borderRadius: "0.8rem",
   backgroundColor: color.h_black,
   color: color.h_white,
-  borderRadius: "0.8rem",
-  cursor: "pointer",
-  ...themeVars.fontStyles.title_bold_12,
 });
