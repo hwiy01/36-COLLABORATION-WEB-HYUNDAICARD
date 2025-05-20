@@ -27,12 +27,11 @@ export const dropdownContainer = style({
   display: "flex",
   flexDirection: "row",
   gap: "0.8rem",
-  position: "relative", // 각 드롭다운의 절대위치 기준
-  zIndex: 10, // 기본 zIndex
+  position: "relative",
+  zIndex: 10,
 });
 
-// selected-tag.css.ts
 export const tagContainer = style({
-  zIndex: 0, // 드롭다운보다 뒤로 가게
-  position: "relative", // 필요 시 추가
+  zIndex: 0,
+  position: "relative",
 });

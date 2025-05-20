@@ -10,7 +10,7 @@ const SelectedTag = ({ tags, onRemove }: SelectedTagProps) => {
   const isOverLimit = tags.length >= 6;
 
   return (
-    <div className={styles.selectedWrapper}>
+    <div className={styles.selectedContainer}>
       <div className={styles.labelRow}>
         <p className={styles.label}>내가 선택한 혜택</p>
         <p className={isOverLimit ? styles.limitRed : styles.limitGray}>

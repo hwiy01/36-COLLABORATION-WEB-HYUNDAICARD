@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { themeVars } from "src/styles";
 import { color } from "src/styles/tokens/color.css";
 
-export const selectedWrapper = style({
+export const selectedContainer = style({
   display: "flex",
   flexDirection: "column",
   gap: "1.2rem",
