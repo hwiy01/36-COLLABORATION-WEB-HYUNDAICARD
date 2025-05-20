@@ -8,6 +8,8 @@ export const dropdownOptions = [
       { label: "온라인 페이", value: "online_pay" },
       { label: "크레딧", value: "credit" },
       { label: "바우처", value: "voucher" },
+      { label: "배달앱", value: "delivery_app" },
+      { label: "디지털콘텐츠", value: "digital_content" },
     ],
   },
   {

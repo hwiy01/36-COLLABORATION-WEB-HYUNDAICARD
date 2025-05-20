@@ -11,18 +11,28 @@ export const container = style({
   padding: "3.2rem 4.8rem 0rem 3.2rem",
   backgroundColor: color.h_black,
   borderRadius: "1.4em",
-  overflow: "hidden",
 });
 
 export const left = style({
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
   gap: "2.4rem",
+});
+export const right = style({
+  height: "100%",
+  overflow: "hidden",
 });
 
 export const dropdownContainer = style({
   display: "flex",
   flexDirection: "row",
   gap: "0.8rem",
+  position: "relative", // 각 드롭다운의 절대위치 기준
+  zIndex: 10, // 기본 zIndex
+});
+
+// selected-tag.css.ts
+export const tagContainer = style({
+  zIndex: 0, // 드롭다운보다 뒤로 가게
+  position: "relative", // 필요 시 추가
 });
