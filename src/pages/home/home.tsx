@@ -1,5 +1,11 @@
+import OneYourCardContainer from "./one-your-card/one-your-card-container";
+
 const Home = () => {
-  return <div></div>;
+  return (
+    <div>
+      <OneYourCardContainer />
+    </div>
+  );
 };
 
 export default Home;
