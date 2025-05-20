@@ -1,7 +1,7 @@
 import * as styles from "./header.css";
 
 interface HeaderProps {
-  highlightText: string; // 예: "프리미엄 소비"
+  highlightText: string;
 }
 
 const Header = ({ highlightText }: HeaderProps) => {
