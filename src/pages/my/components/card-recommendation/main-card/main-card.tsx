@@ -1,8 +1,7 @@
 import { useState } from "react";
 import * as styles from "./main-card.css";
 import Chip from "src/shared/components/chips/chip";
-import { ImageCardBackground } from "src/assets/svg"; // 이것도 도형으로 바꿀 예정..
-import { ImageCardFront } from "src/assets/svg"; // 이건 테스트용 이미지 url로 바꿀거
+import { ImageCardFront } from "src/assets/svg"; // 이건 테스트용 이미지 url로 바꿀거 ->cardImage
 
 interface MainCardProps {
   cardImage: string;
@@ -24,8 +23,6 @@ const MainCard = ({ cardImage, selectedFilters }: MainCardProps) => {
     >
       {/* clip-path 도형 (고정 위치, 플립 영향 없음) */}
       <div className={styles.clipPathShape}>
-        <ImageCardBackground className={styles.cardBackgroundSvg} />
-
         <div className={styles.overlayContent}>
           <div className={styles.titleSection}>
             <p className={styles.text}>{"적용된 필터\n한눈에 보기"}</p>
