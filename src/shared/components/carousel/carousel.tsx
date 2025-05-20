@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import * as styles from "./carousel.css";
 import { CarouselImageContainer } from "./carousel-image-container";
 import { useDrag } from "./use-drag";
-import SvgIconRightArrow from "src/assets/svg/IconRightArrow.tsx";
-import SvgIconLeftArrow from "src/assets/svg/IconLeftArrow.tsx";
+import SvgIconRightArrow from "src/assets/svg/IconRightArrow";
+import SvgIconLeftArrow from "src/assets/svg/IconLeftArrow";
+import clsx from "clsx";
 
 export interface ImageItem {
   id: number;
@@ -14,8 +15,7 @@ export interface ImageItem {
 }
 
 interface CarouselProps {
-  width: number;
-  height: number;
+  size?: keyof typeof styles.containerSize; // medium | small | large
   imgList: ImageItem[][];
   displayIndex: number;
   onMoveNext: () => void;
@@ -25,8 +25,7 @@ interface CarouselProps {
 }
 
 export const Carousel = ({
-  width,
-  height,
+  size,
   imgList,
   displayIndex,
   onMoveNext,
@@ -42,13 +41,13 @@ export const Carousel = ({
     transition: transitionStyle,
   });
 
-  const { handleMouseDown, handleMouseMove, handleMouseUp } = useDrag(onMoveNext, onMovePrev);
+  const { handleMouseDown, handleMouseMove, handleMouseUp } = useDrag(
+    onMoveNext,
+    onMovePrev
+  );
 
   return (
-    <div
-      className={styles.container}
-      style={{ width: `${width}rem`, height: `${height}rem` }}
-    >
+    <div className={clsx(styles.containerBase, styles.containerSize[size ?? "large"])}>
       <button type="button" onClick={onMovePrev} className={styles.leftArrow}>
         <SvgIconLeftArrow style={{ color: "white", width: "7rem" }} />
       </button>

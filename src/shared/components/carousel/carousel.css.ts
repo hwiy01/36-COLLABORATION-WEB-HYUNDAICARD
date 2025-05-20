@@ -1,9 +1,16 @@
-import { style } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 
-export const container = style({
+export const containerBase = style({
   position: "relative",
   overflow: "hidden",
-  padding: "1rem 0rem 1rem 0rem",
+  padding: "1rem 0",
+});
+
+export const containerSize = styleVariants({
+  large: {
+    width: "94.4rem",
+    height: "37.5rem",
+  }
 });
 
 export const slider = style({
@@ -49,22 +56,22 @@ export const quarterImage = style([
 
 export const leftArrow = style({
   position: "absolute",
-  left: "0%",
+  left: 0,
   top: "50%",
   transform: "translateY(-50%)",
   cursor: "pointer",
   background: "none",
   border: "none",
-  zIndex: "1",
+  zIndex: 1,
 });
 
 export const rightArrow = style({
   position: "absolute",
-  right: "0%",
+  right: 0,
   top: "50%",
   transform: "translateY(-50%)",
   cursor: "pointer",
   background: "none",
   border: "none",
-  zIndex: "1",
+  zIndex: 1,
 });

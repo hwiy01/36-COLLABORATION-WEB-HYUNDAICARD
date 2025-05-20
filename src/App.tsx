@@ -25,7 +25,6 @@ function App() {
  * @property {(displayIndex: number) => void} handleTransitionEnd - 트랜지션 종료 후 index 보정 처리
  * @property {React.MutableRefObject<boolean>} isAnimatingRef - 현재 캐러셀이 애니메이션 중인지 여부를 나타내는 ref
  */
-
   const {
     displayIndex,
     progressbarIndex,
@@ -45,8 +44,7 @@ function App() {
           <Router />
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "10rem"}}>
             <Carousel
-              width={94.4}
-              height={37.5}
+              size={"large"}
               imgList={mockImgList}
               displayIndex={displayIndex}
               onMoveNext={onMoveNext}
