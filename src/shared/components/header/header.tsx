@@ -18,7 +18,9 @@ const Header = () => {
         <SvgHyundaiLogo width={"15.5rem"} height={"4.3rem"} />
         <div className={styles.leftItemContainer}>
           {MAIN_NAV_ITEMS.map((item) => (
-            <p key={item}>{item}</p>
+            <a className={styles.mainItems} key={item}>
+              {item}
+            </a>
           ))}
           <VectorStroke width={"0.1rem"} height={"1.8rem"} />
           <IconApplepay width={"5rem"} height={"2.1rem"} />
