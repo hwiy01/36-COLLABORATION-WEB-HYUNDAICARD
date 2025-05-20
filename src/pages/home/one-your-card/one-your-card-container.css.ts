@@ -20,3 +20,9 @@ export const left = style({
   justifyContent: "space-between",
   gap: "2.4rem",
 });
+
+export const dropdownContainer = style({
+  display: "flex",
+  flexDirection: "row",
+  gap: "0.8rem",
+});
