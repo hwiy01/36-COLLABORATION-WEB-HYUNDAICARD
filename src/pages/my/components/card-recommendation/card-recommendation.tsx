@@ -1,7 +1,7 @@
 import MainCard from "./main-card/main-card";
 import Header from "./header/header";
 import CardInfo from "./card-info/card-info";
-import * as styles from "./CardRecommendation.css";
+import * as styles from "./card-recommendation.css";
 
 interface CardRecommendationProps {
   highlightText: string;
