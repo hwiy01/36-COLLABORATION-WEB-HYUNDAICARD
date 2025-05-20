@@ -36,20 +36,18 @@ export const Carousel = ({
   const [pause, setPause] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   const isAnimatingRef = useRef<boolean>(false);
+  const displayList = [imgList[imgList.length - 1], ...imgList, imgList[0]]; // 실제 보여지는 리스트 (클론 포함)
 
-  const displayList = [imgList[imgList.length - 1], ...imgList, imgList[0]];
-
-  // ✅ 무한 슬라이드 루프 처리
   useEffect(() => {
     const slider = sliderRef.current;
-    if (!slider) return;
+    if (!slider) { return };
 
     const handleTransitionEnd = () => {
       const lastIdx = displayList.length - 2;
       let logicalIdx = displayIndex - 1;
     
       if (displayIndex === displayList.length - 1) {
-        // 마지막 → 첫 번째 (복귀)
+        // 마지막 -> 첫번째 이동 시 클론으로 순간이동
         setCarouselTransition("none");
         requestAnimationFrame(() => {
           setCarouselIndex(1);
@@ -59,7 +57,7 @@ export const Carousel = ({
         });
         logicalIdx = 0;
       } else if (displayIndex === 0) {
-        // 첫 번째 → 마지막 (복귀)
+        // 첫 번째 -> 마지막 이동 시 클론으로 순간이동
         setCarouselTransition("none");
         requestAnimationFrame(() => {
           setCarouselIndex(lastIdx);
@@ -80,6 +78,7 @@ export const Carousel = ({
 
   useEffect(() => {
     if (!pause) {
+      // 5초마다 슬라이드 이동
       const timer = setInterval(() => {
         if (!isAnimatingRef.current) {
           isAnimatingRef.current = true;

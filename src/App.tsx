@@ -10,10 +10,10 @@ import ProgressBar from "./shared/components/progress-bar/progress-bar";
 import { useState } from "react";
 
 function App() {
-  const INTERVAL = 5000;
+  const INTERVAL = 5000; 
   const TOTAL = mockImgList.length;
-  const [logicalIndex, setLogicalIndex] = useState(0);
-  const [displayIndex, setDisplayIndex] = useState(1); 
+  const [logicalIndex, setLogicalIndex] = useState(0); // progressbar에서 이용할 인덱스
+  const [displayIndex, setDisplayIndex] = useState(1); // carousel에서 클론이 추가된 인덱스
 
   return (
     <QueryClientProvider client={queryClient}>
