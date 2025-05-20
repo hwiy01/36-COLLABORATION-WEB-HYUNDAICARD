@@ -80,7 +80,7 @@ export const otherModeStyle = styleVariants({
   dropdown: {
     ...baseCssProps,
     padding: "0",
-    backgroundColor: "black",
+    backgroundColor: themeVars.color.h_black,
     color: themeVars.color.h_white,
     display: "flex",
     justifyContent: "center",

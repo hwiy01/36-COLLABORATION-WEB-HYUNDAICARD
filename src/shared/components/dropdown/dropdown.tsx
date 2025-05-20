@@ -3,10 +3,11 @@ import { useEffect, useRef, useState } from "react";
 import Chip from "../chips/chip";
 import {
   dropdownItemStyle,
-  dropdownListStyle,
   clipPathListLength8,
   clipPathListLength4,
   clipPathListLength3,
+  dropdownListBaseFrame,
+  dropdownListInnerFrame,
 } from "./dropdown.css";
 
 interface DropdownListItem {
@@ -62,21 +63,23 @@ export const Dropdown = ({
         dropdownFlag={dropdownOpen}
         handleClickDropdown={() => setDropdownOpen((prev) => !prev)}
       />
-      {dropdownOpen && (
-        <ul
-          className={`${dropdownListStyle} ${getClipPathClass(dropdownList.length)}`}
-        >
-          {dropdownList.map((item) => (
-            <li
-              key={item.value}
-              className={dropdownItemStyle}
-              onClick={() => handleClickItem(item)}
-            >
-              {item.label}
-            </li>
-          ))}
-        </ul>
-      )}
+        {dropdownOpen && (
+          <div className={`${dropdownListBaseFrame} ${getClipPathClass(dropdownList.length)}`}>
+            <ul
+              className={`${dropdownListInnerFrame} ${getClipPathClass(dropdownList.length)}`}>
+              {dropdownList.map((item) => (
+                <li
+                  key={item.value}
+                  className={dropdownItemStyle}
+                  onClick={() => handleClickItem(item)}
+                >
+                  {item.label}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
     </div>
   );
 };
