@@ -55,6 +55,7 @@ export const leftArrow = style({
   cursor: "pointer",
   background: "none",
   border: "none",
+  zIndex: "1",
 });
 
 export const rightArrow = style({
@@ -65,4 +66,5 @@ export const rightArrow = style({
   cursor: "pointer",
   background: "none",
   border: "none",
+  zIndex: "1",
 });
