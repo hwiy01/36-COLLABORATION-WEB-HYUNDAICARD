@@ -82,7 +82,7 @@ export const otherModeStyle = styleVariants({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontWeight: "00",
+    fontWeight: "400",
     lineHeight: "150%",
     fontSize: "1.3rem",
     letterSpacing: "-1.8%",

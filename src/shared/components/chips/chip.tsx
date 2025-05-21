@@ -68,7 +68,7 @@ const Chip = ({
         onClick={handleClickFilter}
         type="button"
       >
-        <section className={`${filterInnerFrame} ${frameSizes[size]}`}>
+        <section className={`${frameSizes[size]} ${filterInnerFrame}`}>
           <div>{content}</div>
         </section>
       </button>
