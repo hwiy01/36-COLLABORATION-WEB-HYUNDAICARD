@@ -20,15 +20,26 @@ const Header = () => {
   const handleCardHover = (isHovering: boolean) => {
     setIsCardHovered(isHovering);
   };
-  const handleItemClick = () => {
-    navigate(routePath.MY);
+  const handleItemClick = (path: string) => {
+    switch (path) {
+      case "home":
+        navigate(routePath.HOME);
+        break;
+      case "my":
+        navigate(routePath.MY);
+        break;
+    }
   };
 
   return (
     <>
       <header className={styles.headerContainer}>
         <div className={styles.headerLeftContainer}>
-          <SvgHyundaiLogo width={"15.5rem"} height={"4.3rem"} />
+          <SvgHyundaiLogo
+            width={"15.5rem"}
+            height={"4.3rem"}
+            onClick={() => handleItemClick("home")}
+          />
           <div className={styles.leftItemContainer}>
             {MAIN_NAV_ITEMS.map((item) => (
               <a
@@ -64,7 +75,7 @@ const Header = () => {
           onMouseEnter={() => handleCardHover(true)}
           onMouseLeave={() => handleCardHover(false)}
         >
-          <SubContent onClick={handleItemClick} />
+          <SubContent onClick={() => handleItemClick("my")} />
         </div>
       )}
     </>

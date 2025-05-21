@@ -18,6 +18,7 @@ export const headerLeftContainer = style({
   alignItems: "center",
   height: "100%",
   gap: "4rem",
+  cursor: "pointer",
 });
 
 export const headerRightContainer = style({
