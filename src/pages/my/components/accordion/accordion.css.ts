@@ -34,7 +34,6 @@ export const tagsContainer = style({
   display: "flex",
   gap: "8px",
   flexWrap: "wrap",
-  paddingBottom: "1.6rem",
   overflow: "hidden",
 });
 
@@ -43,18 +42,22 @@ const openAccordion = keyframes({
     maxHeight: "0",
     opacity: 0,
     overflow: "hidden",
+    paddingBottom: "0",
   },
   "30%": {
     opacity: 0.3,
     overflow: "hidden",
+    paddingBottom: "0.48rem",
   },
   "60%": {
     opacity: 0.6,
     overflow: "hidden",
+    paddingBottom: "1rem",
   },
   "100%": {
     maxHeight: "100vh",
     opacity: 1,
+    paddingBottom: "1.6rem",
   },
 });
 
@@ -62,13 +65,24 @@ const closeAccordion = keyframes({
   "0%": {
     maxHeight: "100vh",
     overflow: "hidden",
+    paddingBottom: "1.6rem",
+  },
+  "25%": {
+    overflow: "hidden",
+    paddingBottom: "1.2rem",
   },
   "50%": {
     overflow: "hidden",
+    paddingBottom: "0.8rem",
+  },
+  "75%": {
+    overflow: "hidden",
+    paddingBottom: "0.4rem",
   },
   "100%": {
     opacity: 0,
     maxHeight: "0",
+    paddingBottom: "0",
   },
 });
 

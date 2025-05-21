@@ -48,6 +48,7 @@ export const useTagFilter = () => {
     }
   }, [searchParams]);
 
+  // 클릭하는 Tag의 id값으로 탐색 후 selected mode로 변경
   const toggleTag = (categoryIndex: number, tagId: string) => {
     setTags((prevTagsState) =>
       prevTagsState.map((category, idx) => {
