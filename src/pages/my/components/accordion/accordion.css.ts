@@ -28,9 +28,10 @@ export const headerTitle = style({
 });
 
 export const tagsContainer = style({
+  width: "100%",
   boxSizing: "border-box",
   padding: "0rem 4rem 0rem 4rem",
   display: "flex",
   gap: "8px",
-  whiteSpace: "nowrap",
+  flexWrap: "wrap",
 });

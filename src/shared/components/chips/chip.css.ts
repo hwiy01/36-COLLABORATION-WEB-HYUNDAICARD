@@ -108,7 +108,6 @@ export const baseFrame = style({
 
 export const filterBaseFrame = style({
   clipPath: clipPathValue,
-  width: sizeWidths.small,
   padding: "0.1rem",
   backgroundColor: color.gray200,
 });
