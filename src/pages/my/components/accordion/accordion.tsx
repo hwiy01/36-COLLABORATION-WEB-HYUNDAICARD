@@ -1,6 +1,7 @@
 import Chip from "@/shared/components/chips/chip";
 import {} from "@/shared/components/chips/chip.css";
 import { useAccordion } from "@/shared/hooks/accordion/use-accordion";
+import type { Tag } from "@/shared/mocks/mock-tags";
 import { IconArrowUp } from "src/assets/svg";
 import {
   accordionContainer,
@@ -13,10 +14,13 @@ import {
 
 interface accordionProps {
   title: string;
+  tags: Tag[];
+  onTagClick: (tagId: string) => void;
 }
 
-const Accordion = ({ title }: accordionProps) => {
+const Accordion = ({ title, tags, onTagClick }: accordionProps) => {
   const { isOpen, toggle } = useAccordion(true);
+
   return (
     <div className={accordionContainer}>
       <button className={accordionHeader} onClick={toggle} type="button">
@@ -26,14 +30,16 @@ const Accordion = ({ title }: accordionProps) => {
       <section
         className={`${tagsContainer} ${isOpen ? tagsContainerOpen : tagsContainerClosed}`}
       >
-        <Chip mode="filter" content="온라인 쇼핑" />
-        <Chip mode="filter" content="온라인 페이" />
-        <Chip mode="filter" content="크레딧" />
-        <Chip mode="filter" content="바우처" />
-        <Chip mode="filter" content="어디서나 적립/할인" />
-        <Chip mode="filter" content="오프라인 쇼핑" />
-        <Chip mode="filter" content="디지털 콘텐츠" />
-        <Chip mode="filter" content="배달 앱" />
+        {tags.map((tag) => (
+          <Chip
+            key={tag.id}
+            mode={tag.isSelected ? "selected" : "filter"}
+            content={tag.name}
+            handleClickFilter={() => {
+              onTagClick(tag.id);
+            }}
+          />
+        ))}
       </section>
     </div>
   );

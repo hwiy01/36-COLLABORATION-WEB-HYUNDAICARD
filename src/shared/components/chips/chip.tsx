@@ -21,6 +21,7 @@ interface ChipProps {
   contentStyle?: string;
   handleClickCloseBtn?: () => void;
   handleClickDropdown?: () => void;
+  handleClickFilter?: () => void;
 }
 /**
  *
@@ -37,6 +38,7 @@ const Chip = ({
   dropdownFlag,
   handleClickCloseBtn,
   handleClickDropdown,
+  handleClickFilter,
 }: ChipProps) => {
   const size = getSizeByContent(content, mode);
   console.log(content, size);
@@ -64,7 +66,7 @@ const Chip = ({
     return (
       <button
         className={`${filterBaseFrame} ${frameSizes[size]}`}
-        onClick={handleClickDropdown}
+        onClick={handleClickFilter}
         type="button"
       >
         <section className={`${filterInnerFrame} ${frameSizes[size]}`}>
@@ -75,7 +77,11 @@ const Chip = ({
   }
 
   return (
-    <section className={`${frameSizes[size]} ${otherModeStyle[mode]}`}>
+    <button
+      className={`${frameSizes[size]} ${otherModeStyle[mode]}`}
+      onClick={mode === "selected" ? handleClickFilter : () => {}}
+      type="button"
+    >
       <p>{content}</p>
       {mode === "input" && (
         <button
@@ -86,7 +92,7 @@ const Chip = ({
           <IconClose stroke={color.h_primary_blue} width={24} height={24} />
         </button>
       )}
-    </section>
+    </button>
   );
 };
 
