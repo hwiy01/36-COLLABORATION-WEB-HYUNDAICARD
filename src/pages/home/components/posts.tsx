@@ -1,12 +1,12 @@
 import MainEvent from "@/shared/components/main-event/main-event";
-import * as styls from "./post.css";
+import * as styles from "./post.css";
 import { useGetPosts } from "../hooks/get-posts";
 
 const Posts = () => {
   const { data } = useGetPosts();
 
   return (
-    <div className={styls.postContainer}>
+    <div className={styles.postContainer}>
       {data.map((post, idx) => (
         <MainEvent
           key={idx}
