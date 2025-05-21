@@ -1,8 +1,8 @@
 import Chip from "@/shared/components/chips/chip";
 import {} from "@/shared/components/chips/chip.css";
 import { useAccordion } from "@/shared/hooks/accordion/use-accordion";
-import type { Tag } from "@/shared/mocks/mock-tags";
 import { IconArrowUp } from "src/assets/svg";
+import type { TagWithIsSelected } from "../../my";
 import {
   accordionContainer,
   accordionHeader,
@@ -14,13 +14,12 @@ import {
 
 interface accordionProps {
   title: string;
-  tags: Tag[];
+  tags: TagWithIsSelected[];
   onTagClick: (tagId: string) => void;
 }
 
 const Accordion = ({ title, tags, onTagClick }: accordionProps) => {
   const { isOpen, toggle } = useAccordion(true);
-
   return (
     <div className={accordionContainer}>
       <button className={accordionHeader} onClick={toggle} type="button">
@@ -30,13 +29,14 @@ const Accordion = ({ title, tags, onTagClick }: accordionProps) => {
       <section
         className={`${tagsContainer} ${isOpen ? tagsContainerOpen : tagsContainerClosed}`}
       >
-        {tags.map((tag) => (
+        {!tags && null}
+        {tags?.map((tag) => (
           <Chip
-            key={tag.id}
+            key={tag.tagId}
             mode={tag.isSelected ? "selected" : "filter"}
             content={tag.name}
             handleClickFilter={() => {
-              onTagClick(tag.id);
+              onTagClick(tag.tagId);
             }}
           />
         ))}

@@ -41,7 +41,6 @@ const Chip = ({
   handleClickFilter,
 }: ChipProps) => {
   const size = getSizeByContent(content, mode);
-  console.log(content, size);
 
   if (mode === "dropdown") {
     return (
