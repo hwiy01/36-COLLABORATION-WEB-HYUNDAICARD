@@ -24,7 +24,7 @@ const Accordion = ({ title, tags, onTagClick }: accordionProps) => {
     <div className={accordionContainer}>
       <button className={accordionHeader} onClick={toggle} type="button">
         <h3 className={headerTitle}>{title}</h3>
-        <IconArrowUp width={"3.2rem"} height={"3.2rem"} stroke={"#000000"} />
+        <IconArrowUp width={"3.2rem"} height={"3.2rem"} stroke={"#363030"} />
       </button>
       <section
         className={`${tagsContainer} ${isOpen ? tagsContainerOpen : tagsContainerClosed}`}
@@ -34,9 +34,9 @@ const Accordion = ({ title, tags, onTagClick }: accordionProps) => {
           <Chip
             key={tag.tagId}
             mode={tag.isSelected ? "selected" : "filter"}
-            content={tag.name}
+            content={tag.name ?? ""}
             handleClickFilter={() => {
-              onTagClick(tag.tagId);
+              onTagClick(tag.tagId ?? "");
             }}
           />
         ))}

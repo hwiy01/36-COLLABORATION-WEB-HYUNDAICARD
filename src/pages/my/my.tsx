@@ -39,9 +39,9 @@ const My = () => {
       setTags((prevTags) =>
         prevTags.map((item) => ({
           ...item,
-          tags: item.tags.map((tag) => ({
+          tags: (item.tags ?? []).map((tag) => ({
             ...tag,
-            isSelected: selectedTagIds.includes(tag.name),
+            isSelected: selectedTagIds.includes(tag.name ?? ""),
           })),
         })),
       );
@@ -54,7 +54,7 @@ const My = () => {
         if (categoryIndex === idx) {
           return {
             ...category,
-            tags: category.tags.map((tag) =>
+            tags: (category.tags ?? []).map((tag) =>
               tag.tagId === tagId
                 ? { ...tag, isSelected: !tag.isSelected }
                 : tag,
@@ -67,12 +67,11 @@ const My = () => {
   };
   return (
     <div style={{ width: "26.6rem" }}>
-      {!tagData && <div>ㄴ</div>}
       {tags.map((item, categoryIdx) => (
         <Accordion
-          key={item?.category}
-          title={item?.category}
-          tags={item?.tags}
+          key={item.category}
+          title={item.category ?? ""}
+          tags={item.tags ?? []}
           onTagClick={(tagId: string) => toggleTag(categoryIdx, tagId)}
         />
       ))}
