@@ -8,6 +8,7 @@ export { default as IconArrowDown } from "./IconArrowDown";
 export { default as IconArrowUp } from "./IconArrowUp";
 export { default as IconClose } from "./IconClose";
 export { default as IconHamburge } from "./IconHamburge";
+export { default as IconInitialization } from "./IconInitialization";
 export { default as IconSearch } from "./IconSearch";
 export { default as ImgEvent1 } from "./ImgEvent1";
 export { default as RightArrow } from "./RightArrow";

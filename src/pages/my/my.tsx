@@ -1,7 +1,7 @@
+import OwnYourCard from "../own-your-card/own-your-card";
+
 const My = () => {
-  return (
-    <div>하이하이하이하이하이하이하이하이하이하이하이하이하이하이하이하이</div>
-  );
+  return <OwnYourCard />;
 };
 
 export default My;

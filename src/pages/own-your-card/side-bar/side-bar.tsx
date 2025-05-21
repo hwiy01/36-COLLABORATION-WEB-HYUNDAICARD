@@ -1,11 +1,23 @@
-import { sideBarContainer, sideBarHeader } from "./side-bar.css";
+import SvgIconInitialization from "src/assets/svg/IconInitialization";
+import {
+  resetBtnStyle,
+  resetBtnText,
+  sideBarContainer,
+  sideBarHeader,
+  sideBarHeaderTitle,
+} from "./side-bar.css";
 
 const SideBar = () => {
   return (
     <aside className={sideBarContainer}>
       <section className={sideBarHeader}>
-        <p>내게맞는카드찾기</p>
-        <button>{`초기화`}</button>
+        <p className={sideBarHeaderTitle}>내게맞는카드찾기</p>
+        <button className={resetBtnStyle} type="button">
+          <div>
+            <SvgIconInitialization width={"1.6rem"} height={"1.6rem"} />
+          </div>
+          <p className={resetBtnText}>초기화</p>
+        </button>
       </section>
     </aside>
   );
