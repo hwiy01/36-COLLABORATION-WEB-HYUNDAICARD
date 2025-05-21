@@ -7,18 +7,14 @@ import ThemeProvider from "./styles/theme-provider";
 
 function App() {
   return (
-    <>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <ThemeProvider>
-            <Router />
-          </ThemeProvider>
-        </BrowserRouter>
-        <div style={{ fontSize: "16px" }}>
-          <ReactQueryDevtools initialIsOpen={false} />
-        </div>
-      </QueryClientProvider>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <ThemeProvider>
+          <Router />
+        </ThemeProvider>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 
