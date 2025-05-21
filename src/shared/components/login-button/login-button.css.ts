@@ -19,7 +19,7 @@ export const button = recipe({
     color: {
       whiteGray: {
         backgroundColor: color.gray100,
-        color: color.h_black,
+        color: color.gray900,
         selectors: {
           "&:hover": {
             backgroundColor: color.gray200,
@@ -50,7 +50,7 @@ export const button = recipe({
 
     size: {
       small: {
-        width: "7.3rem",
+        width: "9.7rem",
         height: "3.2rem",
       },
       medium: {
