@@ -54,4 +54,5 @@ export const dropdownItemStyle = style({
   textAlign: "center",
   verticalAlign: "middle",
   ...themeVars.fontStyles.body1_medium_13,
+  padding: "0.8rem 0.1rem",
 });
