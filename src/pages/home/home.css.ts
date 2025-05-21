@@ -12,5 +12,5 @@ export const oneYourCardContainer = style({
   justifyContent: "center",
   width: "100%",
   height: "auto",
-  padding: "5rem",
+  padding: "4.8rem 0rem 0rem 0rem",
 });
