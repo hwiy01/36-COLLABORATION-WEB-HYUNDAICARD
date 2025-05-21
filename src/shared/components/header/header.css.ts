@@ -8,7 +8,8 @@ export const headerContainer = style({
   padding: "1.5rem 5rem 0rem 5rem",
   gap: "15rem",
   width: "100%",
-  height: "8rem",
+  height: "100%",
+  minHeight: "8rem",
   boxShadow: "0rem 0.2rem 0.4rem 0rem rgba(0,0,0,0.10)",
 });
 
