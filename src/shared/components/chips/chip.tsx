@@ -4,7 +4,6 @@ import { color } from "src/styles/tokens/color.css";
 import {
   baseFrame,
   closeButton,
-  dropdownFrame,
   frameSizes,
   innerFrame,
   otherModeStyle,
@@ -41,7 +40,11 @@ const Chip = ({
 
   if (mode === "dropdown") {
     return (
-      <button className={`${baseFrame} ${otherModeStyle[mode]}`} onClick={handleClickDropdown} type="button">
+      <button
+        className={`${baseFrame} ${otherModeStyle[mode]}`}
+        onClick={handleClickDropdown}
+        type="button"
+      >
         <section className={innerFrame}>
           <div>{content}</div>
           {dropdownFlag ? (
