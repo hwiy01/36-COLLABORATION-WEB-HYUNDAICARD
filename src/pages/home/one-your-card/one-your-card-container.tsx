@@ -5,14 +5,20 @@ import OwnYourCard from "src/shared/components/own-your-card/own-your-card";
 import { Dropdown } from "src/shared/components/dropdown/dropdown";
 import { dropdownOptions } from "./dropdown-options";
 import SelectedTag from "./selected-tag/selected-tag";
+import { useNavigate } from "react-router-dom";
 
 const OneYourCardContainer = () => {
+  const navigate = useNavigate();
+
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
   const handleCardClick = () => {
     if (selectedValues.length === 0) {
       return;
     }
+
+    const query = selectedValues.join(",");
+    navigate(`/my?tags=${encodeURIComponent(query)}`);
   };
 
   const handleSelectItem = (value: string) => {
