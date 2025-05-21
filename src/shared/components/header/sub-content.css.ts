@@ -3,6 +3,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { themeVars } from "src/styles";
 
 export const subContentContainer = style({
+  position: "absolute",
   display: "flex",
   padding: "0rem 0rem 0rem 27rem",
   width: "100%",
