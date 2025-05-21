@@ -4,6 +4,8 @@ import { color } from "src/styles/tokens/color.css";
 import {
   baseFrame,
   closeButton,
+  filterBaseFrame,
+  filterInnerFrame,
   frameSizes,
   innerFrame,
   otherModeStyle,
@@ -52,6 +54,20 @@ const Chip = ({
           ) : (
             <IconArrowUp width={24} height={24} />
           )}
+        </section>
+      </button>
+    );
+  }
+
+  if (mode === "filter") {
+    return (
+      <button
+        className={filterBaseFrame}
+        onClick={handleClickDropdown}
+        type="button"
+      >
+        <section className={filterInnerFrame}>
+          <div>{content}</div>
         </section>
       </button>
     );
