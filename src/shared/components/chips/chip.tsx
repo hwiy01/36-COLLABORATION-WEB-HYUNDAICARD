@@ -62,11 +62,11 @@ const Chip = ({
   if (mode === "filter") {
     return (
       <button
-        className={filterBaseFrame}
+        className={`${filterBaseFrame} ${frameSizes[size]}`}
         onClick={handleClickDropdown}
         type="button"
       >
-        <section className={filterInnerFrame}>
+        <section className={`${filterInnerFrame} ${frameSizes[size]}`}>
           <div>{content}</div>
         </section>
       </button>
