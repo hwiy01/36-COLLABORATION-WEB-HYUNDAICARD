@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import * as styles from "./carousel.css";
 import { CarouselImageContainer } from "./carousel-image-container";
-import { useDrag } from "./use-drag";
+import { useDrag } from "../../../pages/home/hooks/use-drag";
 import SvgIconRightArrow from "src/assets/svg/IconRightArrow";
 import SvgIconLeftArrow from "src/assets/svg/IconLeftArrow";
 import clsx from "clsx";
@@ -43,11 +43,16 @@ export const Carousel = ({
 
   const { handleMouseDown, handleMouseMove, handleMouseUp } = useDrag(
     onMoveNext,
-    onMovePrev
+    onMovePrev,
   );
 
   return (
-    <div className={clsx(styles.containerBase, styles.containerSize[size ?? "large"])}>
+    <div
+      className={clsx(
+        styles.containerBase,
+        styles.containerSize[size ?? "large"],
+      )}
+    >
       <button type="button" onClick={onMovePrev} className={styles.leftArrow}>
         <SvgIconLeftArrow style={{ color: "white", width: "7rem" }} />
       </button>
