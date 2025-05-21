@@ -2,8 +2,8 @@ import * as styles from "./selected-tag.css";
 import Chip from "@/shared/components/chips/chip";
 
 interface SelectedTagProps {
-  tags: string[];
-  onRemove: (label: string) => void;
+  tags: { label: string; value: string }[];
+  onRemove: (value: string) => void;
 }
 
 const SelectedTag = ({ tags, onRemove }: SelectedTagProps) => {
@@ -21,10 +21,10 @@ const SelectedTag = ({ tags, onRemove }: SelectedTagProps) => {
       <div className={styles.tagGrid}>
         {tags.map((tag) => (
           <Chip
-            key={tag}
+            key={tag.value}
             mode="input"
-            content={tag}
-            handleClickCloseBtn={() => onRemove(tag)} // ✅ Chip에서 요구하는 props
+            content={tag.label}
+            handleClickCloseBtn={() => onRemove(tag.value)}
           />
         ))}
       </div>

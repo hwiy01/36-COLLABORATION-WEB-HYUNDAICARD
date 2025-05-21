@@ -29,19 +29,6 @@ export const dropdownInnerHeightVariants = styleVariants({
   8: { height: "calc(3.4rem * 8)" },
 });
 
-export const dropdownOuterHeightVariants = styleVariants({
-  3: { height: "calc(3.4rem * 3 + 0.2rem)" },
-  4: { height: "calc(3.4rem * 4 + 0.2rem)" },
-  8: { height: "calc(3.4rem * 8 + 0.2rem)" },
-});
-
-export const dropdownInnerHeightVariants = styleVariants({
-  3: { height: "calc(3.4rem * 3)" },
-  4: { height: "calc(3.4rem * 4)" },
-  8: { height: "calc(3.4rem * 8)" },
-});
-
-
 export const dropdownListBaseFrame = style({
   backgroundColor: themeVars.color.gray800,
   width: "10.8rem",
@@ -50,6 +37,8 @@ export const dropdownListBaseFrame = style({
   justifyContent: "center",
   alignItems: "center",
   marginTop: "0.8rem",
+  position: "absolute",
+  zIndex: 100,
 });
 
 export const dropdownListInnerFrame = style({
