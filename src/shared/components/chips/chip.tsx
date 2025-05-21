@@ -4,6 +4,7 @@ import { color } from "src/styles/tokens/color.css";
 import {
   baseFrame,
   closeButton,
+  dropdownFrame,
   frameSizes,
   innerFrame,
   otherModeStyle,
@@ -14,10 +15,11 @@ export type mode = "input" | "filter" | "selected" | "dropdown"; // 유틸함수
 interface ChipProps {
   mode: "input" | "filter" | "selected" | "dropdown"; // 4가지 모드 중 하나
   content: string; // chip에 들어갈 내용
-  handleClickCloseBtn?: () => void;
-  handleClickDropdown?: () => void;
   dropdownFlag?: boolean;
   className?: string;
+  contentStyle?: string;
+  handleClickCloseBtn?: () => void;
+  handleClickDropdown?: () => void;
 }
 /**
  *
@@ -31,17 +33,17 @@ interface ChipProps {
 const Chip = ({
   mode = "dropdown",
   content,
-  handleClickCloseBtn,
   dropdownFlag,
+  handleClickCloseBtn,
   handleClickDropdown,
 }: ChipProps) => {
   const size = getSizeByContent(content, mode);
 
   if (mode === "dropdown") {
     return (
-      <button className={baseFrame} onClick={handleClickDropdown} type="button">
+      <button className={`${baseFrame} ${otherModeStyle[mode]}`} onClick={handleClickDropdown} type="button">
         <section className={innerFrame}>
-          <p>{content}</p>
+          <div>{content}</div>
           {dropdownFlag ? (
             <IconArrowDown width={24} height={24} />
           ) : (

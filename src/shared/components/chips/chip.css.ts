@@ -1,4 +1,5 @@
 import { style, styleVariants } from "@vanilla-extract/css";
+import { themeVars } from "src/styles";
 import { color } from "src/styles/tokens/color.css";
 import { fontStyles } from "src/styles/tokens/font-styles.css";
 
@@ -61,13 +62,13 @@ export const otherModeStyle = styleVariants({
     justifyContent: "center",
     alignItems: "center",
     ...fontStyles.body1_medium_13,
-    color: color.gray800,
+    color: themeVars.color.gray800,
   },
   selected: {
     ...baseCssProps,
     padding: "0",
     backgroundColor: "black",
-    color: "white",
+    color: themeVars.color.h_white,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -76,6 +77,19 @@ export const otherModeStyle = styleVariants({
     fontSize: "1.3rem",
     letterSpacing: "-1.8%",
   },
+  dropdown: {
+    ...baseCssProps,
+    padding: "0",
+    backgroundColor: themeVars.color.h_black,
+    color: themeVars.color.h_white,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontWeight: "400",
+    lineHeight: "150%",
+    fontSize: "1.5rem",
+    height: "3.4rem",
+  }
 });
 
 export const baseFrame = style({

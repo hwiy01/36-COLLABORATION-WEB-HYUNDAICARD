@@ -7,7 +7,7 @@ const SvgIconArrowUp = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      stroke="#000"
+      stroke="#FFFFFF"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={2}
