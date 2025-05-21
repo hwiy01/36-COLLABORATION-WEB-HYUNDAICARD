@@ -1,4 +1,5 @@
 import Chip from "@/shared/components/chips/chip";
+import { useAccordion } from "@/shared/hooks/accordion/use-accordion";
 import { IconArrowUp } from "src/assets/svg";
 import {
   accordionContainer,
@@ -8,6 +9,7 @@ import {
 } from "./accordion.css";
 
 const Accordion = () => {
+  const { isOpen, toggle } = useAccordion(true);
   return (
     <div className={accordionContainer}>
       <section className={accordionHeader}>
