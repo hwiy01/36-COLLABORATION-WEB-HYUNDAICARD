@@ -8,7 +8,6 @@ export const button = recipe({
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    boxSizing: "border-box",
     border: "none",
     cursor: "pointer",
     borderRadius: "0.8rem",
