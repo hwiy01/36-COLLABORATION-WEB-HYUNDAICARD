@@ -1,14 +1,24 @@
 import MainEvent from "@/shared/components/main-event/main-event";
 import * as styles from "./post.css";
+import type { components } from "@/shared/types/api";
 
-const Posts = () => {
+type Post = components["schemas"]["PostResponseDto"];
+
+interface PostsProps {
+  postsData: Post[];
+}
+
+const Posts = ({ postsData }: PostsProps) => {
   return (
     <div className={styles.postContainer}>
-      {/* <MainEvent
-        cardIconUrl={post?.imageUrl}
-        textContent={post?.title}
-        cardName={post?.title}
-      /> */}
+      {postsData.map((post) => (
+        <MainEvent
+          key={post.imageUrl}
+          cardIconUrl={post.imageUrl}
+          textContent={post.title}
+          cardName={post.title}
+        />
+      ))}
     </div>
   );
 };
