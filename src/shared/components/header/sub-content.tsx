@@ -11,14 +11,22 @@ export const CARD_MENU_ITEMS = [
   "카드 발급 진행 조회",
 ] as const;
 
-const SubContent = () => {
+interface SubContentProps {
+  onClick: VoidFunction;
+}
+
+const SubContent = ({ onClick }: SubContentProps) => {
   return (
     <>
       <section className={styles.subContentContainer}>
         <ul className={styles.contentList}>
           <p className={styles.listTitle}>카드 신청</p>
           {CARD_MENU_ITEMS.map((item, index) => (
-            <li key={index} className={styles.listItems}>
+            <li
+              key={index}
+              className={styles.listItems}
+              onClick={item === "내게 맞는 카드 찾기" ? onClick : undefined}
+            >
               {item}
             </li>
           ))}

@@ -8,14 +8,20 @@ import {
 } from "src/assets/svg";
 import * as styles from "./header.css";
 import SubContent from "./sub-content";
+import { useNavigate } from "react-router-dom";
+import { routePath } from "@/shared/router/path";
 
 const MAIN_NAV_ITEMS = ["Account", "카드", "혜택", "금융", "컬처", "고객 지원"];
 const UTILITY_NAV_ITEMS = ["법인", "가맹점", "소비자보호 포털", "상품공지실"];
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isCardHovered, setIsCardHovered] = useState(false);
   const handleCardHover = (isHovering: boolean) => {
     setIsCardHovered(isHovering);
+  };
+  const handleItemClick = () => {
+    navigate(routePath.MY);
   };
 
   return (
@@ -53,13 +59,12 @@ const Header = () => {
           <IconHamburge width={"2.8rem"} height={"2.8rem"} />
         </div>
       </header>
-
       {isCardHovered && (
         <div
           onMouseEnter={() => handleCardHover(true)}
           onMouseLeave={() => handleCardHover(false)}
         >
-          <SubContent />
+          <SubContent onClick={handleItemClick} />
         </div>
       )}
     </>
