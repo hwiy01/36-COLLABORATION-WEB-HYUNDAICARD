@@ -17,7 +17,13 @@ const OneYourCardContainer = () => {
       return;
     }
 
-    const query = selectedValues.join(",");
+    const allItems = dropdownOptions.flatMap((opt) => opt.items);
+
+    const labelValues = selectedValues
+      .map((val) => allItems.find((item) => item.value === val)?.label)
+      .filter((label): label is string => Boolean(label));
+
+    const query = labelValues.join(",");
     navigate(`/my?tags=${encodeURIComponent(query)}`);
   };
 
