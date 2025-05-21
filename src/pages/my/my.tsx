@@ -1,6 +1,10 @@
+import Accordion from "./components/accordion/accordion";
+
 const My = () => {
   return (
-    <div>하이하이하이하이하이하이하이하이하이하이하이하이하이하이하이하이</div>
+    <div style={{ width: "26.6rem" }}>
+      <Accordion></Accordion>
+    </div>
   );
 };
 
