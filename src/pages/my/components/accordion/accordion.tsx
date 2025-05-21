@@ -2,7 +2,7 @@ import Chip from "@/shared/components/chips/chip";
 import {} from "@/shared/components/chips/chip.css";
 import { useAccordion } from "@/shared/hooks/accordion/use-accordion";
 import { IconArrowUp } from "src/assets/svg";
-import type { TagWithIsSelected } from "../../my";
+import type { TagWithIsSelected } from "../../hooks/tag-filter";
 import {
   accordionContainer,
   accordionHeader,

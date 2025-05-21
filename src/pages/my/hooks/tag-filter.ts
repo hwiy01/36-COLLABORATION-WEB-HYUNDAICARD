@@ -1,0 +1,73 @@
+import type { components } from "@/shared/types/api";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useGetTags } from "./get-tags";
+
+export type TagWithIsSelected = components["schemas"]["TagResponseDto"] & {
+  isSelected: boolean;
+};
+
+export interface TagCategoryGroupWithIsSelected {
+  category?: string;
+  tags?: TagWithIsSelected[];
+}
+
+export const useTagFilter = () => {
+  const [searchParams] = useSearchParams();
+  const [tags, setTags] = useState<TagCategoryGroupWithIsSelected[]>([]);
+  const { data: tagData } = useGetTags();
+
+  // 초기 태그 데이터에 isSelected 붙이기
+  useEffect(() => {
+    if (tagData) {
+      const tagsWithSelection = tagData.map((group) => ({
+        category: group.category,
+        tags: (group.tags ?? []).map((tag) => ({
+          ...tag,
+          isSelected: false,
+        })),
+      }));
+      setTags(tagsWithSelection);
+    }
+  }, [tagData]);
+
+  // URL 쿼리 파라미터로부터 선택된 태그 반영
+  useEffect(() => {
+    const selectedTagIds = searchParams.get("tags")?.split(",") || [];
+
+    if (selectedTagIds.length > 0) {
+      setTags((prevTags) =>
+        prevTags.map((item) => ({
+          ...item,
+          tags: (item.tags ?? []).map((tag) => ({
+            ...tag,
+            isSelected: selectedTagIds.includes(tag.name ?? ""),
+          })),
+        })),
+      );
+    }
+  }, [searchParams]);
+
+  const toggleTag = (categoryIndex: number, tagId: string) => {
+    setTags((prevTagsState) =>
+      prevTagsState.map((category, idx) => {
+        if (categoryIndex === idx) {
+          return {
+            ...category,
+            tags: (category.tags ?? []).map((tag) =>
+              tag.tagId === tagId
+                ? { ...tag, isSelected: !tag.isSelected }
+                : tag,
+            ),
+          };
+        }
+        return category;
+      }),
+    );
+  };
+
+  return {
+    tags,
+    toggleTag,
+  };
+};
