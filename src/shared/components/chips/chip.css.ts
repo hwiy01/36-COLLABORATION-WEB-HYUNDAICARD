@@ -37,6 +37,8 @@ export const filterInnerFrame = style({
   gap: "0.4rem",
   ...fontStyles.body1_medium_13,
   color: themeVars.color.gray800,
+  padding: "0.1rem",
+  boxSizing: "border-box",
 });
 
 export const frameSizes = styleVariants({

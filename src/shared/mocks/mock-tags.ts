@@ -15,8 +15,8 @@ export const initialTagCategories: TagCategory[] = [
     category: "쇼핑/소비",
     tags: [
       {
-        id: "shopping-1",
-        hoverText: "",
+        id: "1948fbe5-573b-4059-960b-bd112750378d",
+        hoverText: "백화점·마트 등 오프라인 혜택",
         name: "온라인 쇼핑",
         isSelected: false,
       },

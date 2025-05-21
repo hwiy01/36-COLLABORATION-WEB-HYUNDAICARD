@@ -2,12 +2,30 @@ import {
   type TagCategory,
   initialTagCategories,
 } from "@/shared/mocks/mock-tags";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Accordion from "./components/accordion/accordion";
 
 const My = () => {
+  const [searchParams] = useSearchParams();
   const [tags, setTags] = useState<TagCategory[]>(initialTagCategories);
   // api 연동할 때 response -> Tag type으로 convert 해줘야함!
+
+  useEffect(() => {
+    const selectedTagIds = searchParams.get("tags")?.split(",") || [];
+
+    if (selectedTagIds.length > 0) {
+      setTags((prevTags) =>
+        prevTags.map((category) => ({
+          ...category,
+          tags: category.tags.map((tag) => ({
+            ...tag,
+            isSelected: selectedTagIds.includes(tag.id),
+          })),
+        })),
+      );
+    }
+  }, [searchParams]);
 
   const toggleTag = (categoryIndex: number, tagId: string) => {
     setTags((prevTagsState) =>
