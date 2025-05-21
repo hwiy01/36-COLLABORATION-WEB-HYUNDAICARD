@@ -1,4 +1,5 @@
 import Chip from "@/shared/components/chips/chip";
+import {} from "@/shared/components/chips/chip.css";
 import { useAccordion } from "@/shared/hooks/accordion/use-accordion";
 import { IconArrowUp } from "src/assets/svg";
 import {
@@ -6,17 +7,21 @@ import {
   accordionHeader,
   headerTitle,
   tagsContainer,
+  tagsContainerClosed,
+  tagsContainerOpen,
 } from "./accordion.css";
 
 const Accordion = () => {
   const { isOpen, toggle } = useAccordion(true);
   return (
     <div className={accordionContainer}>
-      <section className={accordionHeader}>
+      <button className={accordionHeader} onClick={toggle} type="button">
         <h3 className={headerTitle}>쇼핑/소비</h3>
         <IconArrowUp width={"3.2rem"} height={"3.2rem"} stroke={"#000000"} />
-      </section>
-      <section className={tagsContainer}>
+      </button>
+      <section
+        className={`${tagsContainer} ${isOpen ? tagsContainerOpen : tagsContainerClosed}`}
+      >
         <Chip mode="filter" content="온라인 쇼핑" />
         <Chip mode="filter" content="온라인 페이" />
         <Chip mode="filter" content="크레딧" />
