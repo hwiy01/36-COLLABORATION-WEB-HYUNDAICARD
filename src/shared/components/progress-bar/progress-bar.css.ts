@@ -6,9 +6,9 @@ export const container = style({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  justifyContent: "space-between",
   width: "9.5rem",
   height: "0.8rem",
+  gap: "1.2rem",
 });
 
 export const dotContainer = style({
