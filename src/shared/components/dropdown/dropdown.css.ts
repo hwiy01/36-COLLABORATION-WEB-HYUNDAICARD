@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 import { themeVars } from "src/styles";
 
 // clip-path 리스트 길이에 따라 분기
@@ -17,6 +17,18 @@ export const clipPathListLength4 = style({
     "polygon( 8.159% 0.368%,94.613% 0.368%,94.613% 0.368%,95.426% 0.413%,96.192% 0.544%,96.902% 0.753%,97.547% 1.032%,98.117% 1.373%,98.604% 1.769%,98.999% 2.212%,99.292% 2.693%,99.474% 3.207%,99.537% 3.743%,99.537% 95.141%,99.537% 95.141%,99.523% 95.358%,99.483% 95.572%,99.416% 95.782%,99.323% 95.987%,99.205% 96.187%,99.062% 96.379%,98.895% 96.563%,98.704% 96.738%,98.491% 96.902%,98.255% 97.054%,98.086% 97.148%,94.344% 99.109%,94.344% 99.109%,94.146% 99.205%,93.94% 99.293%,93.727% 99.371%,93.507% 99.439%,93.281% 99.497%,93.05% 99.545%,92.814% 99.583%,92.575% 99.61%,92.332% 99.627%,92.087% 99.632%,5.387% 99.632%,5.387% 99.632%,4.574% 99.587%,3.808% 99.456%,3.098% 99.247%,2.453% 98.968%,1.883% 98.627%,1.396% 98.231%,1.001% 97.788%,0.708% 97.307%,0.526% 96.793%,0.463% 96.257%,0.463% 4.96%,0.469% 4.815%,0.469% 4.815%,0.498% 4.612%,0.551% 4.413%,0.627% 4.218%,0.725% 4.027%,0.846% 3.842%,0.988% 3.664%,1.151% 3.493%,1.335% 3.332%,1.539% 3.179%,1.762% 3.037%,1.933% 2.943%,5.922% 0.881%,5.922% 0.881%,6.118% 0.786%,6.323% 0.7%,6.534% 0.624%,6.752% 0.557%,6.976% 0.5%,7.205% 0.453%,7.439% 0.416%,7.676% 0.389%,7.916% 0.373%,8.159% 0.368% )",
 });
 
+export const dropdownOuterHeightVariants = styleVariants({
+  3: { height: "calc(3.4rem * 3 + 0.2rem)" },
+  4: { height: "calc(3.4rem * 4 + 0.2rem)" },
+  8: { height: "calc(3.4rem * 8 + 0.2rem)" },
+});
+
+export const dropdownInnerHeightVariants = styleVariants({
+  3: { height: "calc(3.4rem * 3)" },
+  4: { height: "calc(3.4rem * 4)" },
+  8: { height: "calc(3.4rem * 8)" },
+});
+
 export const dropdownListBaseFrame = style({
   backgroundColor: themeVars.color.gray800,
   width: "10.8rem",
@@ -24,8 +36,7 @@ export const dropdownListBaseFrame = style({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "calc(3.4rem * 8 + 0.2rem)",
-  position: "absolute",
+  marginTop: "0.8rem",
 });
 
 export const dropdownListInnerFrame = style({
@@ -33,7 +44,6 @@ export const dropdownListInnerFrame = style({
   boxSizing: "border-box",
   width: "10.6rem",
   boxShadow: `0 0 0 0.1rem ${themeVars.color.gray800}`,
-  height: "calc(3.4rem * 8)",
 });
 
 export const dropdownItemStyle = style({
@@ -46,4 +56,5 @@ export const dropdownItemStyle = style({
   textAlign: "center",
   verticalAlign: "middle",
   ...themeVars.fontStyles.body1_medium_13,
+  padding: "0.8rem 0.1rem",
 });
