@@ -5,7 +5,7 @@ export const headerContainer = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  padding: "1.5rem 5rem",
+  padding: "1.5rem 5rem 0rem 5rem",
   gap: "15rem",
   width: "100%",
   height: "8rem",
@@ -14,8 +14,11 @@ export const headerContainer = style({
 
 export const headerLeftContainer = style({
   display: "flex",
+  justifyContent: "center",
   alignItems: "center",
+  height: "100%",
   gap: "4rem",
+  cursor: "pointer",
 });
 
 export const headerRightContainer = style({
@@ -31,8 +34,23 @@ export const leftItemContainer = style({
   ...themeVars.fontStyles.hyundai_body2_14,
   color: themeVars.color.h_black,
   display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
   gap: "2rem",
   width: "100%",
   height: "100%",
   cursor: "pointer",
+});
+
+export const mainItems = style({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100%",
+  textDecoration: "none",
+  selectors: {
+    "&:hover": {
+      borderBottom: `1px solid ${themeVars.color.h_black}`,
+    },
+  },
 });

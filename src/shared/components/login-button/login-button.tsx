@@ -4,7 +4,8 @@ import { button } from "./login-button.css";
 interface Props {
   color: "whiteGray" | "blackGray" | "whiteOutline";
   size: "small" | "medium" | "large";
-  children: ReactNode;
+  children?: ReactNode;
+  placeholder?: string;
   onClick?: () => void;
 }
 
@@ -13,10 +14,12 @@ const LoginButton = ({
   size = "medium",
   children,
   onClick,
+  placeholder,
 }: Props) => {
   return (
     <button onClick={onClick} className={button({ color, size })} type="button">
       {children}
+      {placeholder}
     </button>
   );
 };
