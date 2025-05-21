@@ -7,9 +7,9 @@ import * as styles from "./main-event.css";
  */
 
 interface MainEventProps {
-  cardIconUrl: string;
-  textContent: string;
-  cardName: string;
+  cardIconUrl?: string;
+  textContent?: string;
+  cardName?: string;
 }
 
 const MainEvent = ({ cardIconUrl, textContent, cardName }: MainEventProps) => {

@@ -8,7 +8,10 @@ import {
   clipPathListLength3,
   dropdownListBaseFrame,
   dropdownListInnerFrame,
+  dropdownOuterHeightVariants,
+  dropdownInnerHeightVariants,
 } from "./dropdown.css";
+import clsx from "clsx";
 
 interface DropdownListItem {
   label: string;
@@ -28,6 +31,7 @@ export const Dropdown = ({
   dropdownList,
   className,
 }: DropdownProps) => {
+  const length = dropdownList.length as 3 | 4 | 8;
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -57,29 +61,39 @@ export const Dropdown = ({
 
   return (
     <div ref={dropdownRef}>
-      <Chip
+       <Chip
         mode="dropdown"
         content={content}
         dropdownFlag={dropdownOpen}
         handleClickDropdown={() => setDropdownOpen((prev) => !prev)}
       />
-        {dropdownOpen && (
-          <div className={`${dropdownListBaseFrame} ${getClipPathClass(dropdownList.length)}`}>
-            <ul
-              className={`${dropdownListInnerFrame} ${getClipPathClass(dropdownList.length)}`}>
-              {dropdownList.map((item) => (
-                <li
-                  key={item.value}
-                  className={dropdownItemStyle}
-                  onClick={() => handleClickItem(item)}
-                >
-                  {item.label}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
+      {dropdownOpen && (
+        <div
+          className={clsx(
+            dropdownListBaseFrame,
+            dropdownOuterHeightVariants[length],
+            getClipPathClass(length)
+          )}
+        >
+          <ul
+            className={clsx(
+              dropdownListInnerFrame,
+              dropdownInnerHeightVariants[length],
+              getClipPathClass(length)
+            )}
+          >
+            {dropdownList.map((item) => (
+              <li
+                key={item.value}
+                className={dropdownItemStyle}
+                onClick={() => handleClickItem(item)}
+              >
+                {item.label}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
