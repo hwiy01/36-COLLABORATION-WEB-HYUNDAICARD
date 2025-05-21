@@ -11,12 +11,16 @@ import {
   tagsContainerOpen,
 } from "./accordion.css";
 
-const Accordion = () => {
+interface accordionProps {
+  title: string;
+}
+
+const Accordion = ({ title }: accordionProps) => {
   const { isOpen, toggle } = useAccordion(true);
   return (
     <div className={accordionContainer}>
       <button className={accordionHeader} onClick={toggle} type="button">
-        <h3 className={headerTitle}>쇼핑/소비</h3>
+        <h3 className={headerTitle}>{title}</h3>
         <IconArrowUp width={"3.2rem"} height={"3.2rem"} stroke={"#000000"} />
       </button>
       <section
