@@ -2,19 +2,16 @@ import { style } from "@vanilla-extract/css";
 import { themeVars } from "src/styles";
 import { color } from "src/styles/tokens/color.css";
 
-const flexColumn = {
-  display: "flex",
-  flexDirection: "column" as const,
-};
-
 export const cardInfoContainer = style({
-  ...flexColumn,
+  display: "flex",
+  flexDirection: "column",
   justifyContent: "space-between",
   height: "45.7rem",
 });
 
 export const cardNameContainer = style({
-  ...flexColumn,
+  display: "flex",
+  flexDirection: "column",
   gap: "0.8rem",
 });
 
@@ -31,12 +28,14 @@ export const name = style({
 });
 
 export const benefitList = style({
-  ...flexColumn,
+  display: "flex",
+  flexDirection: "column",
   gap: "0.6rem",
 });
 
 export const benefit = style({
-  ...flexColumn,
+  display: "flex",
+  flexDirection: "column",
 });
 
 export const benefitDetail = style({
@@ -46,7 +45,8 @@ export const benefitDetail = style({
 });
 
 export const btnContainer = style({
-  ...flexColumn,
+  display: "flex",
+  flexDirection: "column",
   gap: "1.2rem",
 });
 
