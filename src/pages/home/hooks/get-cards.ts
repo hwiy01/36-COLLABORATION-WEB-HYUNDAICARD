@@ -1,18 +1,18 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { get } from "@/shared/apis/config";
 import { END_POINTS } from "@/shared/apis/end-point";
 import type { components } from "@/shared/types/api";
 import type { BaseResponse } from "@/shared/types/api-config";
-import { useSuspenseQuery } from "@tanstack/react-query";
 
-type GetCardsResponse = components["schemas"]["CardResponseDto"][];
+type CardBrandGroupDto = components["schemas"]["CardBrandGroupDto"];
 
 export const useGetCards = () =>
-  useSuspenseQuery({
+  useSuspenseQuery<CardBrandGroupDto[]>({
     queryKey: ["cards"],
     queryFn: async () => {
-      const response = await get<BaseResponse<GetCardsResponse>>(
+      const res = await get<BaseResponse<CardBrandGroupDto[]>>(
         END_POINTS.cards,
       );
-      return response.data.data;
+      return res.data.data;
     },
   });
