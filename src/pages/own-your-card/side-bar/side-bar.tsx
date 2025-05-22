@@ -1,3 +1,5 @@
+import Accordion from "@/pages/my/components/accordion/accordion";
+import { useTagFilter } from "@/pages/my/hooks/tag-filter";
 import SvgIconInitialization from "src/assets/svg/IconInitialization";
 import {
   resetBtnStyle,
@@ -8,10 +10,12 @@ import {
 } from "./side-bar.css";
 
 const SideBar = () => {
+  const { tags, toggleTag } = useTagFilter();
+
   return (
     <aside className={sideBarContainer}>
       <section className={sideBarHeader}>
-        <p className={sideBarHeaderTitle}>내게맞는카드찾기</p>
+        <p className={sideBarHeaderTitle}>내게 맞는 카드찾기</p>
         <button className={resetBtnStyle} type="button">
           <div>
             <SvgIconInitialization width={"1.6rem"} height={"1.6rem"} />
@@ -19,6 +23,14 @@ const SideBar = () => {
           <p className={resetBtnText}>초기화</p>
         </button>
       </section>
+      {tags.map((item, categoryIdx) => (
+        <Accordion
+          key={item.category}
+          title={item.category ?? ""}
+          tags={item.tags ?? []}
+          onTagClick={(tagId: string) => toggleTag(categoryIdx, tagId)}
+        />
+      ))}
     </aside>
   );
 };
