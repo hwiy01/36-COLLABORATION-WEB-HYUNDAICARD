@@ -1,10 +1,10 @@
 import { useState } from "react";
 import * as styles from "./own-your-card-container.css";
-import Header from "./header/header";
+import Header from "./header";
 import OwnYourCard from "src/shared/components/own-your-card/own-your-card";
 import { Dropdown } from "src/shared/components/dropdown/dropdown";
-import { dropdownOptions } from "./dropdown-options";
-import SelectedTag from "./selected-tag/selected-tag";
+import { dropdownOptions } from "../constants/dropdown-options";
+import SelectedTag from "./selected-tag";
 import { useNavigate } from "react-router-dom";
 
 const OneYourCardContainer = () => {

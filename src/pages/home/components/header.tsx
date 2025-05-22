@@ -1,5 +1,4 @@
 import * as styles from "./header.css";
-
 const Header = () => {
   return (
     <div className={styles.container}>
