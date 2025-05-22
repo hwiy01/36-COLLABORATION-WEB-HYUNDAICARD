@@ -1,5 +1,4 @@
 import Accordion from "./components/accordion/accordion";
-import OtherRecommendedCards from "./components/other-recommended-cards/other-recommended-cards";
 import { useTagFilter } from "./hooks/tag-filter";
 
 const My = () => {
@@ -16,9 +15,6 @@ const My = () => {
             onTagClick={(tagId: string) => toggleTag(categoryIdx, tagId)}
           />
         ))}
-      </div>
-      <div style={{ width: "100.0rem", height: "44.2rem" }}>
-        <OtherRecommendedCards />
       </div>
     </>
   );
