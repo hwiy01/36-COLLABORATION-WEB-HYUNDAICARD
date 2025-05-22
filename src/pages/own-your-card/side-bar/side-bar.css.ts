@@ -31,3 +31,22 @@ export const resetBtnText = style({
   letterSpacing: "-1.2%",
   fontWeight: "400",
 });
+
+export const annualFeeContainer = style({
+  height: "11.8rem",
+  width: "100%",
+  borderTop: `1px solid ${color.gray100}`,
+  display: "flex",
+  alignItems: "center",
+});
+
+export const annualFeeHeader = style({
+  width: "100%",
+  height: "5.6rem",
+  padding: "0 4.1rem 0 4.1rem",
+});
+
+export const annualFeeTitle = style({
+  ...fontStyles.title_bold_14,
+  fontWeight: "400",
+});

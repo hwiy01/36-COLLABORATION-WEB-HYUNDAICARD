@@ -2,6 +2,9 @@ import Accordion from "@/pages/my/components/accordion/accordion";
 import type { TagCategoryGroupWithIsSelected } from "@/pages/my/hooks/tag-filter";
 import SvgIconInitialization from "src/assets/svg/IconInitialization";
 import {
+  annualFeeContainer,
+  annualFeeHeader,
+  annualFeeTitle,
   resetBtnStyle,
   resetBtnText,
   sideBarContainer,
@@ -35,6 +38,11 @@ const SideBar = ({ tags, toggleTag, resetTag }: sideBarProps) => {
           onTagClick={(tagId: string) => toggleTag(categoryIdx, tagId)}
         />
       ))}
+      <section className={annualFeeContainer}>
+        <section className={annualFeeHeader}>
+          <p className={annualFeeTitle}>연회비 구간</p>
+        </section>
+      </section>
     </aside>
   );
 };
