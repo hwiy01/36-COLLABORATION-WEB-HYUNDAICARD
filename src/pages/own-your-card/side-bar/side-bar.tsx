@@ -43,7 +43,7 @@ const SideBar = ({ tags, toggleTag, resetTag }: sideBarProps) => {
         <section className={annualFeeHeader}>
           <p className={annualFeeTitle}>연회비 구간</p>
         </section>
-        <section style={{ width: "100%", height: "50px" }}>
+        <section>
           <RangeSlider range={["0", "1", "3", "5", "10", "10~"]} />
         </section>
       </section>
