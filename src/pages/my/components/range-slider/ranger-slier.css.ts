@@ -13,26 +13,29 @@ export const baseSlider = style({
   backgroundColor: color.gray300,
   borderRadius: "8px",
   position: "relative",
-  display: "flex",
-  alignItems: "center",
 });
 
 export const selectedTrack = style({
   backgroundColor: "black",
   position: "absolute",
   height: "1.2rem",
+  top: "0",
+  left: "0",
+  borderRadius: "0.8rem",
 });
 
 export const handle = style({
   height: "3.2rem",
   backgroundColor: "black",
   width: "1.2rem",
-  borderRadius: "1px",
+  borderRadius: "0.1rem",
   borderLeft: "0.4rem",
   borderRight: "0.4rem",
   borderColor: "white",
   borderStyle: "solid",
   position: "absolute",
+  top: "50%",
+  transform: "translateY(-50%) translateX(-50%)", // 중앙 정렬
 });
 
 export const labelSection = style({
