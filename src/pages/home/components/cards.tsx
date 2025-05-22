@@ -2,6 +2,7 @@ import Card from "@/shared/components/card/card";
 import * as styles from "./cards.css";
 import { useGetCards } from "../hooks/get-cards";
 import TagAmexLivelife1 from "src/assets/svg/TagAmexLivelife1";
+import TextButton from "@/shared/components/text-button/text-button";
 
 const Cards = () => {
   const { data } = useGetCards();
@@ -26,6 +27,7 @@ const Cards = () => {
             <p className={styles.brandDescription}>
               {HYUNDAI_ORIGINALS.cards?.[0]?.description ?? ""}
             </p>
+            <TextButton />
           </div>
           <div className={styles.cardList}>
             {HYUNDAI_ORIGINALS.cards?.map((card) => (
@@ -45,6 +47,7 @@ const Cards = () => {
           <div className={styles.brandHeader}>
             <h2 className={styles.brandTitle}>American Express</h2>
             <TagAmexLivelife1 />
+            <TextButton />
           </div>
           <div className={styles.cardList2}>
             {AMERICAN_EXPRESS.cards?.map((card) => (
@@ -66,6 +69,7 @@ const Cards = () => {
             <p className={styles.brandDescription}>
               {CHAMPION_BRANDS.cards?.[0]?.description ?? ""}
             </p>
+            <TextButton />
           </div>
           <div className={styles.cardList}>
             {CHAMPION_BRANDS.cards?.map((card) => (
