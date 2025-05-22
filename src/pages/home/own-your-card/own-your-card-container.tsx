@@ -1,6 +1,6 @@
 import { useState } from "react";
+import * as styles from "./own-your-card-container.css";
 import Header from "./header/header";
-import * as styles from "./one-your-card-container.css";
 import OwnYourCard from "src/shared/components/own-your-card/own-your-card";
 import { Dropdown } from "src/shared/components/dropdown/dropdown";
 import { dropdownOptions } from "./dropdown-options";

@@ -1,10 +1,10 @@
 import { $api } from "@/shared/apis/config";
 import Posts from "./components/posts";
-import OneYourCardContainer from "./one-your-card/one-your-card-container";
 
 import * as styles from "./home.css";
 
 import { END_POINTS } from "@/shared/apis/end-point";
+import OneYourCardContainer from "./own-your-card/own-your-card-container";
 
 const Home = () => {
   const { data: postsData } = $api.useQuery("get", END_POINTS.posts);
