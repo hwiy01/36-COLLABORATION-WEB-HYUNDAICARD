@@ -1,8 +1,6 @@
 import type { components } from "@/shared/types/api";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useGetTags } from "./get-tags";
-
 export type TagWithIsSelected = components["schemas"]["TagResponseDto"] & {
   isSelected: boolean;
 };
@@ -15,9 +13,7 @@ export interface TagCategoryGroupWithIsSelected {
 export const useTagFilter = () => {
   const [searchParams] = useSearchParams();
   const [tags, setTags] = useState<TagCategoryGroupWithIsSelected[]>([]);
-  const { data: tagData } = useGetTags();
 
-  // 초기 태그 데이터에 isSelected 붙이기
   useEffect(() => {
     if (tagData) {
       const tagsWithSelection = tagData.map((group) => ({
