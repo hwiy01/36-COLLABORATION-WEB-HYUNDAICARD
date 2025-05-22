@@ -1,3 +1,5 @@
+import { $api } from "@/shared/apis/config";
+import { END_POINTS } from "@/shared/apis/end-point";
 import type { components } from "@/shared/types/api";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -13,6 +15,8 @@ export interface TagCategoryGroupWithIsSelected {
 export const useTagFilter = () => {
   const [searchParams] = useSearchParams();
   const [tags, setTags] = useState<TagCategoryGroupWithIsSelected[]>([]);
+  const { data } = $api.useQuery("get", END_POINTS.tags);
+  const tagData = data?.data;
 
   useEffect(() => {
     if (tagData) {
