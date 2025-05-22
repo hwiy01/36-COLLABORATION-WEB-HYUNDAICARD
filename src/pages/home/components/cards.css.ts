@@ -1,46 +1,50 @@
 import { style } from "@vanilla-extract/css";
+import { themeVars } from "src/styles";
 
-export const pageWrapper = style({
+export const pageContainer = style({
   display: "flex",
   flexDirection: "column",
-  gap: "6rem",
-  padding: "4rem 2rem",
+  width: "94.4rem",
 });
 
 export const brandSection = style({
   display: "flex",
-  flexDirection: "column",
-  gap: "2rem",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  padding: "4.8rem 5.2rem 4.8rem 1.5rem",
+});
+export const brandSection2 = style({
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  padding: "4.8rem 6.8rem 4.8rem 1.5rem",
 });
 
 export const brandHeader = style({
   display: "flex",
   flexDirection: "column",
-  gap: "0.8rem",
+  width: "15.7rem",
+  height: "15.7rem",
 });
 
 export const brandTitle = style({
-  fontSize: "2.4rem",
-  fontWeight: "bold",
+  ...themeVars.fontStyles.hyundai_title_30,
 });
 
 export const brandDescription = style({
-  fontSize: "1.4rem",
-  color: "#666",
-});
-
-export const viewAllButton = style({
-  alignSelf: "flex-start",
-  background: "none",
-  border: "none",
-  color: "#000",
-  fontSize: "1.3rem",
-  cursor: "pointer",
-  padding: 0,
+  ...themeVars.fontStyles.body2_regular_11,
 });
 
 export const cardList = style({
-  display: "flex",
-  flexWrap: "wrap",
-  gap: "1.6rem",
+  display: "grid",
+  gridTemplateColumns: "repeat(4, 1fr)",
+  columnGap: "4.5rem",
+  rowGap: "2.4rem",
+});
+
+export const cardList2 = style({
+  display: "grid",
+  gridTemplateColumns: "repeat(3, 1fr)",
+  columnGap: "7.5rem",
+  rowGap: "2.4rem",
 });

@@ -5,7 +5,7 @@ import Cards from "./components/cards";
 const Home = () => {
   return (
     <>
-      <section>
+      <section className={styles.eventCardContainer}>
         <Cards />
       </section>
       <section className={styles.eventCardContainer}>

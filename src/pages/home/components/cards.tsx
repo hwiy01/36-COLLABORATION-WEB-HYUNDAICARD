@@ -1,6 +1,7 @@
 import Card from "@/shared/components/card/card";
 import * as styles from "./cards.css";
 import { useGetCards } from "../hooks/get-cards";
+import TagAmexLivelife1 from "src/assets/svg/TagAmexLivelife1";
 
 const Cards = () => {
   const { data } = useGetCards();
@@ -16,14 +17,16 @@ const Cards = () => {
   );
 
   return (
-    <div className={styles.pageWrapper}>
+    <div className={styles.pageContainer}>
       {/* 현대 오리지널 */}
       {HYUNDAI_ORIGINALS && (
         <section className={styles.brandSection}>
-          <h2 className={styles.brandTitle}>Hyundai Originals</h2>
-          <p className={styles.brandDescription}>
-            {HYUNDAI_ORIGINALS.cards?.[0]?.description ?? ""}
-          </p>
+          <div className={styles.brandHeader}>
+            <h2 className={styles.brandTitle}>Hyundai Originals</h2>
+            <p className={styles.brandDescription}>
+              {HYUNDAI_ORIGINALS.cards?.[0]?.description ?? ""}
+            </p>
+          </div>
           <div className={styles.cardList}>
             {HYUNDAI_ORIGINALS.cards?.map((card) => (
               <Card
@@ -36,19 +39,18 @@ const Cards = () => {
           </div>
         </section>
       )}
-
       {/* 아메리칸 익스프레스 */}
       {AMERICAN_EXPRESS && (
-        <section className={styles.brandSection}>
-          <h2 className={styles.brandTitle}>American Express</h2>
-          <p className={styles.brandDescription}>
-            {AMERICAN_EXPRESS.cards?.[0]?.description ?? ""}
-          </p>
-          <div className={styles.cardList}>
+        <section className={styles.brandSection2}>
+          <div className={styles.brandHeader}>
+            <h2 className={styles.brandTitle}>American Express</h2>
+            <TagAmexLivelife1 />
+          </div>
+          <div className={styles.cardList2}>
             {AMERICAN_EXPRESS.cards?.map((card) => (
               <Card
                 key={card.name}
-                mode="vertical"
+                mode="horizontal"
                 cardIcon={<img src={card.imageUrl} alt={card.name} />}
                 cardName={card.name}
               />
@@ -56,14 +58,15 @@ const Cards = () => {
           </div>
         </section>
       )}
-
       {/* 챔피언 브랜드 */}
       {CHAMPION_BRANDS && (
         <section className={styles.brandSection}>
-          <h2 className={styles.brandTitle}>Champion Brands</h2>
-          <p className={styles.brandDescription}>
-            {CHAMPION_BRANDS.cards?.[0]?.description ?? ""}
-          </p>
+          <div className={styles.brandHeader}>
+            <h2 className={styles.brandTitle}>Champion Brands</h2>
+            <p className={styles.brandDescription}>
+              {CHAMPION_BRANDS.cards?.[0]?.description ?? ""}
+            </p>
+          </div>
           <div className={styles.cardList}>
             {CHAMPION_BRANDS.cards?.map((card) => (
               <Card
