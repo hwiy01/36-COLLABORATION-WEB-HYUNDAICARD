@@ -3,6 +3,7 @@ import { color } from "src/styles/tokens/color.css";
 import { fontStyles } from "src/styles/tokens/font-styles.css";
 
 export const bubbleContainer = style({
+  marginTop: "1.3rem",
   position: "relative",
   display: "inline-block",
 });

@@ -94,3 +94,14 @@ export const tagsContainerOpen = style({
 export const tagsContainerClosed = style({
   animation: `${closeAccordion} 0.4s ease-out forwards`,
 });
+
+export const chipContainer = style({
+  position: "relative",
+});
+
+export const chipHoverContainer = style({
+  position: "absolute",
+  top: "100%",
+  left: "0",
+  zIndex: "10",
+});
