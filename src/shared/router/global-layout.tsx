@@ -8,7 +8,7 @@ export default function GlobalLayout() {
 
   return (
     <div className={styles.globalLayoutContainer}>
-      <Header />
+      <Header location={location.pathname} />
       <main className={styles.mainContent}>
         <Outlet />
       </main>
