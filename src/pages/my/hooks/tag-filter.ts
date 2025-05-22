@@ -40,7 +40,6 @@ export const useTagFilter = () => {
     }
 
     const selectedTagIds = searchParams.get("tags")?.split(",") || [];
-    console.log(selectedTagIds);
 
     if (selectedTagIds.length > 0) {
       setTags((prevTags) =>
