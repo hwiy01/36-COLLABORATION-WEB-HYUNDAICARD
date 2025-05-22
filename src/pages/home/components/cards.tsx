@@ -1,21 +1,27 @@
 import Card from "@/shared/components/card/card";
 import * as styles from "./cards.css";
-import { useGetCards } from "../hooks/get-cards";
 import TagAmexLivelife1 from "src/assets/svg/TagAmexLivelife1";
 import TextButton from "@/shared/components/text-button/text-button";
+import type { components } from "@/shared/types/api";
 
-const Cards = () => {
-  const { data } = useGetCards();
+type Card = components["schemas"]["CardBrandGroupDto"];
 
-  const HYUNDAI_ORIGINALS = data.find(
+interface CardProps {
+  cardsData: Card[];
+}
+
+const Cards = ({ cardsData }: CardProps) => {
+  const HYUNDAI_ORIGINALS = cardsData.find(
     (group) => group.brand === "HYUNDAI_ORIGINALS",
   );
-  const AMERICAN_EXPRESS = data.find(
+  const AMERICAN_EXPRESS = cardsData.find(
     (group) => group.brand === "AMERICAN_EXPRESS",
   );
-  const CHAMPION_BRANDS = data.find(
+  const CHAMPION_BRANDS = cardsData.find(
     (group) => group.brand === "CHAMPION_BRANDS",
   );
+
+  console.log("cardsData", cardsData);
 
   return (
     <div className={styles.pageContainer}>
