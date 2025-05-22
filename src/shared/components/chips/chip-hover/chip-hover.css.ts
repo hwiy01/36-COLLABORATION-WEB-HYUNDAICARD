@@ -18,6 +18,7 @@ export const bubbleBody = style({
   justifyContent: "center",
   ...fontStyles.body2_regular_11,
   color: color.gray200,
+  padding: "1rem",
 });
 
 export const bubbleTail = style({
