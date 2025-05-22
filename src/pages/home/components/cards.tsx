@@ -19,9 +19,8 @@ const Cards = () => {
 
   return (
     <div className={styles.pageContainer}>
-      {/* 현대 오리지널 */}
       {HYUNDAI_ORIGINALS && (
-        <section className={styles.brandSection}>
+        <section className={styles.brandSection.default}>
           <div className={styles.brandHeader}>
             <h2 className={styles.brandTitle}>Hyundai Originals</h2>
             <p className={styles.brandDescription}>
@@ -29,7 +28,7 @@ const Cards = () => {
             </p>
             <TextButton />
           </div>
-          <div className={styles.cardList}>
+          <div className={styles.cardList.default}>
             {HYUNDAI_ORIGINALS.cards?.map((card) => (
               <Card
                 key={card.name}
@@ -41,15 +40,14 @@ const Cards = () => {
           </div>
         </section>
       )}
-      {/* 아메리칸 익스프레스 */}
       {AMERICAN_EXPRESS && (
-        <section className={styles.brandSection2}>
+        <section className={styles.brandSection.wide}>
           <div className={styles.brandHeader}>
             <h2 className={styles.brandTitle}>American Express</h2>
             <TagAmexLivelife1 />
             <TextButton />
           </div>
-          <div className={styles.cardList2}>
+          <div className={styles.cardList.wide}>
             {AMERICAN_EXPRESS.cards?.map((card) => (
               <Card
                 key={card.name}
@@ -61,9 +59,8 @@ const Cards = () => {
           </div>
         </section>
       )}
-      {/* 챔피언 브랜드 */}
       {CHAMPION_BRANDS && (
-        <section className={styles.brandSection}>
+        <section className={styles.brandSection.default}>
           <div className={styles.brandHeader}>
             <h2 className={styles.brandTitle}>Champion Brands</h2>
             <p className={styles.brandDescription}>
@@ -71,7 +68,7 @@ const Cards = () => {
             </p>
             <TextButton />
           </div>
-          <div className={styles.cardList}>
+          <div className={styles.cardList.default}>
             {CHAMPION_BRANDS.cards?.map((card) => (
               <Card
                 key={card.name}
