@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useGetSliderInfo } from "./get-range-slider-idx";
 import {
   baseSlider,
   handle,
@@ -10,17 +11,12 @@ import {
 
 interface RangeSliderProps {
   range?: string[];
-  initMinIdx?: number;
-  initMaxIdx?: number;
 }
 
 const RangeSlider = ({
-  initMinIdx = 0,
-  initMaxIdx = 3,
   range = ["0", "1", "3", "5", "10", "10~"],
 }: RangeSliderProps) => {
-  const [minIndex, setMinIndex] = useState(initMinIdx); // 하한값
-  const [maxIndex, setMaxIndex] = useState(initMaxIdx); // 상한값
+  const { minIndex, setMinIndex, maxIndex, setMaxIndex } = useGetSliderInfo();
   const [isDragging, setIsDragging] = useState<"min" | "max" | null>(null); // 두 개 중 어떤 핸들 드래그 중인지
 
   const clintMousePointer = useRef<HTMLDivElement>(null);
