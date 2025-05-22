@@ -40,4 +40,14 @@ export const handle = style({
 
 export const labelSection = style({
   display: "flex",
+  position: "relative",
+  width: "18.4rem",
+  top: "1.2rem",
+});
+
+export const labelStyle = style({
+  position: "absolute",
+  transform: "translateX(-50%)", // 핸들과 동일한 중앙 정렬
+  margin: "0",
+  textAlign: "center",
 });

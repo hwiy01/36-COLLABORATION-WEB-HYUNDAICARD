@@ -3,6 +3,7 @@ import {
   baseSlider,
   handle,
   labelSection,
+  labelStyle,
   rangeSlideContainer,
   selectedTrack,
 } from "./ranger-slier.css";
@@ -51,7 +52,13 @@ const RangeSlider = ({
       </section>
       <section className={labelSection}>
         {range.map((label, index) => (
-          <p key={label}>{label}</p>
+          <p
+            key={label}
+            className={labelStyle}
+            style={{ left: `${getPercentage(index)}%` }}
+          >
+            {label}
+          </p>
         ))}
       </section>
     </div>
