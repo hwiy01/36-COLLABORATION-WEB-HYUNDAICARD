@@ -4,7 +4,7 @@ import Posts from "./components/posts";
 import * as styles from "./home.css";
 
 import { END_POINTS } from "@/shared/apis/end-point";
-import OneYourCardContainer from "./own-your-card/own-your-card-container";
+import OneYourCardContainer from "./components/own-your-card-container";
 import Cards from "./components/cards";
 
 const Home = () => {
