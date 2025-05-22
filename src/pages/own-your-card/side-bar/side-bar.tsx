@@ -1,5 +1,5 @@
 import Accordion from "@/pages/my/components/accordion/accordion";
-import { useTagFilter } from "@/pages/my/hooks/tag-filter";
+import type { TagCategoryGroupWithIsSelected } from "@/pages/my/hooks/tag-filter";
 import SvgIconInitialization from "src/assets/svg/IconInitialization";
 import {
   resetBtnStyle,
@@ -9,9 +9,12 @@ import {
   sideBarHeaderTitle,
 } from "./side-bar.css";
 
-const SideBar = () => {
-  const { tags, toggleTag } = useTagFilter();
+interface sideBarProps {
+  tags: TagCategoryGroupWithIsSelected[];
+  toggleTag: (categoryIndex: number, tagId: string) => void;
+}
 
+const SideBar = ({ tags, toggleTag }: sideBarProps) => {
   return (
     <aside className={sideBarContainer}>
       <section className={sideBarHeader}>
