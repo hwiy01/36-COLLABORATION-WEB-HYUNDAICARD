@@ -26,6 +26,21 @@ const baseCssProps = {
   border: "none",
 };
 
+export const filterInnerFrame = style({
+  clipPath: clipPathValue,
+  width: "100%",
+  minHeight: "3.4rem",
+  backgroundColor: "white",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "0.4rem",
+  ...fontStyles.body1_medium_13,
+  color: themeVars.color.gray800,
+  padding: "0.1rem",
+  boxSizing: "border-box",
+});
+
 export const frameSizes = styleVariants({
   small: {
     ...baseCssProps,
@@ -56,11 +71,6 @@ export const otherModeStyle = styleVariants({
     color: color.h_primary_blue,
   },
   filter: {
-    ...baseCssProps,
-    padding: "0",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
     ...fontStyles.body1_medium_13,
     color: themeVars.color.gray800,
   },
@@ -89,13 +99,19 @@ export const otherModeStyle = styleVariants({
     lineHeight: "150%",
     fontSize: "1.5rem",
     height: "3.4rem",
-  }
+  },
 });
 
 export const baseFrame = style({
   ...baseCssProps,
   width: sizeWidths.dropdown,
   padding: "0.1rem",
+});
+
+export const filterBaseFrame = style({
+  clipPath: clipPathValue,
+  padding: "0.1rem",
+  backgroundColor: color.gray200,
 });
 
 export const innerFrame = style({

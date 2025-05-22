@@ -10,11 +10,16 @@ import * as styles from "./header.css";
 import SubContent from "./sub-content";
 import { useNavigate } from "react-router-dom";
 import { routePath } from "@/shared/router/path";
+import { SubHeader } from "@/pages/my/components/card-recommendation/sub-header/sub-header";
 
 const MAIN_NAV_ITEMS = ["Account", "카드", "혜택", "금융", "컬처", "고객 지원"];
 const UTILITY_NAV_ITEMS = ["법인", "가맹점", "소비자보호 포털", "상품공지실"];
 
-const Header = () => {
+interface HeaderProps {
+  location: string;
+}
+
+const Header = ({ location }: HeaderProps) => {
   const navigate = useNavigate();
   const [isCardHovered, setIsCardHovered] = useState(false);
   const handleCardHover = (isHovering: boolean) => {
@@ -70,6 +75,7 @@ const Header = () => {
           <IconHamburge width={"2.8rem"} height={"2.8rem"} />
         </div>
       </header>
+      {location === "/my" && !isCardHovered && <SubHeader />}
       {isCardHovered && (
         <div
           onMouseEnter={() => handleCardHover(true)}

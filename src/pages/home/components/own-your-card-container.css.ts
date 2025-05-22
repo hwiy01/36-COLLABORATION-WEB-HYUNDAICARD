@@ -32,6 +32,5 @@ export const dropdownContainer = style({
 });
 
 export const tagContainer = style({
-  zIndex: 0,
   position: "relative",
 });

@@ -4,7 +4,8 @@ import { color } from "src/styles/tokens/color.css";
 import {
   baseFrame,
   closeButton,
-  dropdownFrame,
+  filterBaseFrame,
+  filterInnerFrame,
   frameSizes,
   innerFrame,
   otherModeStyle,
@@ -20,6 +21,7 @@ interface ChipProps {
   contentStyle?: string;
   handleClickCloseBtn?: () => void;
   handleClickDropdown?: () => void;
+  handleClickFilter?: () => void;
 }
 /**
  *
@@ -36,12 +38,17 @@ const Chip = ({
   dropdownFlag,
   handleClickCloseBtn,
   handleClickDropdown,
+  handleClickFilter,
 }: ChipProps) => {
   const size = getSizeByContent(content, mode);
 
   if (mode === "dropdown") {
     return (
-      <button className={`${baseFrame} ${otherModeStyle[mode]}`} onClick={handleClickDropdown} type="button">
+      <button
+        className={`${baseFrame} ${otherModeStyle[mode]}`}
+        onClick={handleClickDropdown}
+        type="button"
+      >
         <section className={innerFrame}>
           <div>{content}</div>
           {dropdownFlag ? (
@@ -54,8 +61,26 @@ const Chip = ({
     );
   }
 
+  if (mode === "filter") {
+    return (
+      <button
+        className={`${filterBaseFrame} ${frameSizes[size]}`}
+        onClick={handleClickFilter}
+        type="button"
+      >
+        <section className={`${frameSizes[size]} ${filterInnerFrame}`}>
+          <div>{content}</div>
+        </section>
+      </button>
+    );
+  }
+
   return (
-    <section className={`${frameSizes[size]} ${otherModeStyle[mode]}`}>
+    <button
+      className={`${frameSizes[size]} ${otherModeStyle[mode]}`}
+      onClick={mode === "selected" ? handleClickFilter : () => {}}
+      type="button"
+    >
       <p>{content}</p>
       {mode === "input" && (
         <button
@@ -66,7 +91,7 @@ const Chip = ({
           <IconClose stroke={color.h_primary_blue} width={24} height={24} />
         </button>
       )}
-    </section>
+    </button>
   );
 };
 

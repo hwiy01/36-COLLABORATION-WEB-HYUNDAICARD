@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Header from "./header/header";
-import * as styles from "./one-your-card-container.css";
+import * as styles from "./own-your-card-container.css";
 import OwnYourCard from "src/shared/components/own-your-card/own-your-card";
 import { Dropdown } from "src/shared/components/dropdown/dropdown";
-import { dropdownOptions } from "./dropdown-options";
-import SelectedTag from "./selected-tag/selected-tag";
+import { dropdownOptions } from "../constants/dropdown-options";
+import SelectedTag from "./selected-tag";
 import { useNavigate } from "react-router-dom";
+import OwnYourHeader from "./own-your-header";
 
 const OneYourCardContainer = () => {
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ const OneYourCardContainer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <Header />
+        <OwnYourHeader />
 
         <div className={styles.dropdownContainer}>
           {dropdownOptions.map(({ category, items }) => (
