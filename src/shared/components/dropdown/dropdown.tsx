@@ -1,4 +1,3 @@
-import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import Chip from "../chips/chip";
 import {
@@ -36,9 +35,15 @@ export const Dropdown = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const getClipPathClass = (length: number) => {
-    if (length === 3) { return clipPathListLength3 };
-    if (length === 4) { return clipPathListLength4 };
-    if (length === 8) { return clipPathListLength8 };
+    if (length === 3) {
+      return clipPathListLength3;
+    }
+    if (length === 4) {
+      return clipPathListLength4;
+    }
+    if (length === 8) {
+      return clipPathListLength8;
+    }
     return "";
   };
 
@@ -49,7 +54,10 @@ export const Dropdown = ({
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setDropdownOpen(false);
       }
     };
@@ -61,7 +69,7 @@ export const Dropdown = ({
 
   return (
     <div ref={dropdownRef}>
-       <Chip
+      <Chip
         mode="dropdown"
         content={content}
         dropdownFlag={dropdownOpen}
@@ -72,14 +80,14 @@ export const Dropdown = ({
           className={clsx(
             dropdownListBaseFrame,
             dropdownOuterHeightVariants[length],
-            getClipPathClass(length)
+            getClipPathClass(length),
           )}
         >
           <ul
             className={clsx(
               dropdownListInnerFrame,
               dropdownInnerHeightVariants[length],
-              getClipPathClass(length)
+              getClipPathClass(length),
             )}
           >
             {dropdownList.map((item) => (
