@@ -38,12 +38,17 @@ export const annualFeeContainer = style({
   borderTop: `1px solid ${color.gray100}`,
   display: "flex",
   alignItems: "center",
+  flexDirection: "column",
+  gap: "12px",
+  marginBottom: "5rem",
 });
 
 export const annualFeeHeader = style({
   width: "100%",
   height: "5.6rem",
   padding: "0 4.1rem 0 4.1rem",
+  display: "flex",
+  alignItems: "center",
 });
 
 export const annualFeeTitle = style({
