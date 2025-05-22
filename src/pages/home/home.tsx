@@ -11,12 +11,14 @@ const Home = () => {
 
   return (
     <>
-      <section className={styles.oneYourCardContainer}>
-        <OneYourCardContainer />
-      </section>
-      <section className={styles.eventCardContainer}>
-        <Posts postsData={postsData?.data || []} />
-      </section>
+      <body className={styles.homeContainer}>
+        <section className={styles.oneYourCardContainer}>
+          <OneYourCardContainer />
+        </section>
+        <section className={styles.eventCardContainer}>
+          <Posts postsData={postsData?.data || []} />
+        </section>
+      </body>
     </>
   );
 };
