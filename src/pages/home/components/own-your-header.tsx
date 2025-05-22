@@ -1,4 +1,4 @@
-import * as styles from "./header.css";
+import * as styles from "./own-your-header.css";
 const Header = () => {
   return (
     <div className={styles.container}>
