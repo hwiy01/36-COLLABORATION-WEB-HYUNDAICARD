@@ -12,14 +12,15 @@ import {
 interface sideBarProps {
   tags: TagCategoryGroupWithIsSelected[];
   toggleTag: (categoryIndex: number, tagId: string) => void;
+  resetTag: () => void;
 }
 
-const SideBar = ({ tags, toggleTag }: sideBarProps) => {
+const SideBar = ({ tags, toggleTag, resetTag }: sideBarProps) => {
   return (
     <aside className={sideBarContainer}>
       <section className={sideBarHeader}>
         <p className={sideBarHeaderTitle}>내게 맞는 카드찾기</p>
-        <button className={resetBtnStyle} type="button">
+        <button className={resetBtnStyle} type="button" onClick={resetTag}>
           <div>
             <SvgIconInitialization width={"1.6rem"} height={"1.6rem"} />
           </div>

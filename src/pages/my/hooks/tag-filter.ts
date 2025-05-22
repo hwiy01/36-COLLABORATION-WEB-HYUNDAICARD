@@ -74,8 +74,20 @@ export const useTagFilter = () => {
     );
   };
 
+  const resetTagSelected = () => {
+    setTags((prevTagState) =>
+      prevTagState.map((category) => ({
+        ...category,
+        tags: (category.tags ?? []).map((tag) => ({
+          ...tag,
+          isSelected: false,
+        })),
+      })),
+    );
+  };
   return {
     tags,
     toggleTag,
+    resetTagSelected,
   };
 };
