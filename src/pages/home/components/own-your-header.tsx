@@ -1,5 +1,5 @@
 import * as styles from "./own-your-header.css";
-const Header = () => {
+const OwnYourHeader = () => {
   return (
     <div className={styles.container}>
       <div className={styles.row}>
@@ -13,4 +13,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default OwnYourHeader;
