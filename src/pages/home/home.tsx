@@ -1,4 +1,3 @@
-import React from "react";
 import { $api } from "@/shared/apis/config";
 import Posts from "./components/posts";
 
