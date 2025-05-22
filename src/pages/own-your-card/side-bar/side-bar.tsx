@@ -1,4 +1,5 @@
 import Accordion from "@/pages/my/components/accordion/accordion";
+import type { SliderInfo } from "@/pages/my/components/range-slider/get-range-slider-idx";
 import RangeSlider from "@/pages/my/components/range-slider/range-slider";
 import type { TagCategoryGroupWithIsSelected } from "@/pages/my/hooks/tag-filter";
 import SvgIconInitialization from "src/assets/svg/IconInitialization";
@@ -17,9 +18,10 @@ interface sideBarProps {
   tags: TagCategoryGroupWithIsSelected[];
   toggleTag: (categoryIndex: number, tagId: string) => void;
   resetTag: () => void;
+  sliderInfo: SliderInfo;
 }
 
-const SideBar = ({ tags, toggleTag, resetTag }: sideBarProps) => {
+const SideBar = ({ tags, toggleTag, resetTag, sliderInfo }: sideBarProps) => {
   return (
     <aside className={sideBarContainer}>
       <section className={sideBarHeader}>
@@ -44,7 +46,10 @@ const SideBar = ({ tags, toggleTag, resetTag }: sideBarProps) => {
           <p className={annualFeeTitle}>연회비 구간</p>
         </section>
         <section>
-          <RangeSlider range={["0", "1", "3", "5", "10", "10~"]} />
+          <RangeSlider
+            sliderInfo={sliderInfo}
+            range={["0", "1", "3", "5", "10", "10~"]}
+          />
         </section>
       </section>
     </aside>

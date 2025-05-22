@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useGetSliderInfo } from "./get-range-slider-idx";
+import type { SliderInfo } from "./get-range-slider-idx";
 import {
   baseSlider,
   handle,
@@ -11,12 +11,13 @@ import {
 
 interface RangeSliderProps {
   range?: string[];
+  sliderInfo: SliderInfo;
 }
 
 const RangeSlider = ({
   range = ["0", "1", "3", "5", "10", "10~"],
+  sliderInfo,
 }: RangeSliderProps) => {
-  const { minIndex, setMinIndex, maxIndex, setMaxIndex } = useGetSliderInfo();
   const [isDragging, setIsDragging] = useState<"min" | "max" | null>(null); // 두 개 중 어떤 핸들 드래그 중인지
 
   const clintMousePointer = useRef<HTMLDivElement>(null);
@@ -54,14 +55,14 @@ const RangeSlider = ({
 
     if (isDragging === "min") {
       // 하한 값 핸들하고 있을 때
-      if (0 <= newIdx && newIdx <= maxIndex) {
+      if (0 <= newIdx && newIdx <= sliderInfo.maxIndex) {
         // 상한 값보다 작거나 같을 때만 min값 세팅
-        setMinIndex(newIdx);
+        sliderInfo.setMinIndex(newIdx);
       }
     } else if (isDragging === "max") {
       // 동일하게
-      if (newIdx >= minIndex && newIdx < range.length) {
-        setMaxIndex(newIdx);
+      if (newIdx >= sliderInfo.minIndex && newIdx < range.length) {
+        sliderInfo.setMaxIndex(newIdx);
       }
     }
   };
@@ -90,19 +91,19 @@ const RangeSlider = ({
         <div
           className={selectedTrack}
           style={{
-            left: `${getPercentage(minIndex)}%`,
-            width: `${getPercentage(maxIndex) - getPercentage(minIndex)}%`,
+            left: `${getPercentage(sliderInfo.minIndex)}%`,
+            width: `${getPercentage(sliderInfo.maxIndex) - getPercentage(sliderInfo.minIndex)}%`,
           }}
         />
         {/* 조절하는 핸들 */}
         <div
           className={handle}
-          style={{ left: `${getPercentage(minIndex)}%` }}
+          style={{ left: `${getPercentage(sliderInfo.minIndex)}%` }}
           onMouseDown={handleMouseDown("min")}
         />
         <div
           className={handle}
-          style={{ left: `${getPercentage(maxIndex)}%` }}
+          style={{ left: `${getPercentage(sliderInfo.maxIndex)}%` }}
           onMouseDown={handleMouseDown("max")}
         />
       </section>
