@@ -9,6 +9,15 @@ export const homeContainer = style({
   paddingBottom: "5rem",
 });
 
+export const carouselContainer = style({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: "4rem",
+  gap: "0.8rem",
+})
+
 export const eventCardContainer = style({
   display: "flex",
   justifyContent: "center",
