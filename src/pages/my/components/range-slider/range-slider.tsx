@@ -24,8 +24,8 @@ const RangeSlider = ({
     <div className={rangeSlideContainer}>
       <section className={baseSlider}>
         <div className={selectedTrack} />
-        <div className={handle}>dd</div>
-        <div className={handle}>dd</div>
+        <div className={handle}></div>
+        <div className={handle}></div>
       </section>
       <section className={labelSection}>
         {range.map((label, index) => (

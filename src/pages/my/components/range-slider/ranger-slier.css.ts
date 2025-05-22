@@ -13,6 +13,8 @@ export const baseSlider = style({
   backgroundColor: color.gray300,
   borderRadius: "8px",
   position: "relative",
+  display: "flex",
+  alignItems: "center",
 });
 
 export const selectedTrack = style({
@@ -26,7 +28,11 @@ export const handle = style({
   backgroundColor: "black",
   width: "1.2rem",
   borderRadius: "1px",
-  border: "4px solid white",
+  borderLeft: "0.4rem",
+  borderRight: "0.4rem",
+  borderColor: "white",
+  borderStyle: "solid",
+  position: "absolute",
 });
 
 export const labelSection = style({
