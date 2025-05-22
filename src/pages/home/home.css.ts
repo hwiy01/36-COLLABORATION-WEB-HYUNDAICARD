@@ -6,14 +6,14 @@ export const homeContainer = style({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
+  paddingBottom: "5rem",
 });
 
 export const eventCardContainer = style({
   display: "flex",
   justifyContent: "center",
   width: "100%",
-  height: "100%",
-  padding: "5rem",
+  padding: "0rem 5rem",
 });
 
 export const oneYourCardContainer = style({
