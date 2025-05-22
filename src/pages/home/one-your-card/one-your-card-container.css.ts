@@ -28,7 +28,7 @@ export const dropdownContainer = style({
   flexDirection: "row",
   gap: "0.8rem",
   position: "relative",
-  zIndex: 10,
+  zIndex: 1,
 });
 
 export const tagContainer = style({

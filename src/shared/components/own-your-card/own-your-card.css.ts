@@ -64,7 +64,7 @@ export const cardOverlay = style({
   backgroundColor: "rgba(255,255,255,0.2)",
   opacity: 0,
   pointerEvents: "none",
-  zIndex: 50,
+  zIndex: 1,
 });
 
 export const cardHoverEffect = style({

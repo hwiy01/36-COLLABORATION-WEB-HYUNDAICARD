@@ -38,7 +38,7 @@ export const dropdownListBaseFrame = style({
   alignItems: "center",
   marginTop: "0.8rem",
   position: "absolute",
-  zIndex: 100,
+  zIndex: 1,
 });
 
 export const dropdownListInnerFrame = style({

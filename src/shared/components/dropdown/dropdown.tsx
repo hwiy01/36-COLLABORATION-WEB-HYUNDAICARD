@@ -28,7 +28,6 @@ export const Dropdown = ({
   setSelectedItem,
   content,
   dropdownList,
-  className,
 }: DropdownProps) => {
   const length = dropdownList.length as 3 | 4 | 8;
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
