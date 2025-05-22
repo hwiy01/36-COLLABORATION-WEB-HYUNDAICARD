@@ -1,5 +1,6 @@
-import { style, styleVariants } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import { themeVars } from "src/styles";
+import { recipe } from "@vanilla-extract/recipes";
 
 export const pageContainer = style({
   display: "flex",
@@ -7,18 +8,46 @@ export const pageContainer = style({
   width: "94.4rem",
 });
 
-export const brandSection = styleVariants({
-  default: {
+export const brandSection = recipe({
+  base: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: "4.8rem 5.2rem 4.8rem 1.5rem",
   },
-  wide: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: "4.8rem 6.8rem 4.8rem 1.5rem",
+  variants: {
+    size: {
+      default: {
+        padding: "4.8rem 5.2rem 4.8rem 1.5rem",
+      },
+      wide: {
+        padding: "4.8rem 6.8rem 4.8rem 1.5rem",
+      },
+    },
+  },
+  defaultVariants: {
+    size: "default",
+  },
+});
+
+export const cardList = recipe({
+  base: {
+    display: "grid",
+    rowGap: "2.4rem",
+  },
+  variants: {
+    columns: {
+      default: {
+        gridTemplateColumns: "repeat(4, 1fr)",
+        columnGap: "4.5rem",
+      },
+      wide: {
+        gridTemplateColumns: "repeat(3, 1fr)",
+        columnGap: "7.5rem",
+      },
+    },
+  },
+  defaultVariants: {
+    columns: "default",
   },
 });
 
@@ -35,19 +64,4 @@ export const brandTitle = style({
 
 export const brandDescription = style({
   ...themeVars.fontStyles.body2_regular_11,
-});
-
-export const cardList = styleVariants({
-  default: {
-    display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    columnGap: "4.5rem",
-    rowGap: "2.4rem",
-  },
-  wide: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    columnGap: "7.5rem",
-    rowGap: "2.4rem",
-  },
 });

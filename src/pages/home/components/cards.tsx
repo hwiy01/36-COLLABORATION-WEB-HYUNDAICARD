@@ -20,7 +20,7 @@ const Cards = () => {
   return (
     <div className={styles.pageContainer}>
       {HYUNDAI_ORIGINALS && (
-        <section className={styles.brandSection.default}>
+        <section className={styles.brandSection({ size: "default" })}>
           <div className={styles.brandHeader}>
             <h2 className={styles.brandTitle}>Hyundai Originals</h2>
             <p className={styles.brandDescription}>
@@ -28,7 +28,7 @@ const Cards = () => {
             </p>
             <TextButton />
           </div>
-          <div className={styles.cardList.default}>
+          <div className={styles.cardList({ columns: "default" })}>
             {HYUNDAI_ORIGINALS.cards?.map((card) => (
               <Card
                 key={card.name}
@@ -41,13 +41,13 @@ const Cards = () => {
         </section>
       )}
       {AMERICAN_EXPRESS && (
-        <section className={styles.brandSection.wide}>
+        <section className={styles.brandSection({ size: "wide" })}>
           <div className={styles.brandHeader}>
             <h2 className={styles.brandTitle}>American Express</h2>
             <TagAmexLivelife1 />
             <TextButton />
           </div>
-          <div className={styles.cardList.wide}>
+          <div className={styles.cardList({ columns: "wide" })}>
             {AMERICAN_EXPRESS.cards?.map((card) => (
               <Card
                 key={card.name}
@@ -60,7 +60,7 @@ const Cards = () => {
         </section>
       )}
       {CHAMPION_BRANDS && (
-        <section className={styles.brandSection.default}>
+        <section className={styles.brandSection({ size: "default" })}>
           <div className={styles.brandHeader}>
             <h2 className={styles.brandTitle}>Champion Brands</h2>
             <p className={styles.brandDescription}>
@@ -68,7 +68,7 @@ const Cards = () => {
             </p>
             <TextButton />
           </div>
-          <div className={styles.cardList.default}>
+          <div className={styles.cardList({ columns: "default" })}>
             {CHAMPION_BRANDS.cards?.map((card) => (
               <Card
                 key={card.name}
