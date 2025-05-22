@@ -14,7 +14,7 @@ import Cards from "./components/cards";
 const Home = () => {
   const { data: postsData } = $api.useQuery("get", END_POINTS.posts);
   const { data: cardsData } = $api.useQuery("get", END_POINTS.cards);
-  const INTERVAL = 5000; // 캐러셀이 다음 페이지로 슬라이드되는 시간 간격
+  const INTERVAL = 5000;
   const SLIDECOUNT = carouselImgList.length;
   const {
     displayIndex,
