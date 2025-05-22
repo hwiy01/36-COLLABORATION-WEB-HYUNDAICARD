@@ -10,6 +10,7 @@ export const accordionContainer = style({
   boxSizing: "border-box",
   alignItems: "center",
   borderRight: `1px solid ${color.gray300}`,
+  zIndex: "10",
 });
 
 export const accordionHeader = style({
@@ -35,7 +36,6 @@ export const tagsContainer = style({
   display: "flex",
   gap: "8px",
   flexWrap: "wrap",
-  overflow: "hidden",
 });
 
 const openAccordion = keyframes({
@@ -103,5 +103,5 @@ export const chipHoverContainer = style({
   position: "absolute",
   top: "100%",
   left: "0",
-  zIndex: "1000",
+  zIndex: "20",
 });

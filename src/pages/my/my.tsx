@@ -1,4 +1,3 @@
-import ChipHover from "@/shared/components/chips/chip-hover/chip-hover";
 import Accordion from "./components/accordion/accordion";
 import { useTagFilter } from "./hooks/tag-filter";
 
@@ -15,7 +14,6 @@ const My = () => {
           onTagClick={(tagId: string) => toggleTag(categoryIdx, tagId)}
         />
       ))}
-      <ChipHover />
     </div>
   );
 };
