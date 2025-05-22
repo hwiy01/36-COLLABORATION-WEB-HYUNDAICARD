@@ -54,7 +54,7 @@ const Chip = ({
           {dropdownFlag ? (
             <IconArrowDown width={24} height={24} />
           ) : (
-            <IconArrowUp width={24} height={24} />
+            <IconArrowUp width={24} height={24} stroke="white" />
           )}
         </section>
       </button>
