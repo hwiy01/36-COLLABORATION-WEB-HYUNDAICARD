@@ -103,5 +103,5 @@ export const chipHoverContainer = style({
   position: "absolute",
   top: "100%",
   left: "0",
-  zIndex: "10",
+  zIndex: "1000",
 });

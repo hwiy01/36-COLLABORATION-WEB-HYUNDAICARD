@@ -54,7 +54,7 @@ const Accordion = ({ title, tags, onTagClick }: accordionProps) => {
             />
             {hoveredTagId === tag.tagId && (
               <div className={chipHoverContainer}>
-                <ChipHover />
+                <ChipHover>{tag.hoverText}</ChipHover>
               </div>
             )}
           </div>
