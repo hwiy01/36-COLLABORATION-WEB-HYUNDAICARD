@@ -1,11 +1,15 @@
 import Chip from "@/shared/components/chips/chip";
+import ChipHover from "@/shared/components/chips/chip-hover/chip-hover";
 import {} from "@/shared/components/chips/chip.css";
 import { useAccordion } from "@/shared/hooks/use-accordion";
+import { useState } from "react";
 import { IconArrowUp } from "src/assets/svg";
 import type { TagWithIsSelected } from "../../hooks/tag-filter";
 import {
   accordionContainer,
   accordionHeader,
+  chipContainer,
+  chipHoverContainer,
   headerTitle,
   tagsContainer,
   tagsContainerClosed,
@@ -20,6 +24,8 @@ interface accordionProps {
 
 const Accordion = ({ title, tags, onTagClick }: accordionProps) => {
   const { isOpen, toggle } = useAccordion(true);
+  const [hoveredTagId, setHoveredTagId] = useState<string | null>(null);
+
   return (
     <div className={accordionContainer}>
       <button className={accordionHeader} onClick={toggle} type="button">
@@ -33,14 +39,25 @@ const Accordion = ({ title, tags, onTagClick }: accordionProps) => {
       >
         {!tags && null}
         {tags?.map((tag) => (
-          <Chip
+          <div
             key={tag.tagId}
-            mode={tag.isSelected ? "selected" : "filter"}
-            content={tag.name ?? ""}
-            handleClickFilter={() => {
-              onTagClick(tag.tagId ?? "");
-            }}
-          />
+            onMouseEnter={() => setHoveredTagId(tag.tagId ?? "")}
+            onMouseLeave={() => setHoveredTagId(null)}
+            className={chipContainer}
+          >
+            <Chip
+              mode={tag.isSelected ? "selected" : "filter"}
+              content={tag.name ?? ""}
+              handleClickFilter={() => {
+                onTagClick(tag.tagId ?? "");
+              }}
+            />
+            {hoveredTagId === tag.tagId && (
+              <div className={chipHoverContainer}>
+                <ChipHover>{tag.hoverText}</ChipHover>
+              </div>
+            )}
+          </div>
         ))}
       </section>
     </div>
