@@ -7,6 +7,15 @@ import {
 } from "./other-recommendation.css";
 import OtherRecommendedCards from "./other-recommended-cards/other-recommended-cards";
 
+interface otherCardProps: {
+  id?: string;
+  name?: string;
+  imageUrl?: string;
+  paymentNetwork?: "VISA" | "MASTER" | "AMEX";
+  benefits?: components["schemas"]["CardBenefitDto"][];
+  buttonNode?: string;
+}[]
+
 export const OtherRecommendation = () => {
   return (
     <>

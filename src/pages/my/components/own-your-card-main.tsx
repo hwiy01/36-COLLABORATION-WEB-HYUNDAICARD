@@ -99,7 +99,7 @@ const OwnYourCardMain = ({ sliderInfo }: OwnYourCardMainProps) => {
         selectedFilters={cardRecommendationProps.selectedFilters}
       />
       <RecommendationDescription selectedFilters={selectedFilters.tags} />
-      <OtherRecommendation />
+      <OtherRecommendation otherCard={otherCard} />
     </div>
   );
 };
