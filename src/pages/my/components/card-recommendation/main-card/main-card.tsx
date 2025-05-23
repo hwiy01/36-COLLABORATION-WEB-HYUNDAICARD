@@ -10,7 +10,7 @@ interface MainCardProps {
     tags: string[];
   };
 }
-const MainCard = ({ cardImage, selectedFilters }: MainCardProps) => {
+const MainCard = ({ selectedFilters }: MainCardProps) => {
   const [isHover, setIsHover] = useState(false);
 
   const { tags, title } = selectedFilters;
