@@ -41,6 +41,7 @@ export const OtherRecommendation = ({ otherCards }: OtherCardProps) => {
                 title={firstBenefit.title}
                 details={firstBenefit.details}
                 paymentNetwork={otherCard.paymentNetwork || ""}
+                imageUrl={otherCard.imageUrl || ""}
               />
             );
           })}

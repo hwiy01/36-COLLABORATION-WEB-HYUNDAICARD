@@ -8,6 +8,7 @@ interface OtherRecommendedCardsProps {
   title: string | undefined;
   details: string | undefined;
   paymentNetwork: "VISA" | "MASTER" | "AMEX" | "";
+  imageUrl: string;
 }
 
 const OtherRecommendedCards = ({
@@ -16,6 +17,7 @@ const OtherRecommendedCards = ({
   title,
   details,
   paymentNetwork,
+  imageUrl,
 }: OtherRecommendedCardsProps) => {
   return (
     <div className={styles.container}>
@@ -25,13 +27,16 @@ const OtherRecommendedCards = ({
       </div>
       <div className={styles.cardinfo}>
         <div className={styles.cardimg}>
-          <img src="" alt="card" />
+          <img src={imageUrl} alt="card" className={styles.img} />
         </div>
         <div className={styles.cardtext}>
           <div className={styles.svgcontainer}>
-            {paymentNetwork === "MASTER" && <Mastercard />}
-            {paymentNetwork === "VISA" && <ImageVisa />}
-            {paymentNetwork === "AMEX" && <ImageVisa />}
+            {paymentNetwork === "MASTER" && (
+              <Mastercard width={"2.8rem"} height={"2.2rem"} />
+            )}
+            {paymentNetwork === "VISA" && (
+              <ImageVisa width={"5.8rem"} height={"2.2rem"} />
+            )}
           </div>
           <div className={styles.cardcontent}>
             <p className={styles.cardcontenttitle}>{title}</p>

@@ -35,7 +35,6 @@ export const cardinfo = style({
 });
 
 export const cardimg = style({
-  flexShrink: 0,
   width: "44.6rem",
   height: "24.2rem",
   overflow: "hidden",
@@ -86,4 +85,9 @@ export const svgcontainer = style({
   justifyContent: "flex-end",
   width: "100%",
   height: "2.2rem",
+});
+
+export const img = style({
+  width: "100%",
+  height: "100%",
 });
