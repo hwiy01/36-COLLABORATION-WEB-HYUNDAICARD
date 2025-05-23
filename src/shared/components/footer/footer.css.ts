@@ -7,9 +7,10 @@ export const footerRoot = style({
   height: "100%",
   maxHeight: "30rem",
   display: "inline-flex",
-  padding: "0rem 17.2rem 4.2rem 5rem",
+  padding: "3.6rem 8.3rem",
   alignItems: "flex-start",
   gap: "17.6rem",
+  borderTop: `1px solid ${themeVars.color.gray100}`,
 });
 
 export const footerSectionList = style({

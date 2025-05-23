@@ -46,20 +46,25 @@ const Header = ({ location }: HeaderProps) => {
             onClick={() => handleItemClick("home")}
           />
           <div className={styles.leftItemContainer}>
-            {MAIN_NAV_ITEMS.map((item) => (
-              <a
-                className={styles.mainItems}
-                key={item}
-                onMouseEnter={
-                  item === "카드" ? () => handleCardHover(true) : undefined
-                }
-                onMouseLeave={
-                  item === "카드" ? () => handleCardHover(false) : undefined
-                }
-              >
-                {item}
-              </a>
-            ))}
+            {MAIN_NAV_ITEMS.map((item) =>
+              item === "카드" ? (
+                <div
+                  key={item}
+                  onMouseEnter={() => handleCardHover(true)}
+                  onMouseLeave={() => handleCardHover(false)}
+                >
+                  <a className={styles.mainItems}>{item}</a>
+                  {isCardHovered && (
+                    <SubContent onClick={() => handleItemClick("my")} />
+                  )}
+                </div>
+              ) : (
+                <a className={styles.mainItems} key={item}>
+                  {item}
+                </a>
+              ),
+            )}
+
             <VectorStroke width={"0.1rem"} height={"1.8rem"} />
             <IconApplepay width={"5rem"} height={"2.1rem"} />
           </div>

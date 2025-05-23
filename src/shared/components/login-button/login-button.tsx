@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { button } from "./login-button.css";
 
 interface Props {
-  color: "whiteGray" | "blackGray" | "whiteOutline";
+  color: "whiteGray" | "blackGray" | "whiteOutline" | "white";
   size: "small" | "medium" | "large";
   children?: ReactNode;
   placeholder?: string;

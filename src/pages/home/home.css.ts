@@ -1,12 +1,25 @@
 import { style } from "@vanilla-extract/css";
+import { themeVars } from "src/styles";
 
 export const homeContainer = style({
+  display: "flex",
+  flexDirection: "row",
   width: "100%",
-  height: "100%",
+  minHeight: "100vh",
+  boxSizing: "border-box",
+});
+
+export const mainContent = style({
+  flex: 1,
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
   paddingBottom: "5rem",
+});
+
+export const sidebarFixed = style({
+  top: "8.1rem",
+  right: 0,
+  zIndex: 1,
 });
 
 export const carouselContainer = style({
@@ -16,7 +29,7 @@ export const carouselContainer = style({
   alignItems: "center",
   marginTop: "4rem",
   gap: "0.8rem",
-})
+});
 
 export const eventCardContainer = style({
   display: "flex",

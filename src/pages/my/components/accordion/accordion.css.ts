@@ -9,6 +9,7 @@ export const accordionContainer = style({
   gap: "0.4rem",
   boxSizing: "border-box",
   alignItems: "center",
+  borderRight: `1px solid ${color.gray300}`,
 });
 
 export const accordionHeader = style({
