@@ -9,7 +9,12 @@ import CardRecommendation, {
   type CardRecommendationProps,
 } from "./card-recommendation/card-recommendation";
 import OtherRecommendedCards from "./other-recommended-cards/other-recommended-cards";
-import { recommendStyle } from "./own-your-card-main.css";
+import {
+  otherRecommendContainer,
+  otherRecommendedCardsP,
+  otherRecommendedCardsTitle,
+  recommendStyle,
+} from "./own-your-card-main.css";
 import type { SliderInfo } from "./range-slider/get-range-slider-idx";
 
 type SearchedCardDto = components["schemas"]["SearchedCardDto"];
@@ -67,7 +72,7 @@ const OwnYourCardMain = ({ sliderInfo }: OwnYourCardMainProps) => {
   }
 
   const mainCard = searchResult.data.mainCard;
-
+  const otherCard = searchResult.data.otherRecommendationCards;
   const selectedFilters = {
     title: mainCard.benefits?.[0]?.title || "카드 혜택",
     tags: selectedTagIds,
@@ -99,7 +104,20 @@ const OwnYourCardMain = ({ sliderInfo }: OwnYourCardMainProps) => {
         selectedFilters={cardRecommendationProps.selectedFilters}
       />
       <section className={recommendStyle}></section>
-      <OtherRecommendedCards></OtherRecommendedCards>
+      <section className={otherRecommendContainer}>
+        <h3 className={otherRecommendedCardsTitle}>다른 추천 카드</h3>
+        <p className={otherRecommendedCardsP}>
+          한 끗 차이, 이 카드들도 잘 맞아요
+        </p>
+        <div>
+          {otherCard?.map((other, index) => (
+            <OtherRecommendedCards
+              index={index}
+              cardName={other.name}
+            ></OtherRecommendedCards>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };
