@@ -1,8 +1,8 @@
 import Card from "@/shared/components/card/card";
-import * as styles from "./cards.css";
-import TagAmexLivelife1 from "src/assets/svg/TagAmexLivelife1";
 import TextButton from "@/shared/components/text-button/text-button";
 import type { components } from "@/shared/types/api";
+import TagAmexLivelife1 from "src/assets/svg/TagAmexLivelife1";
+import * as styles from "./cards.css";
 
 type Card = components["schemas"]["CardBrandGroupDto"];
 
@@ -20,8 +20,6 @@ const Cards = ({ cardsData }: CardProps) => {
   const CHAMPION_BRANDS = cardsData.find(
     (group) => group.brand === "CHAMPION_BRANDS",
   );
-
-  console.log("cardsData", cardsData);
 
   return (
     <div className={styles.pageContainer}>

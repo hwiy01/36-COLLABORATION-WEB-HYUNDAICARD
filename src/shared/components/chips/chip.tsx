@@ -8,6 +8,7 @@ import {
   filterInnerFrame,
   frameSizes,
   innerFrame,
+  inputModeChip,
   otherModeStyle,
 } from "./chip.css";
 
@@ -52,7 +53,7 @@ const Chip = ({
         <section className={innerFrame}>
           <div>{content}</div>
           {dropdownFlag ? (
-            <IconArrowDown width={24} height={24} />
+            <IconArrowDown width={24} height={24} stroke="white" />
           ) : (
             <IconArrowUp width={24} height={24} stroke="white" />
           )}
@@ -81,7 +82,7 @@ const Chip = ({
       onClick={mode === "selected" ? handleClickFilter : () => {}}
       type="button"
     >
-      <p>{content}</p>
+      <p className={inputModeChip}>{content}</p>
       {mode === "input" && (
         <button
           className={closeButton}

@@ -4,6 +4,7 @@ import {} from "@/shared/components/chips/chip.css";
 import { useAccordion } from "@/shared/hooks/use-accordion";
 import { useState } from "react";
 import { IconArrowUp } from "src/assets/svg";
+import SvgIconArrowDown from "src/assets/svg/IconArrowDown";
 import type { TagWithIsSelected } from "../../hooks/tag-filter";
 import {
   accordionContainer,
@@ -30,7 +31,15 @@ const Accordion = ({ title, tags, onTagClick }: accordionProps) => {
     <div className={accordionContainer}>
       <button className={accordionHeader} onClick={toggle} type="button">
         <h3 className={headerTitle}>{title}</h3>
-        <IconArrowUp width={"3.2rem"} height={"3.2rem"} stroke={"#363030"} />
+        {isOpen ? (
+          <SvgIconArrowDown
+            width={"3.2rem"}
+            height={"3.2rem"}
+            stroke={"#363030"}
+          />
+        ) : (
+          <IconArrowUp width={"3.2rem"} height={"3.2rem"} stroke={"#363030"} />
+        )}
       </button>
       <section
         className={`${tagsContainer} ${
