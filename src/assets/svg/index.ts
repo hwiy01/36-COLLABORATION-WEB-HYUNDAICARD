@@ -13,6 +13,7 @@ export { default as IconLeftArrow } from "./IconLeftArrow";
 export { default as IconM } from "./IconM";
 export { default as IconRightArrow } from "./IconRightArrow";
 export { default as IconNote } from "./IconNote";
+export { default as IconInitialization } from "./IconInitialization";
 export { default as IconSearch } from "./IconSearch";
 export { default as IconTruck } from "./IconTruck";
 export { default as IconWarning } from "./IconWarning";

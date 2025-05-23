@@ -6,6 +6,7 @@ import { RecommendationDescription } from "./components/card-recommendation/reco
 import SpinCardLottie from "./components/spin-card-lottie";
 import { useTagFilter } from "./hooks/tag-filter";
 import { myContainer, lottieContainer } from "./my.css";
+import OwnYourCard from "../own-your-card/own-your-card";
 
 import * as styles from "./my.css";
 
@@ -14,14 +15,7 @@ const My = () => {
   return (
     <section className={styles.myContainer}>
       <aside style={{ width: "26.6rem" }}>
-        {tags.map((item, categoryIdx) => (
-          <Accordion
-            key={item.category}
-            title={item.category ?? ""}
-            tags={item.tags ?? []}
-            onTagClick={(tagId: string) => toggleTag(categoryIdx, tagId)}
-          />
-        ))}
+        <OwnYourCard />
       </aside>
       {/* <div className={styles.lottieContainer}>
         <SpinCardLottie />
