@@ -52,7 +52,7 @@ const Chip = ({
         <section className={innerFrame}>
           <div>{content}</div>
           {dropdownFlag ? (
-            <IconArrowDown width={24} height={24} />
+            <IconArrowDown width={24} height={24} stroke="white" />
           ) : (
             <IconArrowUp width={24} height={24} stroke="white" />
           )}
