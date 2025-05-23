@@ -1,9 +1,5 @@
 {
   "name": "@hyundai-card/typescript",
   "private": true,
-  "files": [
-    "base.json",
-    "react-library.json",
-    "react.json"
-  ]
+  "files": ["base.json", "react-library.json", "react.json"]
 }
