@@ -18,6 +18,7 @@ export const textbox = style({
   display: "flex",
   flexDirection: "column",
   gap: "0.4rem",
+  marginBottom: "2.2rem",
 });
 
 export const ranking = style({
