@@ -15,8 +15,8 @@ const OtherRecommendedCards = () => {
         </div>
         <div className={styles.cardtext}>
           <div className={styles.svgcontainer}>
-            <ImageVisa />
-            <Mastercard />
+            <ImageVisa style={{ width: '5.8rem' }}/>
+            <Mastercard style={{ width: '5.8rem' }}/>
           </div>
           <div className={styles.cardcontent}>
             <p className={styles.cardcontenttitle}>카드 이름</p>

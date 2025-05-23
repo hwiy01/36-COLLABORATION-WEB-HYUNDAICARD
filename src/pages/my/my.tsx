@@ -1,17 +1,29 @@
+import Accordion from "./components/accordion/accordion";
+import CardRecommendation from "./components/card-recommendation/card-recommendation";
+import MainCard from "./components/card-recommendation/main-card/main-card";
+import { OtherRecommendation } from "./components/card-recommendation/other-recommendation/other-recommendation";
+import { RecommendationDescription } from "./components/card-recommendation/recommendation-description/recommendation-description";
 import SpinCardLottie from "./components/spin-card-lottie";
+import { useTagFilter } from "./hooks/tag-filter";
+import { myContainer, lottieContainer } from "./my.css";
 import OwnYourCard from "../own-your-card/own-your-card";
 
 import * as styles from "./my.css";
 
 const My = () => {
+  const { tags, toggleTag } = useTagFilter();
   return (
     <section className={styles.myContainer}>
       <aside style={{ width: "26.6rem" }}>
         <OwnYourCard />
       </aside>
-      <div className={styles.lottieContainer}>
+      {/* <div className={styles.lottieContainer}>
         <SpinCardLottie />
-      </div>
+      </div> */}
+      <main>
+        <RecommendationDescription />
+        <OtherRecommendation />
+      </main>
     </section>
   );
 };
