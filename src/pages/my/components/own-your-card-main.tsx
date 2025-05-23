@@ -44,9 +44,6 @@ const OwnYourCardMain = ({ sliderInfo }: OwnYourCardMainProps) => {
     }
   }, [selectedTagIds, sliderInfo.maxIndex, sliderInfo.minIndex, searchCards]);
 
-  console.log(searchResult?.data?.mainCard?.imageUrl);
-  console.log(selectedTagIds);
-
   // 로딩 중일 때
   if (isPending) {
     return <Loading />; // return 빠뜨렸음
@@ -83,8 +80,6 @@ const OwnYourCardMain = ({ sliderInfo }: OwnYourCardMainProps) => {
     },
     selectedFilters,
   };
-
-  console.log(cardRecommendationProps);
 
   return (
     <div className={mainContainer}>
