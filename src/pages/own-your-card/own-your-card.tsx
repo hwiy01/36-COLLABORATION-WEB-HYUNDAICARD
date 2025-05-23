@@ -1,11 +1,14 @@
-import { useGetSliderInfo } from "../my/components/range-slider/get-range-slider-idx";
+import type { SliderInfo } from "../my/components/range-slider/get-range-slider-idx";
 import { useTagFilter } from "../my/hooks/tag-filter";
 import { pageConatiner } from "./own-your-card.css";
 import SideBar from "./side-bar/side-bar";
 
-const OwnYourCard = () => {
+interface OwnYourCardProps {
+  sliderInfo: SliderInfo;
+}
+
+const OwnYourCard = ({ sliderInfo }: OwnYourCardProps) => {
   const { tags, toggleTag, resetTagSelected } = useTagFilter();
-  const { sliderInfo } = useGetSliderInfo();
   return (
     <div className={pageConatiner}>
       <SideBar

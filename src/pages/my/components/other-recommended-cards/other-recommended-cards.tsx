@@ -1,8 +1,58 @@
-import * as styles from "./other-recommended-cards.css";
+import { $api } from "@/shared/apis/config";
+import { END_POINTS } from "@/shared/apis/end-point";
+import Loading from "@/shared/pages/loading";
+import type { components } from "@/shared/types/api";
+import { useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ImageVisa } from "src/assets/svg";
 import { Mastercard } from "src/assets/svg";
+import type { SliderInfo } from "../range-slider/get-range-slider-idx";
+import * as styles from "./other-recommended-cards.css";
 
-const OtherRecommendedCards = () => {
+type SearchedCardDto = components["schemas"]["SearchedCardDto"];
+type PaymentNetwork =
+  components["schemas"]["SearchedCardDto"]["paymentNetwork"];
+
+interface OtherRecommendedCardsProps {
+  sliderInfo: SliderInfo;
+}
+
+const OtherRecommendedCards = ({ sliderInfo }: OtherRecommendedCardsProps) => {
+  const [searchParams] = useSearchParams();
+
+  const selectedTagIds = useMemo(() => {
+    return searchParams.get("tags")?.split(",") || [];
+  }, [searchParams]);
+
+  console.log(selectedTagIds);
+  const {
+    mutate: searchCards,
+    data: searchResult,
+    isPending,
+  } = $api.useMutation("post", END_POINTS.search);
+
+  useEffect(() => {
+    if (selectedTagIds.length > 0) {
+      searchCards({
+        body: {
+          filters: {
+            tagIds: selectedTagIds,
+            annualFeeRange: {
+              min: sliderInfo.minIndex,
+              max: sliderInfo.maxIndex,
+            },
+          },
+        },
+      });
+    }
+  }, [selectedTagIds, sliderInfo.maxIndex, sliderInfo.minIndex, searchCards]);
+
+  console.log(searchResult);
+
+  if (isPending) {
+    <Loading />;
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.textbox}>
