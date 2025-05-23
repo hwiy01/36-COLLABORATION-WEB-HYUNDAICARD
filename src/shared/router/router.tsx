@@ -4,10 +4,11 @@ import GlobalLayout from "./global-layout";
 import { HomePage } from "./lazy";
 import { routePath } from "./path";
 import My from "@/pages/my/my";
+import Loading from "../pages/loading";
 
 export default function Router() {
   return (
-    <Suspense>
+    <Suspense fallback={<Loading />}>
       <Routes>
         <Route element={<GlobalLayout />}>
           <Route path={routePath.HOME} element={<HomePage />} />
