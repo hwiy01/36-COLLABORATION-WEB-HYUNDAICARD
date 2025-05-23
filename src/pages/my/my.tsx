@@ -6,26 +6,23 @@ import { container, SectionContainer } from "./my.css";
 
 const My = () => {
   const { tags, toggleTag } = useTagFilter();
-
   return (
-    <>
-      <div className={container}>
-        <div style={{ width: "26.6rem" }}>
-          {tags.map((item, categoryIdx) => (
-            <Accordion
-              key={item.category}
-              title={item.category ?? ""}
-              tags={item.tags ?? []}
-              onTagClick={(tagId: string) => toggleTag(categoryIdx, tagId)}
-            />
-          ))}
-        </div>
-        <section className={SectionContainer}>
-          <RecommendationDescription />
-          <OtherRecommendation />
-        </section>
+    <div className={container}>
+      <div style={{ width: "26.6rem" }}>
+        {tags.map((item, categoryIdx) => (
+          <Accordion
+            key={item.category}
+            title={item.category ?? ""}
+            tags={item.tags ?? []}
+            onTagClick={(tagId: string) => toggleTag(categoryIdx, tagId)}
+          />
+        ))}
       </div>
-    </>
+      <section className={SectionContainer}>
+        <RecommendationDescription />
+        <OtherRecommendation />
+      </section>
+    </div>
   );
 };
 
