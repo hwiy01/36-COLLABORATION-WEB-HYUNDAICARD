@@ -11,6 +11,7 @@ export const container = style({
   justifyContent: "space-between",
   backgroundColor: themeVars.color.gray100,
   borderRadius: "1.2rem",
+  width: "100rem",
 });
 
 export const textbox = style({
