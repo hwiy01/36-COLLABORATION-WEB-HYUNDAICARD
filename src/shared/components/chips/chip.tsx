@@ -4,6 +4,8 @@ import { color } from "src/styles/tokens/color.css";
 import {
   baseFrame,
   closeButton,
+  filterBaseFrame,
+  filterInnerFrame,
   frameSizes,
   innerFrame,
   otherModeStyle,
@@ -14,10 +16,12 @@ export type mode = "input" | "filter" | "selected" | "dropdown"; // 유틸함수
 interface ChipProps {
   mode: "input" | "filter" | "selected" | "dropdown"; // 4가지 모드 중 하나
   content: string; // chip에 들어갈 내용
-  handleClickCloseBtn?: () => void;
-  handleClickDropdown?: () => void;
   dropdownFlag?: boolean;
   className?: string;
+  contentStyle?: string;
+  handleClickCloseBtn?: () => void;
+  handleClickDropdown?: () => void;
+  handleClickFilter?: () => void;
 }
 /**
  *
@@ -31,29 +35,52 @@ interface ChipProps {
 const Chip = ({
   mode = "dropdown",
   content,
-  handleClickCloseBtn,
   dropdownFlag,
+  handleClickCloseBtn,
   handleClickDropdown,
+  handleClickFilter,
 }: ChipProps) => {
   const size = getSizeByContent(content, mode);
 
   if (mode === "dropdown") {
     return (
-      <button className={baseFrame} onClick={handleClickDropdown} type="button">
+      <button
+        className={`${baseFrame} ${otherModeStyle[mode]}`}
+        onClick={handleClickDropdown}
+        type="button"
+      >
         <section className={innerFrame}>
-          <p>{content}</p>
+          <div>{content}</div>
           {dropdownFlag ? (
             <IconArrowDown width={24} height={24} />
           ) : (
-            <IconArrowUp width={24} height={24} />
+            <IconArrowUp width={24} height={24} stroke="white" />
           )}
         </section>
       </button>
     );
   }
 
+  if (mode === "filter") {
+    return (
+      <button
+        className={`${filterBaseFrame} ${frameSizes[size]}`}
+        onClick={handleClickFilter}
+        type="button"
+      >
+        <section className={`${frameSizes[size]} ${filterInnerFrame}`}>
+          <div>{content}</div>
+        </section>
+      </button>
+    );
+  }
+
   return (
-    <section className={`${frameSizes[size]} ${otherModeStyle[mode]}`}>
+    <button
+      className={`${frameSizes[size]} ${otherModeStyle[mode]}`}
+      onClick={mode === "selected" ? handleClickFilter : () => {}}
+      type="button"
+    >
       <p>{content}</p>
       {mode === "input" && (
         <button
@@ -64,7 +91,7 @@ const Chip = ({
           <IconClose stroke={color.h_primary_blue} width={24} height={24} />
         </button>
       )}
-    </section>
+    </button>
   );
 };
 
