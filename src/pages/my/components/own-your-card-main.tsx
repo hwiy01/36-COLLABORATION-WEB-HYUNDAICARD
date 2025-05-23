@@ -67,7 +67,7 @@ const OwnYourCardMain = ({ sliderInfo }: OwnYourCardMainProps) => {
   }
 
   const mainCard = searchResult.data.mainCard;
-  const otherCard = searchResult.data.otherRecommendationCards;
+  const otherCard = searchResult.data.otherRecommendationCards || [];
   const selectedFilters = {
     title: mainCard.benefits?.[0]?.title || "카드 혜택",
     tags: selectedTagIds,
@@ -99,7 +99,7 @@ const OwnYourCardMain = ({ sliderInfo }: OwnYourCardMainProps) => {
         selectedFilters={cardRecommendationProps.selectedFilters}
       />
       <RecommendationDescription selectedFilters={selectedFilters.tags} />
-      <OtherRecommendation otherCard={otherCard} />
+      <OtherRecommendation otherCards={otherCard} />
     </div>
   );
 };

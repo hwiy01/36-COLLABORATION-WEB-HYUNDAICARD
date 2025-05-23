@@ -5,9 +5,9 @@ import * as styles from "./other-recommended-cards.css";
 interface OtherRecommendedCardsProps {
   index: number;
   cardName: string;
-  title: string;
-  details: string;
-  paymentNetwork: "VISA" | "MASTER" | "AMEX";
+  title: string | undefined;
+  details: string | undefined;
+  paymentNetwork: "VISA" | "MASTER" | "AMEX" | "";
 }
 
 const OtherRecommendedCards = ({
