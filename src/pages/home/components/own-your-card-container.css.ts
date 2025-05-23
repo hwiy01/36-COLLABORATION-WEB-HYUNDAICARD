@@ -33,4 +33,6 @@ export const dropdownContainer = style({
 
 export const tagContainer = style({
   position: "relative",
+  height: "100%",
+  maxHeight: "24rem",
 });

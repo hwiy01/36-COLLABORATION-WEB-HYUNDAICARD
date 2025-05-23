@@ -27,16 +27,15 @@ const baseCssProps = {
 };
 
 export const filterInnerFrame = style({
+  ...fontStyles.body1_medium_13,
+  color: themeVars.color.gray800,
   clipPath: clipPathValue,
   width: "100%",
-  minHeight: "3.4rem",
   backgroundColor: "white",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   gap: "0.4rem",
-  ...fontStyles.body1_medium_13,
-  color: themeVars.color.gray800,
   padding: "0.1rem",
   boxSizing: "border-box",
 });
@@ -76,16 +75,12 @@ export const otherModeStyle = styleVariants({
   },
   selected: {
     ...baseCssProps,
-    padding: "0",
+    ...themeVars.fontStyles.body1_medium_13,
     backgroundColor: "black",
     color: themeVars.color.h_white,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontWeight: "400",
-    lineHeight: "150%",
-    fontSize: "1.3rem",
-    letterSpacing: "-1.8%",
   },
   dropdown: {
     ...baseCssProps,
