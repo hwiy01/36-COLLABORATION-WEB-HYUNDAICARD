@@ -11,12 +11,14 @@ export const container = style({
   justifyContent: "space-between",
   backgroundColor: themeVars.color.gray100,
   borderRadius: "1.2rem",
+  width: "100rem",
 });
 
 export const textbox = style({
   display: "flex",
   flexDirection: "column",
   gap: "0.4rem",
+  marginBottom: "2.2rem",
 });
 
 export const ranking = style({
@@ -35,7 +37,6 @@ export const cardinfo = style({
 });
 
 export const cardimg = style({
-  flexShrink: 0,
   width: "44.6rem",
   height: "24.2rem",
   overflow: "hidden",
@@ -82,8 +83,13 @@ export const applyButton = style({
 
 export const svgcontainer = style({
   display: "flex",
-  gap: "1.7rem",
+  gap: "0.4rem",
   justifyContent: "flex-end",
   width: "100%",
   height: "2.2rem",
+});
+
+export const img = style({
+  width: "100%",
+  height: "100%",
 });

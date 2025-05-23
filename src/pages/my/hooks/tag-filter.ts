@@ -13,7 +13,7 @@ export interface TagCategoryGroupWithIsSelected {
 }
 
 export const useTagFilter = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [tags, setTags] = useState<TagCategoryGroupWithIsSelected[]>([]);
   const { data } = $api.useQuery("get", END_POINTS.tags);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -53,6 +53,31 @@ export const useTagFilter = () => {
       );
     }
   }, [searchParams, isInitialized]);
+
+  useEffect(() => {
+    if (!isInitialized) {
+      return;
+    }
+    const selectedTagNames: string[] = [];
+
+    for (const category of tags) {
+      if (category.tags) {
+        for (const tag of category.tags) {
+          if (tag.isSelected && tag.name) {
+            selectedTagNames.push(tag.name);
+          }
+        }
+      }
+    }
+
+    const newSearchParams = new URLSearchParams(searchParams);
+    if (selectedTagNames.length > 0) {
+      newSearchParams.set("tags", selectedTagNames.join(","));
+    } else {
+      newSearchParams.delete("tags");
+    }
+    setSearchParams(newSearchParams, { replace: true });
+  }, [tags, isInitialized, searchParams, setSearchParams]);
 
   // 클릭하는 Tag의 id값으로 탐색 후 selected mode로 변경
   const toggleTag = (categoryIndex: number, tagId: string) => {
