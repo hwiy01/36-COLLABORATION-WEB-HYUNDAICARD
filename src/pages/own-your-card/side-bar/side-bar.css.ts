@@ -5,8 +5,6 @@ import { fontStyles } from "src/styles/tokens/font-styles.css";
 export const sideBarContainer = style({
   width: "26.6rem",
   borderRight: `1px solid ${color.gray300}`,
-  overflowY: "auto",
-  overflowX: "hidden",
 });
 
 export const sideBarHeader = style({
