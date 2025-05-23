@@ -12,7 +12,13 @@ import {
   title,
 } from "./recommendation-description.css";
 
-export const RecommendationDescription = () => {
+interface RecommendationDescriptionProps {
+  selectedFilters: string[];
+}
+
+export const RecommendationDescription = ({
+  selectedFilters = [],
+}: RecommendationDescriptionProps) => {
   return (
     <div className={container}>
       {/* 추천 기준 */}
@@ -23,11 +29,11 @@ export const RecommendationDescription = () => {
             <div className={subTitle}>내가 선택한 필터</div>
             <div className={contentTitle}>라이프스타일 / 여행</div>
             <div className={chipContainer}>
-              <Chip mode="selected" content="여행" />
-              <Chip mode="selected" content="오프라인 쇼핑" />
-              <Chip mode="selected" content="커피" />
-              <Chip mode="selected" content="마켓/전통시장/편의점" />
-              <Chip mode="selected" content="생활 서비스" />
+              {selectedFilters.length === 0
+                ? null
+                : selectedFilters.map((filter) => (
+                    <Chip key={filter} mode="selected" content={filter} />
+                  ))}
             </div>
           </div>
           <div></div>
