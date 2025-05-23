@@ -1,11 +1,12 @@
 import { style } from "@vanilla-extract/css";
 
-export const container = style({
-    display: "flex",
-    flexDirection: "row",
-})
+export const myContainer = style({
+  display: "flex",
+  width: "100%",
+});
 
-export const SectionContainer = style({
-    display: 'flex',
-    flexDirection: 'column',
-})
+export const lottieContainer = style({
+  display: "flex",
+  justifyContent: "center",
+  flex: 1,
+});
