@@ -10,6 +10,7 @@ export const subContentContainer = style({
   height: "37.5rem",
   background: themeVars.color.h_white,
   boxShadow: `0px 2px 4px 0px rgba(0, 0, 0, 0.10)`,
+  zIndex: 5,
 });
 
 export const contentList = style({

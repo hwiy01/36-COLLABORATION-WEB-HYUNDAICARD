@@ -17,7 +17,7 @@ export const getSizeByContent = (text: string | null, mode: mode) => {
     if (length <= 5) {
       return "small";
     }
-    if (length <= 9) {
+    if (length <= 7) {
       return "medium";
     }
     return "large";
