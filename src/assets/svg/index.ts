@@ -12,6 +12,7 @@ export { default as IconHamburge } from "./IconHamburge";
 export { default as IconLeftArrow } from "./IconLeftArrow";
 export { default as IconRightArrow } from "./IconRightArrow";
 export { default as IconNote } from "./IconNote";
+export { default as IconInitialization } from "./IconInitialization";
 export { default as IconSearch } from "./IconSearch";
 export { default as IconWarning } from "./IconWarning";
 export { default as ImageCardFront } from "./ImageCardFront";

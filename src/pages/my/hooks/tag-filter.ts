@@ -40,7 +40,6 @@ export const useTagFilter = () => {
     }
 
     const selectedTagIds = searchParams.get("tags")?.split(",") || [];
-    console.log(selectedTagIds);
 
     if (selectedTagIds.length > 0) {
       setTags((prevTags) =>
@@ -74,8 +73,20 @@ export const useTagFilter = () => {
     );
   };
 
+  const resetTagSelected = () => {
+    setTags((prevTagState) =>
+      prevTagState.map((category) => ({
+        ...category,
+        tags: (category.tags ?? []).map((tag) => ({
+          ...tag,
+          isSelected: false,
+        })),
+      })),
+    );
+  };
   return {
     tags,
     toggleTag,
+    resetTagSelected,
   };
 };
