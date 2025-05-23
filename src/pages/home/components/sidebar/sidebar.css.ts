@@ -4,12 +4,13 @@ import { fontStyles } from "src/styles/tokens/font-styles.css";
 
 export const container = style({
   width: "100%",
-  maxWidth: "32rem",
   height: "100%",
+  maxWidth: "32rem",
   padding: "5rem",
   display: "flex",
   flexDirection: "column",
   gap: "4.2rem",
+  border: `1px solid ${themeVars.color.gray100}`,
 });
 
 export const sidebarSection = style({

@@ -29,9 +29,9 @@ const Home = () => {
   } = useCarouselProgressSync(INTERVAL, SLIDECOUNT);
 
   return (
-    <>
-      <section className={styles.homeContainer}>
-        <div className={styles.carouselContainer}>
+    <section className={styles.homeContainer}>
+      <main className={styles.mainContent}>
+        <section className={styles.carouselContainer} aria-label="메인 캐러셀">
           <Carousel
             size={"large"}
             imgList={carouselImgList}
@@ -48,19 +48,32 @@ const Home = () => {
             onChange={goTo}
             togglePlay={togglePlay}
           />
-        </div>
-        <div className={styles.oneYourCardContainer}>
+        </section>
+
+        <section
+          className={styles.oneYourCardContainer}
+          aria-label="당신의 카드"
+        >
           <OneYourCardContainer />
-        </div>
-        <div className={styles.eventCardContainer}>
+        </section>
+
+        <section
+          className={styles.eventCardContainer}
+          aria-label="이벤트 카드 목록"
+        >
           <Cards cardsData={cardsData?.data || []} />
-        </div>
-        <div className={styles.eventCardContainer}>
+        </section>
+
+        <section className={styles.eventCardContainer} aria-label="게시글 목록">
           <Posts postsData={postsData?.data || []} />
-        </div>
+        </section>
+      </main>
+
+      <aside className={styles.sidebarFixed} aria-label="사이드바">
         <Sidebar />
-      </section>
-    </>
+      </aside>
+    </section>
   );
 };
+
 export default Home;

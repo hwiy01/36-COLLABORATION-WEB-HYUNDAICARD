@@ -10,7 +10,7 @@ import LoginButton from "@/shared/components/login-button/login-button";
 export const Sidebar = () => {
   return (
     <>
-      <div className={styles.container}>
+      <section className={styles.container}>
         <div className={styles.sidebarSection}>
           <div className={styles.titleContainer}>
             <span className={styles.title}>로그인</span>
@@ -179,7 +179,7 @@ export const Sidebar = () => {
             유명인 무료강연을 활용한 <br /> 보험상품 판매를 주의하세요!
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
