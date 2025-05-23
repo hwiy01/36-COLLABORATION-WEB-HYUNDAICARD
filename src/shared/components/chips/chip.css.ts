@@ -134,3 +134,9 @@ export const closeButton = style({
   background: "none",
   padding: "0",
 });
+
+export const inputModeChip = style({
+  flex: "1",
+  display: "flex",
+  justifyContent: "center",
+});

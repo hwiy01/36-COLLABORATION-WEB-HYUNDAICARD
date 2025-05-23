@@ -1,9 +1,9 @@
-import MainCard from "./main-card/main-card";
-import Header from "./header/header";
 import CardInfo from "./card-info/card-info";
 import * as styles from "./card-recommendation.css";
+import Header from "./header/header";
+import MainCard from "./main-card/main-card";
 
-interface CardRecommendationProps {
+export interface CardRecommendationProps {
   highlightText: string;
   mainCard: {
     name: string;
