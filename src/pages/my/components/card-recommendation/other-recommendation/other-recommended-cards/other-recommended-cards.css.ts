@@ -82,7 +82,7 @@ export const applyButton = style({
 
 export const svgcontainer = style({
   display: "flex",
-  gap: "1.7rem",
+  gap: "0.4rem",
   justifyContent: "flex-end",
   width: "100%",
   height: "2.2rem",

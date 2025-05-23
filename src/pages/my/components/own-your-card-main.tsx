@@ -8,13 +8,8 @@ import { useSearchParams } from "react-router-dom";
 import CardRecommendation, {
   type CardRecommendationProps,
 } from "./card-recommendation/card-recommendation";
-import OtherRecommendedCards from "./other-recommended-cards/other-recommended-cards";
-import {
-  otherRecommendContainer,
-  otherRecommendedCardsP,
-  otherRecommendedCardsTitle,
-  recommendStyle,
-} from "./own-your-card-main.css";
+import { OtherRecommendation } from "./card-recommendation/other-recommendation/other-recommendation";
+import { RecommendationDescription } from "./card-recommendation/recommendation-description/recommendation-description";
 import type { SliderInfo } from "./range-slider/get-range-slider-idx";
 
 type SearchedCardDto = components["schemas"]["SearchedCardDto"];
@@ -103,21 +98,8 @@ const OwnYourCardMain = ({ sliderInfo }: OwnYourCardMainProps) => {
         mainCard={cardRecommendationProps.mainCard}
         selectedFilters={cardRecommendationProps.selectedFilters}
       />
-      <section className={recommendStyle}></section>
-      <section className={otherRecommendContainer}>
-        <h3 className={otherRecommendedCardsTitle}>다른 추천 카드</h3>
-        <p className={otherRecommendedCardsP}>
-          한 끗 차이, 이 카드들도 잘 맞아요
-        </p>
-        <div>
-          {otherCard?.map((other, index) => (
-            <OtherRecommendedCards
-              index={index}
-              cardName={other.name}
-            ></OtherRecommendedCards>
-          ))}
-        </div>
-      </section>
+      <RecommendationDescription></RecommendationDescription>
+      <OtherRecommendation></OtherRecommendation>
     </div>
   );
 };
