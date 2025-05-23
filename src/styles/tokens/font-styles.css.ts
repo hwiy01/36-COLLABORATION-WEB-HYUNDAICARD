@@ -130,6 +130,13 @@ export const fontStyles = {
     lineHeight: typography.lineHeight.l150,
     letterSpacing: typography.letterSpacing.zero,
   },
+  body1_medium_10: {
+    fontFamily: appleFontFamily,
+    fontSize: typography.fontSize.size_10,
+    fontWeight: typography.fontWeight.regular,
+    lineHeight: typography.lineHeight.l150,
+    letterSpacing: typography.letterSpacing.minus1_20,
+  },
 
   body2_regular_14: {
     fontFamily: appleFontFamily,
