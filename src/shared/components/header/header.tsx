@@ -1,4 +1,7 @@
+import { SubHeader } from "@/pages/my/components/card-recommendation/sub-header/sub-header";
+import { routePath } from "@/shared/router/path";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   IconApplepay,
   IconHamburge,
@@ -8,9 +11,6 @@ import {
 } from "src/assets/svg";
 import * as styles from "./header.css";
 import SubContent from "./sub-content";
-import { useNavigate } from "react-router-dom";
-import { routePath } from "@/shared/router/path";
-import { SubHeader } from "@/pages/my/components/card-recommendation/sub-header/sub-header";
 
 const MAIN_NAV_ITEMS = ["Account", "카드", "혜택", "금융", "컬처", "고객 지원"];
 const UTILITY_NAV_ITEMS = ["법인", "가맹점", "소비자보호 포털", "상품공지실"];
@@ -46,20 +46,25 @@ const Header = ({ location }: HeaderProps) => {
             onClick={() => handleItemClick("home")}
           />
           <div className={styles.leftItemContainer}>
-            {MAIN_NAV_ITEMS.map((item) => (
-              <a
-                className={styles.mainItems}
-                key={item}
-                onMouseEnter={
-                  item === "카드" ? () => handleCardHover(true) : undefined
-                }
-                onMouseLeave={
-                  item === "카드" ? () => handleCardHover(false) : undefined
-                }
-              >
-                {item}
-              </a>
-            ))}
+            {MAIN_NAV_ITEMS.map((item) =>
+              item === "카드" ? (
+                <div
+                  key={item}
+                  onMouseEnter={() => handleCardHover(true)}
+                  onMouseLeave={() => handleCardHover(false)}
+                >
+                  <a className={styles.mainItems}>{item}</a>
+                  {isCardHovered && (
+                    <SubContent onClick={() => handleItemClick("my")} />
+                  )}
+                </div>
+              ) : (
+                <a className={styles.mainItems} key={item}>
+                  {item}
+                </a>
+              ),
+            )}
+
             <VectorStroke width={"0.1rem"} height={"1.8rem"} />
             <IconApplepay width={"5rem"} height={"2.1rem"} />
           </div>
