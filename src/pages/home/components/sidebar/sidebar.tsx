@@ -5,6 +5,7 @@ import { themeVars } from "src/styles";
 import SvgIconBulb from "src/assets/svg/IconBulb";
 import SvgIconNote from "src/assets/svg/IconNote";
 import SvgIconWarning from "src/assets/svg/IconWarning";
+import LoginButton from "@/shared/components/login-button/login-button";
 
 export const Sidebar = () => {
   return (
@@ -27,24 +28,16 @@ export const Sidebar = () => {
             </div>
           </div>
           <div className={styles.loginButtonContainer}>
-            <button
-              type="button"
-              className={clsx(
-                styles.loginButtonBase,
-                styles.loginButtonVariants.black,
-              )}
-            >
-              간편번호
-            </button>
-            <button
-              type="button"
-              className={clsx(
-                styles.loginButtonBase,
-                styles.loginButtonVariants.gray,
-              )}
-            >
-              현대카드 앱
-            </button>
+            <LoginButton
+              color={"whiteOutline"}
+              size={"medium"}
+              placeholder="간편번호"
+            />
+            <LoginButton
+              size={"medium"}
+              placeholder="현대카드 앱"
+              color={"white"}
+            />
           </div>
           <div className={styles.loginContainer}>
             <div className={styles.loginText}>
@@ -60,9 +53,11 @@ export const Sidebar = () => {
             </div>
           </div>
           <div className={styles.submitContainer}>
-            <button type="submit" className={styles.submitButton}>
-              간편번호 등록
-            </button>
+            <LoginButton
+              size={"large"}
+              placeholder={"간편번호 등록"}
+              color={"blackGray"}
+            />
             <div className={styles.otherLinkContainer}>
               <span className={styles.otherLinkText}>회원가입</span>
               <span className={styles.otherLinkIcon}>
