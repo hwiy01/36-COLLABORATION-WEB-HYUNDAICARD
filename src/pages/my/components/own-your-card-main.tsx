@@ -2,7 +2,6 @@ import { mainContainer } from "@/pages/own-your-card/own-your-card.css";
 import { $api } from "@/shared/apis/config";
 import { END_POINTS } from "@/shared/apis/end-point";
 import Loading from "@/shared/pages/loading";
-import type { components } from "@/shared/types/api";
 import { useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import CardRecommendation, {
@@ -11,10 +10,6 @@ import CardRecommendation, {
 import { OtherRecommendation } from "./card-recommendation/other-recommendation/other-recommendation";
 import { RecommendationDescription } from "./card-recommendation/recommendation-description/recommendation-description";
 import type { SliderInfo } from "./range-slider/get-range-slider-idx";
-
-type SearchedCardDto = components["schemas"]["SearchedCardDto"];
-type PaymentNetwork =
-  components["schemas"]["SearchedCardDto"]["paymentNetwork"];
 
 interface OwnYourCardMainProps {
   sliderInfo: SliderInfo;
@@ -47,7 +42,7 @@ const OwnYourCardMain = ({ sliderInfo }: OwnYourCardMainProps) => {
         },
       });
     }
-  }, [selectedTagIds, sliderInfo.maxIndex, sliderInfo.minIndex]);
+  }, [selectedTagIds, sliderInfo.maxIndex, sliderInfo.minIndex, searchCards]);
 
   console.log(searchResult?.data?.mainCard?.imageUrl);
   console.log(selectedTagIds);
