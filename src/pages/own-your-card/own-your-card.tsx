@@ -1,9 +1,6 @@
 import { useSearchParams } from "react-router-dom";
-import OtherRecommendedCards from "../my/components/other-recommended-cards/other-recommended-cards";
-import {
-  type SliderInfo,
-  useGetSliderInfo,
-} from "../my/components/range-slider/get-range-slider-idx";
+import OwnYourCardMain from "../my/components/own-your-card-main";
+import { useGetSliderInfo } from "../my/components/range-slider/get-range-slider-idx";
 import SpinCardLottie from "../my/components/spin-card-lottie";
 import { useTagFilter } from "../my/hooks/tag-filter";
 import { lottieContainer } from "../my/my.css";
@@ -34,9 +31,7 @@ const OwnYourCard = () => {
             <SpinCardLottie />
           </div>
         ) : (
-          <OtherRecommendedCards
-            sliderInfo={sliderInfo}
-          ></OtherRecommendedCards>
+          <OwnYourCardMain sliderInfo={sliderInfo}></OwnYourCardMain>
         )}
       </main>
     </div>

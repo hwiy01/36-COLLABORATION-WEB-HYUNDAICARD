@@ -5,6 +5,8 @@ export const wrapper = style({
   display: "flex",
   flexDirection: "column",
   gap: "0.8rem",
+  width: "44.6rem",
+  marginTop: "6.2rem",
 });
 
 export const subTitle = style({
